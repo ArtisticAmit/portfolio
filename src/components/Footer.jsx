@@ -4,7 +4,6 @@ import './Footer.css'
 const Footer = () => {
     return (
         <footer className="footer">
-            <h3 className="footer-title">Contact</h3>
             <div className="footer-links">
                 <div className="footer-social">
                     <a href="https://www.behance.net/ArtisticAmit" target="_blank" rel="noopener noreferrer" className="text-button">
