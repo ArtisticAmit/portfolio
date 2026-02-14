@@ -73,8 +73,8 @@
 }
 
 .btn-filled {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: var(--text-primary);
+    color: var(--bg-color);
 }
 
 .btn-filled:hover {
@@ -84,12 +84,12 @@
 
 .btn-outlined {
     background-color: transparent;
-    border-color: #000000;
-    color: #000000;
+    border-color: var(--text-primary);
+    color: var(--text-primary);
 }
 
 .btn-outlined:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: var(--card-bg);
     transform: scale(1.02);
 }
 
@@ -221,34 +221,46 @@
 .testimonial-card {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 16px;
-    padding: 2.5rem;
-    position: relative;
-    border-left: 4px solid var(--text-primary);
+    border-radius: 24px;
+    padding: 3rem;
     margin-bottom: 4rem;
 }
 
+.testimonial-content {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.quote-bar {
+    width: 2px;
+    background-color: var(--border-color);
+    border-radius: 1px;
+    flex-shrink: 0;
+}
+
 .testimonial-text {
-    font-size: 1.25rem;
-    font-weight: 500;
+    font-size: 1rem;
     color: var(--text-primary);
-    line-height: 1.4;
-    margin-bottom: 2rem;
-    font-style: italic;
+    line-height: 1.7;
+    margin-bottom: 0;
+    opacity: 0.9;
 }
 
 .testimonial-author {
     display: flex;
     align-items: center;
     gap: 1rem;
+    padding-left: 1.75rem;
 }
 
 .author-avatar {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     overflow: hidden;
-    background-color: var(--pill-bg);
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
 }
 
 .author-avatar img {
@@ -263,23 +275,31 @@
 }
 
 .author-name {
+    font-size: 1rem;
     font-weight: 600;
     color: var(--text-primary);
-    font-size: 1rem;
 }
 
 .author-role {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--text-secondary);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .testimonial-card {
-        padding: 1.5rem;
+        padding: 2rem;
     }
 
     .testimonial-text {
-        font-size: 1.1rem;
+        font-size: 1rem;
+    }
+
+    .testimonial-author {
+        padding-left: 0;
+    }
+
+    .testimonial-content {
+        gap: 1rem;
     }
 }
 
