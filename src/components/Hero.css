@@ -1,0 +1,25 @@
+.hero {
+    margin-bottom: 4rem;
+}
+
+.hero-title {
+    font-size: 2.25rem;
+    line-height: 1.2;
+    margin-bottom: 2.5rem;
+    color: var(--text-primary);
+}
+
+.hero-content p {
+    margin-bottom: 1.5rem;
+}
+
+.highlight {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+@media (max-width: 600px) {
+    .hero-title {
+        font-size: 1.75rem;
+    }
+}

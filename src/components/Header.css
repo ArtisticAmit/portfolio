@@ -1,0 +1,53 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.logo a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 48px;
+    width: auto;
+    display: block;
+}
+
+.nav-list {
+    display: flex;
+    gap: 0.5rem;
+    background-color: var(--pill-bg);
+    padding: 0.25rem;
+    border-radius: 100px;
+    border: 1px solid var(--border-color);
+}
+
+.nav-item {
+    border-radius: 100px;
+    transition: var(--transition);
+    display: flex;
+}
+
+.nav-item a {
+    padding: 0.5rem 1.25rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--pill-text);
+    transition: var(--transition);
+}
+
+.nav-item a.active {
+    background-color: var(--pill-active-bg);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    color: var(--pill-active-text);
+}
+
+.nav-item a:hover:not(.active) {
+    opacity: 0.8;
+}

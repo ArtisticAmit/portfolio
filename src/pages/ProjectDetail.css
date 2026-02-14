@@ -1,0 +1,93 @@
+.project-detail-page {
+    padding-top: 2rem;
+    max-width: 800px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.back-link:hover {
+    color: var(--text-primary);
+}
+
+.project-detail-header {
+    margin-bottom: 3rem;
+}
+
+.project-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.project-role {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.project-content {
+    margin-bottom: 4rem;
+}
+
+.project-intro {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin-bottom: 2.5rem;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.details-list {
+    list-style: none;
+    padding: 0;
+}
+
+.details-list li {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-primary);
+}
+
+.details-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--text-secondary);
+}
+
+.placeholder-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+@media (max-width: 600px) {
+    .project-title {
+        font-size: 2rem;
+    }
+}

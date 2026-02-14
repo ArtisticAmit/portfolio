@@ -1,0 +1,53 @@
+.elsewhere {
+    margin-bottom: 4rem;
+}
+
+.link-list {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.link-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.link-row:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.link-row:hover {
+    background-color: var(--bg-color);
+}
+
+.link-main {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.link-icon {
+    font-size: 1.2rem;
+    width: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.link-name {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.link-extra {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
