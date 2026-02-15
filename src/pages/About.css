@@ -248,8 +248,11 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding-left: 1.75rem;
 }
+
+
+/* ddS */
+
 
 .author-avatar {
     width: 48px;
@@ -284,7 +287,7 @@
 
 @media (max-width: 768px) {
     .testimonial-card {
-        padding: 2rem;
+        padding: 1rem;
     }
 
     .testimonial-text {

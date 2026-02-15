@@ -178,7 +178,6 @@ const About = () => {
                 <h3 className="section-title">People I've worked with</h3>
                 <div className="testimonial-card">
                     <div className="testimonial-content">
-                        <div className="quote-bar"></div>
                         <p className="testimonial-text">
                             "I've had the pleasure of working with Amit on many projects over many
                             years now. He brings a magical touch to every design he works on and all
@@ -186,9 +185,7 @@ const About = () => {
                         </p>
                     </div>
                     <div className="testimonial-author">
-                        <div className="author-avatar">
-                            <img src="https://ui-avatars.com/api/?name=Liam+Gladdy&background=random" alt="Liam Gladdy" />
-                        </div>
+
                         <div className="author-info">
                             <span className="author-name">Liam Gladdy</span>
                             <span className="author-role">Senior Developer at WP Engine</span>
