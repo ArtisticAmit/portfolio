@@ -304,23 +304,11 @@
 }
 
 /* Interest Tags */
-.interests-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-}
 
-.interest-tag {
-    background-color: var(--pill-bg);
+.interests-text {
+    font-size: 1rem;
+    line-height: 1.7;
     color: var(--text-primary);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: var(--transition);
-}
-
-.interest-tag:hover {
-    background-color: var(--card-bg);
-    transform: translateY(-2px);
+    opacity: 0.9;
+    margin-bottom: 0;
 }
