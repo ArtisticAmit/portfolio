@@ -22,13 +22,14 @@
 }
 
 .project-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    font-weight: 800;
     margin-bottom: 0.5rem;
     color: var(--text-primary);
 }
 
 .project-role {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--text-secondary);
     font-weight: 500;
 }
@@ -38,14 +39,14 @@
 }
 
 .project-intro {
-    font-size: 1.2rem;
+    font-size: 1rem;
     line-height: 1.6;
     color: var(--text-primary);
     margin-bottom: 2.5rem;
 }
 
 .section-subtitle {
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-bottom: 1.5rem;
     color: var(--text-secondary);
     text-transform: uppercase;
@@ -58,7 +59,7 @@
 }
 
 .details-list li {
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 1rem;
     padding-left: 1.5rem;
@@ -80,14 +81,88 @@
     border: 1px solid var(--border-color);
     border-radius: 12px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     color: var(--text-secondary);
     font-style: italic;
+    margin-bottom: 2rem;
+    padding: 1rem;
 }
 
 @media (max-width: 600px) {
     .project-title {
         font-size: 2rem;
     }
+}
+
+/* Case Study Styles */
+.project-case-study {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding-bottom: 4rem;
+}
+
+.case-study-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.section-intro .case-study-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    font-weight: 400;
+}
+
+.case-study-subtitle {
+    font-size: 1.8rem;
+    margin-top: 1rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.section-subsection .case-study-subtitle {
+    font-size: 1.4rem;
+    color: var(--text-secondary);
+}
+
+.case-study-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.case-study-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.case-study-list li {
+    font-size: 1rem;
+    line-height: 1.6;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-primary);
+}
+
+.case-study-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color, #646cff);
+    font-weight: bold;
+}
+
+.image-caption {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-align: center;
 }

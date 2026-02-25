@@ -9,12 +9,12 @@ const Footer = () => {
                     <a href="https://www.behance.net/ArtisticAmit" target="_blank" rel="noopener noreferrer" className="text-button">
                         Behance
                     </a>
-                    <a href="https://www.linkedin.com/in/artisticamit?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="text-button">
-                        LinkedIn
+                    <a href="https://medium.com/@ArtisticAmit" target="_blank" rel="noopener noreferrer" className="text-button">
+                        Medium
                     </a>
                 </div>
-                <a href="mailto:writetto@amitrohan.studio" className="text-button">
-                    writetto@amitrohan.studio
+                <a href="https://www.linkedin.com/in/artisticamit?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="text-button">
+                    LinkedIn
                 </a>
             </div>
         </footer>

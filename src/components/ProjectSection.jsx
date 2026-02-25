@@ -7,7 +7,7 @@ import dragonParadiseIcon from '../assets/work/project_icon/dragon_paradise_city
 const projects = [
     {
         title: 'Live MCQ Building Blocks',
-        description: 'Design system for cross platform development',
+        description: 'Building a Design System for cross-platform development',
         icon: liveMcqIcon,
         slug: 'live-mcq'
     },
