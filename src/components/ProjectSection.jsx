@@ -6,20 +6,20 @@ import dragonParadiseIcon from '../assets/work/project_icon/dragon_paradise_city
 
 const projects = [
     {
-        title: 'Live MCQ',
-        description: 'A quiz platform for iOS and Android',
+        title: 'Live MCQ Building Blocks',
+        description: 'Design system for cross platform development',
         icon: liveMcqIcon,
         slug: 'live-mcq'
     },
     {
-        title: 'EzWage',
-        description: 'A fintech mobile app for iOS and Android',
+        title: 'EzWage Communication Tone',
+        description: 'Crafted UX writings for localization',
         icon: ezwageIcon,
         slug: 'ezwage'
     },
     {
-        title: 'Dragon Paradise City',
-        description: 'A mobile game for iOS and Android',
+        title: 'Rise of Dragon Paradise City',
+        description: 'Designing a fantasy user interface and characters',
         icon: dragonParadiseIcon,
         slug: 'dragon-paradise-city'
     }
