@@ -27,7 +27,7 @@ const About = () => {
                         <p className="header-subtitle">UI/UX Designer</p>
                     </div>
                     <div className="button-row">
-                        <button className="btn-filled">Contact</button>
+                        <button className="btn-filled" onClick={() => window.location.href = 'mailto:writeto@amitrohan.studio'}>Contact</button>
                         <button className="btn-outlined">Resume</button>
                     </div>
                 </div>
