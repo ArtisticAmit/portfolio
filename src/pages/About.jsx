@@ -131,14 +131,14 @@ const About = () => {
                 <div className="experience-list">
                     <div className="experience-item">
                         <div className="exp-main">
-                            <span className="exp-company">Advanced UI/UX Design</span>
-                            <span className="exp-role">Coursera / Google</span>
+                            <span className="exp-company">Google UX Design</span>
+                            <span className="exp-role"> Professional Certificate, Google</span>
                         </div>
                     </div>
                     <div className="experience-item">
                         <div className="exp-main">
-                            <span className="exp-company">Unreal Engine 5 for Professionals</span>
-                            <span className="exp-role">Epic Games</span>
+                            <span className="exp-company">Professional UI/UX Design</span>
+                            <span className="exp-role">Professional Certificate, Creative IT Institute</span>
                         </div>
                     </div>
                 </div>
