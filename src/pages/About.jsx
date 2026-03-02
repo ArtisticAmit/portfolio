@@ -28,7 +28,19 @@ const About = () => {
                     </div>
                     <div className="button-row">
                         <button className="btn-filled" onClick={() => window.location.href = 'mailto:writeto@amitrohan.studio'}>Contact</button>
-                        <button className="btn-outlined">Resume</button>
+                        <button
+                            className="btn-outlined"
+                            onClick={() => {
+                                const link = document.createElement('a');
+                                link.href = '/resume.pdf';
+                                link.download = 'Amit_Rohan_Resume.pdf';
+                                document.body.appendChild(link);
+                                link.click();
+                                document.body.removeChild(link);
+                            }}
+                        >
+                            Resume
+                        </button>
                     </div>
                 </div>
             </section>
