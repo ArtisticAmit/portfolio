@@ -3,25 +3,32 @@ import './ProjectSection.css'
 import liveMcqIcon from '../assets/work/project_icon/live_mcq.png'
 import ezwageIcon from '../assets/work/project_icon/ezwage.png'
 import dragonParadiseIcon from '../assets/work/project_icon/dragon_paradise_city.png'
+import motomanIcon from '../assets/work/project_icon/motoman.png'
 
 const projects = [
     {
-        title: 'Live MCQ Building Blocks',
+        title: 'Live MCQ',
         description: 'Building a Design System for cross-platform development',
         icon: liveMcqIcon,
         slug: 'live-mcq'
     },
     {
-        title: 'EzWage Communication Tone',
+        title: 'EzWage',
         description: 'Crafted UX writings for localization',
         icon: ezwageIcon,
         slug: 'ezwage'
     },
     {
-        title: 'Rise of Dragon Paradise City',
+        title: 'Dragon Paradise City',
         description: 'Designing a fantasy user interface and characters',
         icon: dragonParadiseIcon,
         slug: 'dragon-paradise-city'
+    },
+    {
+        title: 'Motoman',
+        description: 'On-demand motorcycle delivery and logistics platform coordination suite',
+        icon: motomanIcon,
+        slug: 'motoman'
     }
 ]
 
@@ -30,7 +37,7 @@ const ProjectSection = () => {
 
     return (
         <section className="projects">
-            <h3 className="section-title">Projects</h3>
+            <h3 className="section-title">Products</h3>
             <div className="project-list">
                 {projects.map((project, index) => (
                     <div

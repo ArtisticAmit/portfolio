@@ -296,6 +296,147 @@ const projectData = {
             }
         ]
     },
+    'live-design-kit': {
+        title: 'Live Design Kit',
+        role: 'As Lead Systems Designer',
+        description: 'Cohesive, Accessible, and Scale-Ready Design Architecture for EdTech Solutions',
+        sections: [
+            {
+                type: 'intro',
+                content: [
+                    'The Live Design Kit was born out of a critical need: the product ecosystem was expanding into multiple apps, student platforms, and admin dashboards, but our design team was spending hours recreating basic UI elements.',
+                    'We designed the Live Design Kit to serve as a single source of truth, enabling teams to build consistent, high-fidelity interfaces in minutes instead of days.'
+                ]
+            },
+            {
+                type: 'section',
+                title: 'The Challenge: Disconnected Platforms',
+                content: [
+                    'Our application suite ran on web, iOS, and Android. The primary issues included:'
+                ],
+                list: [
+                    'Visual drift: Components looked slightly different on every platform',
+                    'High design debt: Designing a new feature required rebuilding core components',
+                    'Dev handoff complexity: Engineers wrote custom styles instead of using variables'
+                ]
+            },
+            {
+                type: 'section',
+                title: 'Building the Token System',
+                content: [
+                    'We started from the atomic level, implementing Design Tokens to manage color, typography, spacing, and elevation. This abstraction allowed us to change the entire look and feel of the platform by simply updating a JSON file.'
+                ]
+            },
+            {
+                type: 'image',
+                placeholder: 'Design Tokens Architecture (Global -> Alias -> Component Tokens)',
+                caption: 'Visualizing the Token-based design structure'
+            },
+            {
+                type: 'section',
+                title: 'Key Component Libraries',
+                content: [
+                    'We developed reusable components categorized into Foundations, Feedback, Data Entry, and Navigation. Every component was fully responsive and documented with state matrices (hover, focus, disabled, active).'
+                ]
+            },
+            {
+                type: 'section',
+                title: 'Impact and Adoption',
+                list: [
+                    'Reduced product design to production time by over 50%',
+                    '100% component adoption rate across our engineering team',
+                    'Ensured consistent WCAG AA accessibility compliance out of the box'
+                ]
+            }
+        ]
+    },
+    'dhaka-city-branding': {
+        title: 'Dhaka City Branding',
+        role: 'As Principal Brand Designer',
+        description: 'Reimagining the Civic Identity, Wayfinding, and Public Transit System of Dhaka',
+        sections: [
+            {
+                type: 'intro',
+                content: [
+                    'Dhaka is a city of rapid growth, rich history, and vibrant culture. However, its public infrastructure, transit visual systems, and civic communication lacked a unified visual identity.',
+                    'This case study explores the redesign of the Dhaka City branding, modernizing its public presence and creating an intuitive wayfinding system for millions of daily commuters.'
+                ]
+            },
+            {
+                type: 'section',
+                title: 'The Core Vision: Inclusivity & Heritage',
+                content: [
+                    'The branding system was designed around the concept of "Shoroborno" (vibrant scripts/voices) and the iconic silhouette of key historic structures, combined with clean, modern layout standards. The key objectives were:'
+                ],
+                list: [
+                    'Create an easily recognizable, proud civic logo',
+                    'Design a highly readable wayfinding and signage system for transit systems like Metro Rail',
+                    'Unify municipal announcements, waste management systems, and public utility logos'
+                ]
+            },
+            {
+                type: 'image',
+                placeholder: 'Dhaka Civic Logo & Color System (Crimson & Forest Green representing Bangladesh)',
+                caption: 'Dhaka Civic Logo and Color Archetypes'
+            },
+            {
+                type: 'section',
+                title: 'Public Wayfinding & Transit Icons',
+                content: [
+                    'We developed a bilingual (Bangla & English) signage template, optimization of typography for low-light conditions, and a custom set of civic iconography that transcends literacy barriers.'
+                ]
+            },
+            {
+                type: 'section',
+                title: 'Project Outcomes',
+                list: [
+                    'Created a unified brand book containing visual guidelines, templates, and digital assets',
+                    'Designed custom transit maps and station signage prototypes',
+                    'Received widespread acclaim in local design communities and civic forums'
+                ]
+            }
+        ]
+    },
+    'motoman': {
+        title: 'Motoman',
+        role: 'As Lead Product Designer',
+        description: 'Optimizing Logistics and Navigation for On-Demand Motorcycle Delivery Services',
+        sections: [
+            {
+                type: 'intro',
+                content: [
+                    'Motoman is an on-demand logistics platform designed to coordinate and optimize motorcycle courier deliveries across congested urban environments.',
+                    'As Lead Product Designer, I focused on designing the mobile dispatcher application and rider navigation tools to reduce delivery errors and average transit times.'
+                ]
+            },
+            {
+                type: 'section',
+                title: 'The Challenge: Congestion & Communication',
+                content: [
+                    'Riders operate in high-traffic urban areas, where checking their screens frequently is unsafe and inefficient. The primary areas of improvement were:'
+                ],
+                list: [
+                    'Interface readability: Bright sunlight made standard maps hard to read',
+                    'Distraction reduction: Audio-first alerts and large touch targets were needed',
+                    'Real-time coordination: Seamless status tracking between riders, dispatchers, and clients'
+                ]
+            },
+            {
+                type: 'image',
+                placeholder: 'Motoman App Interface - Navigation & Dispatcher Dashboard',
+                caption: 'Rider navigation interface optimized for high visibility'
+            },
+            {
+                type: 'section',
+                title: 'Key Design Features',
+                list: [
+                    'High-contrast Map Theme: Night/day responsive templates to prevent glare',
+                    'Single-Tap Quick Actions: Oversized touch targets for gloved operation',
+                    'Smart Audio Cues: Voice prompts to minimize screen contact during active transit'
+                ]
+            }
+        ]
+    },
     'ezwage': {
         title: 'EzWage',
         role: 'UI/UX Designer',
