@@ -1,13 +1,13 @@
 import { useNavigate } from 'react-router-dom'
 import './ProjectSection.css'
-import liveDesignKitIcon from '../assets/work/project_icon/live_design_kit.png'
+import liveMcqIcon from '../assets/work/project_icon/live_mcq.png'
 import dhakaCityBrandingIcon from '../assets/work/project_icon/dhaka_city_branding.png'
 
 const designSystems = [
     {
-        title: 'Live Design Kit',
-        description: 'A comprehensive, scalable design system for educational and testing platforms',
-        icon: liveDesignKitIcon,
+        title: 'Live MCQ Design System',
+        description: 'Rebuilding a fragmented Flutter app into one accessible, scalable design language',
+        icon: liveMcqIcon,
         slug: 'live-design-kit'
     },
     {

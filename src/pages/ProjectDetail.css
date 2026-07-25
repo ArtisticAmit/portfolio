@@ -34,6 +34,43 @@
     font-weight: 500;
 }
 
+.project-deck {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    list-style: none;
+    padding-left: 0;
+}
+
+.project-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.project-meta-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.project-meta-value {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
 .project-content {
     margin-bottom: 4rem;
 }
@@ -129,6 +166,22 @@
     color: var(--text-secondary);
 }
 
+.case-study-stage-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0;
+}
+
+.case-study-eyebrow {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
 .case-study-text {
     font-size: 1rem;
     line-height: 1.7;
@@ -165,4 +218,166 @@
     font-size: 0.9rem;
     color: var(--text-secondary);
     text-align: center;
+}
+
+/* Real case-study images (as opposed to the text-only placeholder box above) */
+.case-study-figure {
+    margin: 0;
+}
+
+.case-study-image {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg);
+}
+
+.case-study-figure--cover {
+    margin-bottom: 3rem;
+}
+
+.case-study-figure--cover .case-study-image {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+/* Pull quotes */
+.case-study-quote-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.case-study-quote {
+    margin: 0;
+    padding: 1.5rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+}
+
+.case-study-quote p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.case-study-quote cite {
+    font-size: 0.85rem;
+    font-style: normal;
+    color: var(--text-secondary);
+}
+
+/* Problem statement / closing-line callout */
+.case-study-callout {
+    margin: 0;
+    padding: 1.5rem 1.75rem;
+    background-color: var(--card-bg);
+    border-left: 3px solid var(--accent-color, #646cff);
+    border-radius: 8px;
+}
+
+.case-study-callout p {
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+/* Option / foundation / learning cards */
+.case-study-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.case-study-card {
+    position: relative;
+    padding: 1.5rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.case-study-card.is-chosen {
+    border-color: var(--text-primary);
+}
+
+.case-study-card-badge {
+    align-self: flex-start;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--pill-active-text);
+    background-color: var(--pill-active-bg);
+    border: 1px solid var(--border-color);
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+}
+
+.case-study-card-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.case-study-card-body {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.case-study-card-tag {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Outcome stats */
+.case-study-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.5rem;
+}
+
+.case-study-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.case-study-stat-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.case-study-stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .case-study-quote-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .case-study-image,
+    .back-link,
+    .case-study-card {
+        transition: none;
+    }
 }

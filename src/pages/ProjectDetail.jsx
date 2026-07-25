@@ -2,6 +2,20 @@ import React from 'react'
 import { useParams, Link } from 'react-router-dom'
 import './ProjectDetail.css'
 
+// Public-folder path (not a static import) so dropping a real file in later
+// requires no code change, and a missing placeholder never breaks the build.
+const LIVE_MCQ_ASSET_DIR = '/case-studies/live-mcq'
+
+// Lets case-study copy use **bold** the same way it was authored, without a markdown dependency.
+const renderRichText = (text) => {
+    const parts = text.split(/(\*\*[^*]+\*\*)/g)
+    return parts.map((part, index) =>
+        part.startsWith('**') && part.endsWith('**')
+            ? <strong key={index}>{part.slice(2, -2)}</strong>
+            : <React.Fragment key={index}>{part}</React.Fragment>
+    )
+}
+
 const projectData = {
     'live-mcq': {
         title: 'Live MCQ Design System',
@@ -297,56 +311,216 @@ const projectData = {
         ]
     },
     'live-design-kit': {
-        title: 'Live Design Kit',
-        role: 'As Lead Systems Designer',
-        description: 'Cohesive, Accessible, and Scale-Ready Design Architecture for EdTech Solutions',
+        title: 'Live MCQ Design System',
+        // TODO: confirm exact role title
+        role: 'Design System Owner · UI/UX & Product Designer',
+        deck: 'Rebuilding a fragmented Flutter app into one accessible, scalable design language — worked through the five stages of design thinking.',
+        meta: [
+            { label: 'Platform', value: 'Flutter (Mobile & Web)' },
+            { label: 'Foundation', value: 'Material Design (customized)' },
+            { label: 'Tools', value: 'Figma · Material Theme Builder' }
+            // TODO: add a Timeline entry here if you want one, e.g. { label: 'Timeline', value: '...' }
+        ],
+        // TODO: replace image — cover (drop file at public/case-studies/live-mcq/cover.png)
+        cover: { id: 'cover', alt: 'Live MCQ design system cover.' },
         sections: [
             {
-                type: 'intro',
-                content: [
-                    'The Live Design Kit was born out of a critical need: the product ecosystem was expanding into multiple apps, student platforms, and admin dashboards, but our design team was spending hours recreating basic UI elements.',
-                    'We designed the Live Design Kit to serve as a single source of truth, enabling teams to build consistent, high-fidelity interfaces in minutes instead of days.'
-                ]
-            },
-            {
                 type: 'section',
-                title: 'The Challenge: Disconnected Platforms',
+                stageLabel: '01 · Empathize',
+                eyebrow: 'Understand the people, not just the pixels',
+                title: 'An app that felt like several apps',
                 content: [
-                    'Our application suite ran on web, iOS, and Android. The primary issues included:'
-                ],
-                list: [
-                    'Visual drift: Components looked slightly different on every platform',
-                    'High design debt: Designing a new feature required rebuilding core components',
-                    'Dev handoff complexity: Engineers wrote custom styles instead of using variables'
+                    'I started by listening — to the people using the product and the people building it. Both were frustrated for the same underlying reason, even if they described it differently.'
                 ]
             },
             {
-                type: 'section',
-                title: 'Building the Token System',
-                content: [
-                    'We started from the atomic level, implementing Design Tokens to manage color, typography, spacing, and elevation. This abstraction allowed us to change the entire look and feel of the platform by simply updating a JSON file.'
+                type: 'quotes',
+                quotes: [
+                    { label: 'End users', quote: 'Every screen looks a little different — is this even the same app? And in dark mode it’s hard to read.' },
+                    { label: 'Designers & developers', quote: 'We rebuild the same button from scratch every feature, and we don’t even call things by the same names.' }
                 ]
             },
             {
+                type: 'text',
+                content: [
+                    'Designers created new components for every feature; developers re-implemented them from scratch too. With no style guide and no shared vocabulary, buttons changed shape and size screen to screen, spacing was ad-hoc, typography mixed multiple font families, and icons came from different libraries. Accessibility had been skipped: color contrast didn’t meet standards, and dark mode suffered from inconsistent, ill-suited colors. Even identical components often carried different corner radii.'
+                ]
+            },
+            {
+                // TODO: replace image — empathize-old-screens
                 type: 'image',
-                placeholder: 'Design Tokens Architecture (Global -> Alias -> Component Tokens)',
-                caption: 'Visualizing the Token-based design structure'
+                id: 'empathize-old-screens',
+                alt: 'Old Live MCQ screens showing inconsistent styling across the app.',
+                caption: 'The audit: every screen its own snowflake.'
+            },
+            {
+                // TODO: replace image — empathize-audit (optional)
+                type: 'image',
+                id: 'empathize-audit',
+                alt: 'Audit of inconsistent components across the app.'
             },
             {
                 type: 'section',
-                title: 'Key Component Libraries',
+                stageLabel: '02 · Define',
+                eyebrow: 'Synthesize into one clear problem',
+                title: 'Naming the root cause, not the symptoms',
                 content: [
-                    'We developed reusable components categorized into Foundations, Feedback, Data Entry, and Navigation. Every component was fully responsive and documented with state matrices (hover, focus, disabled, active).'
+                    'Auditing the back catalogue turned scattered complaints into a single diagnosis. Fixing individual screens would never hold — the cause was structural.',
+                    'There was no proper design kit; almost every element had been drawn by hand. A very basic system technically existed, but it was never updated, never consistently followed, and shipped with no implementation guidelines for developers. Because designers invented patterns on demand and several developers worked with no shared standard, each person produced their own version of everything.',
+                    'The deeper cause lived in the stack. Flutter’s widgets are grounded in Material Design, yet our UI borrowed from several languages at once — some screens felt like SwiftUI, others like shadcn/ui. Each system carries its own grammar; mixing them made everything slower and impossible to keep consistent. The problem wasn’t a screen — it was the absence of a system.'
+                ]
+            },
+            {
+                type: 'callout',
+                text: '**How might we** give every screen one consistent, accessible visual language — without slowing down the way our teams already ship?'
+            },
+            {
+                type: 'section',
+                stageLabel: '03 · Ideate',
+                eyebrow: 'Explore the paths, then commit',
+                title: 'Three ways forward, weighed honestly',
+                content: [
+                    'A system is only as good as its ability to survive real teams and timelines. I judged each option against flexibility, speed, and long-term sustainability.'
+                ]
+            },
+            {
+                type: 'cards',
+                cards: [
+                    { title: 'Build a fully custom system', body: 'Maximum flexibility with custom-coded Flutter widgets, but heavy research, long build time, and permanent maintenance.', tag: 'Too costly to sustain' },
+                    { title: 'Adopt a third-party system', body: 'Fastest to stand up with an existing library, but ties us to an external service that could change or shut down anytime.', tag: 'Fragile dependency' },
+                    { title: 'Build on Material Design', body: 'Mature, first-class in Flutter, and deeply customizable; a proven base to extend into our brand without reinventing or renting it.', tag: 'Practical & ownable', chosen: true }
                 ]
             },
             {
                 type: 'section',
-                title: 'Impact and Adoption',
-                list: [
-                    'Reduced product design to production time by over 50%',
-                    '100% component adoption rate across our engineering team',
-                    'Ensured consistent WCAG AA accessibility compliance out of the box'
+                stageLabel: '04 · Prototype',
+                eyebrow: 'Make the system real',
+                title: 'A customized Material system, built to be used',
+                content: [
+                    'I generated a base theme with Material Theme Builder, then customized it extensively — treating Material as a foundation to extend, not a template to accept — and built a demo Flutter app to prototype it in a real product.'
                 ]
+            },
+            {
+                type: 'cards',
+                cards: [
+                    { title: 'Color — A brand-tuned palette', body: 'Material’s defaults felt too muted, so I re-tuned the tonal values. Our brand colors were highly saturated — great for a logo, hard on a UI — so I refined them to keep the personality while staying comfortable and accessible in light and dark.' },
+                    { title: 'Type — Noto Sans + Noto Serif', body: 'A global family with strong multilingual support: Noto Serif for body, Noto Sans for headings and UI. I reworked Material’s type scale to match our identity.' },
+                    { title: 'Foundations — Spacing, scale & components', body: 'A consistent spacing system, standardized reusable components, and Material Symbols (Rounded, weight 300), chosen because the rounded terminals matched our style.' }
+                ]
+            },
+            {
+                // TODO: replace image — prototype-color-palette
+                type: 'image',
+                id: 'prototype-color-palette',
+                alt: 'Live MCQ color palette and tonal ramps.',
+                caption: 'Brand-tuned tonal palette, accessible in light and dark.'
+            },
+            {
+                // TODO: replace image — prototype-typography (text-style specimen, to be supplied as an image)
+                type: 'image',
+                id: 'prototype-typography',
+                alt: 'Typography system — Noto Sans and Noto Serif text styles.',
+                caption: 'The type scale and text styles.'
+            },
+            {
+                // TODO: replace image — prototype-buttons (button designs, to be supplied as an image)
+                type: 'image',
+                id: 'prototype-buttons',
+                alt: 'Button family — primary, tonal, outline, and text variants.',
+                caption: 'One button family replacing four improvised ones.'
+            },
+            {
+                // TODO: replace image — prototype-components (optional)
+                type: 'image',
+                id: 'prototype-components',
+                alt: 'Before-and-after of standardized components.'
+            },
+            {
+                // TODO: replace image — prototype-icons (optional)
+                type: 'image',
+                id: 'prototype-icons',
+                alt: 'Material Symbols Rounded icon set.'
+            },
+            {
+                // TODO: replace image — prototype-spacing (optional)
+                type: 'image',
+                id: 'prototype-spacing',
+                alt: '4px-based spacing scale.'
+            },
+            {
+                type: 'text',
+                content: [
+                    'We previously paired Kalpurush (Bangla) with Inter (English), but Kalpurush lacked multilingual and symbol support — a structural weakness for a bilingual product. I evaluated three candidates against real content: **Balooda**, **Anek Bangla**, and **Noto Sans**. Noto Sans won on stability and language support.'
+                ]
+            },
+            {
+                // TODO: replace image — prototype-font-eval (optional)
+                type: 'image',
+                id: 'prototype-font-eval',
+                alt: 'Font evaluation: Balooda, Anek Bangla, Noto Sans.'
+            },
+            {
+                type: 'section',
+                stageLabel: '05 · Test',
+                eyebrow: 'Validate, refine, repeat',
+                title: 'Testing the system against real use',
+                content: [
+                    'Design thinking loops here — testing fed straight back into prototyping. I validated the system in a working product and refined it every time reality disagreed with the theory.'
+                ]
+            },
+            {
+                type: 'cards',
+                cards: [
+                    { title: 'Validate in a real build — A demo Flutter app', body: 'I implemented the system in a demo Flutter application to prove it survived real code, not just looked right in a design file. Components had to work in context, not in isolation.' },
+                    { title: 'Refine on failure — Tune until it behaves', body: 'Whenever a component failed a usability or visual test because of color, I looped back and adjusted the palette — re-tuning tonal values until every component passed, in both light and dark.' }
+                ]
+            },
+            {
+                // TODO: replace image — test-demo-app
+                type: 'image',
+                id: 'test-demo-app',
+                alt: 'Demo Flutter app built with the new design system, light and dark.',
+                caption: 'The system, proven in a real build.'
+            },
+            {
+                type: 'stats',
+                stats: [
+                    { value: '1', label: 'Unified system replacing many improvised ones' },
+                    { value: '3', label: 'Typefaces evaluated for multilingual support' },
+                    { value: '2', label: 'Themes: light & dark, both accessible' },
+                    { value: '1', label: 'Shared vocabulary across design & dev' }
+                ]
+            },
+            {
+                type: 'text',
+                list: [
+                    'Design and engineering now share one language, so handoff moves faster and means the same thing on both sides.',
+                    'Standardized design tokens, naming, and documentation closed the old gap where the same color or component had two names.',
+                    'Color contrast now meets accessibility standards, and dark mode is coherent rather than an afterthought.',
+                    'The system is sustainable and still evolving, with a clear process to identify, discuss, and resolve issues as they surface.'
+                ]
+            },
+            {
+                type: 'section',
+                stageLabel: '↻ · Iterate',
+                eyebrow: 'The loop keeps turning',
+                title: 'What the process taught me',
+                content: [
+                    'Design thinking never really ends — the system keeps evolving as new needs surface. Here’s what I carried out of it.'
+                ]
+            },
+            {
+                type: 'cards',
+                cards: [
+                    { title: 'Flutter & Material', body: 'A deeper, practical grasp of Flutter UI and Material’s principles — enough to extend the system, not just consume it.' },
+                    { title: 'Scalable systems', body: 'How to build and maintain a system that grows, and how to validate it in a real implementation.' },
+                    { title: 'Typography & language', body: 'Researching multilingual fonts taught me to treat type as infrastructure, especially for a bilingual product.' },
+                    { title: 'Design ↔ dev workflow', body: 'The biggest lesson — a system isn’t a component library; it’s a shared language that improves consistency, speed, and scalability.' }
+                ]
+            },
+            {
+                type: 'callout',
+                text: 'A design system isn’t a set of components — it’s a shared language a whole team can speak.'
             }
         ]
     },
@@ -525,32 +699,109 @@ const ProjectDetail = () => {
             <Link to="/" className="back-link">← Back to Work</Link>
             <header className="project-detail-header">
                 <h1 className="project-title">{project.title}</h1>
+                {project.deck && <p className="project-deck">{project.deck}</p>}
                 <p className="project-role">{project.role}</p>
+                {project.meta && project.meta.length > 0 && (
+                    <ul className="project-meta">
+                        {project.meta.map((item, index) => (
+                            <li key={index} className="project-meta-item">
+                                <span className="project-meta-label">{item.label}</span>
+                                <span className="project-meta-value">{item.value}</span>
+                            </li>
+                        ))}
+                    </ul>
+                )}
             </header>
+
+            {project.cover && (
+                <figure className="case-study-figure case-study-figure--cover">
+                    <img
+                        src={`${LIVE_MCQ_ASSET_DIR}/${project.cover.id}.png`}
+                        alt={project.cover.alt}
+                        loading="lazy"
+                        className="case-study-image"
+                    />
+                </figure>
+            )}
 
             {project.sections ? (
                 <div className="project-case-study">
                     {project.sections.map((section, index) => (
                         <div key={index} className={`case-study-section section-${section.type}`}>
+                            {section.stageLabel && <p className="case-study-stage-label">{section.stageLabel}</p>}
+                            {section.eyebrow && <p className="case-study-eyebrow">{section.eyebrow}</p>}
                             {section.title && <h2 className="case-study-subtitle">{section.title}</h2>}
 
                             {section.content && section.content.map((paragraph, pIndex) => (
-                                <p key={pIndex} className="case-study-text">{paragraph}</p>
+                                <p key={pIndex} className="case-study-text">{renderRichText(paragraph)}</p>
                             ))}
 
                             {section.list && (
                                 <ul className="case-study-list">
                                     {section.list.map((item, lIndex) => (
-                                        <li key={lIndex}>{item}</li>
+                                        <li key={lIndex}>{renderRichText(item)}</li>
                                     ))}
                                 </ul>
                             )}
 
-                            {section.type === 'image' && (
-                                <div className="placeholder-image">
-                                    <div className="image-box">{section.placeholder || 'Image Placeholder'}</div>
-                                    {section.caption && <p className="image-caption">{section.caption}</p>}
+                            {section.type === 'quotes' && (
+                                <div className="case-study-quote-grid">
+                                    {section.quotes.map((quote, qIndex) => (
+                                        <blockquote key={qIndex} className="case-study-quote">
+                                            <p>{renderRichText(quote.quote)}</p>
+                                            <cite>{quote.label}</cite>
+                                        </blockquote>
+                                    ))}
                                 </div>
+                            )}
+
+                            {section.type === 'callout' && (
+                                <blockquote className="case-study-callout">
+                                    <p>{renderRichText(section.text)}</p>
+                                </blockquote>
+                            )}
+
+                            {section.type === 'cards' && (
+                                <div className="case-study-card-grid">
+                                    {section.cards.map((card, cIndex) => (
+                                        <div key={cIndex} className={`case-study-card${card.chosen ? ' is-chosen' : ''}`}>
+                                            {card.chosen && <span className="case-study-card-badge">Chosen</span>}
+                                            <h3 className="case-study-card-title">{card.title}</h3>
+                                            {card.body && <p className="case-study-card-body">{renderRichText(card.body)}</p>}
+                                            {card.tag && <p className="case-study-card-tag">{card.tag}</p>}
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+
+                            {section.type === 'stats' && (
+                                <div className="case-study-stats">
+                                    {section.stats.map((stat, sIndex) => (
+                                        <div key={sIndex} className="case-study-stat">
+                                            <p className="case-study-stat-value">{stat.value}</p>
+                                            <p className="case-study-stat-label">{stat.label}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+
+                            {section.type === 'image' && (
+                                section.id ? (
+                                    <figure className="case-study-figure">
+                                        <img
+                                            src={`${LIVE_MCQ_ASSET_DIR}/${section.id}.png`}
+                                            alt={section.alt}
+                                            loading="lazy"
+                                            className="case-study-image"
+                                        />
+                                        {section.caption && <figcaption className="image-caption">{section.caption}</figcaption>}
+                                    </figure>
+                                ) : (
+                                    <div className="placeholder-image">
+                                        <div className="image-box">{section.placeholder || 'Image Placeholder'}</div>
+                                        {section.caption && <p className="image-caption">{section.caption}</p>}
+                                    </div>
+                                )
                             )}
                         </div>
                     ))}
