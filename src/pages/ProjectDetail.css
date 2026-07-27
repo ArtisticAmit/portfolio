@@ -34,11 +34,32 @@
     font-weight: 500;
 }
 
+.project-eyebrow {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+}
+
 .project-deck {
     font-size: 1.1rem;
     line-height: 1.6;
     color: var(--text-primary);
     margin-bottom: 1rem;
+}
+
+.project-thesis {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-style: italic;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.project-hero-stats {
+    margin: 1.5rem 0;
 }
 
 .project-meta {
@@ -286,6 +307,108 @@
     margin: 0;
 }
 
+.case-study-callout-caption {
+    font-size: 0.85rem !important;
+    font-style: italic;
+    line-height: 1.5 !important;
+    color: var(--text-secondary) !important;
+    margin-top: 0.75rem !important;
+}
+
+/* Method / tag chip list */
+.case-study-chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.case-study-chip {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--pill-text);
+    background-color: var(--pill-bg);
+    border: 1px solid var(--border-color);
+    padding: 0.4rem 0.9rem;
+    border-radius: 100px;
+}
+
+/* Process / user-loop steps */
+.case-study-steps {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.case-study-step {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.case-study-steps-arrow {
+    color: var(--text-secondary);
+}
+
+/* Before / after comparison table */
+.case-study-compare {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.case-study-compare th,
+.case-study-compare td {
+    text-align: left;
+    padding: 0.9rem 1.1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.case-study-compare th {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    background-color: var(--card-bg);
+}
+
+.case-study-compare td {
+    color: var(--text-primary);
+}
+
+.case-study-compare tr:last-child td {
+    border-bottom: none;
+}
+
+/* Content awaiting real data */
+.case-study-pending {
+    border: 1px dashed var(--border-color);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+}
+
+.case-study-pending-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.case-study-pending-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-style: italic;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
 /* Option / foundation / learning cards */
 .case-study-card-grid {
     display: grid;
@@ -371,6 +494,50 @@
 @media (max-width: 600px) {
     .case-study-quote-grid {
         grid-template-columns: 1fr;
+    }
+
+    .case-study-compare thead {
+        display: none;
+    }
+
+    .case-study-compare,
+    .case-study-compare tbody,
+    .case-study-compare tr,
+    .case-study-compare td {
+        display: block;
+        width: 100%;
+    }
+
+    .case-study-compare tr {
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .case-study-compare tr:last-child {
+        border-bottom: none;
+    }
+
+    .case-study-compare td {
+        border-bottom: none;
+        padding: 0.6rem 1.1rem;
+    }
+
+    .case-study-compare td:first-child::before,
+    .case-study-compare td:last-child::before {
+        display: block;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--text-secondary);
+        margin-bottom: 0.25rem;
+    }
+
+    .case-study-compare td:first-child::before {
+        content: "Before";
+    }
+
+    .case-study-compare td:last-child::before {
+        content: "After";
     }
 }
 

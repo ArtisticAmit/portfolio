@@ -4,7 +4,8 @@ import './ProjectDetail.css'
 
 // Public-folder path (not a static import) so dropping a real file in later
 // requires no code change, and a missing placeholder never breaks the build.
-const LIVE_MCQ_ASSET_DIR = '/case-studies/live-mcq'
+// Per-project assetDir overrides this default (see project entries below).
+const DEFAULT_ASSET_DIR = '/case-studies/live-mcq'
 
 // Lets case-study copy use **bold** the same way it was authored, without a markdown dependency.
 const renderRichText = (text) => {
@@ -524,6 +525,296 @@ const projectData = {
             }
         ]
     },
+    'live-mcq-redesign': {
+        title: 'Rebuilding Live MCQ so no one needs a tutorial to start.',
+        eyebrow: 'Product Design · Case Study',
+        thesis: 'Users had struggled with the app so long that some of them filmed their own YouTube tutorials to help newcomers find their way in. That video was the clearest research finding we ever got: the product couldn’t be used without a guide, and the guide lived everywhere except inside the app.',
+        heroStats: [
+            { value: '10', label: 'Exam targets the new IA is built around' },
+            { value: '17', label: 'Pages restructured on one data-driven system' },
+            { value: '3 → 1', label: 'Size classes served by one adaptive shell' },
+            { value: '2', label: 'Audiences held together: veterans + first-timers' }
+        ],
+        meta: [
+            { label: 'Product', value: 'Live MCQ — competitive-exam prep (Flutter, mobile + web)' },
+            // TODO(role): confirm/replace — inferred as "Product Designer · research → IA → flows → prototype"
+            { label: 'Role', value: 'TODO(role): Product Designer · research → IA → flows → prototype — confirm/replace' },
+            { label: 'Framework', value: 'Design Thinking' },
+            { label: 'Surface', value: 'Bengali-first UI, responsive across screen sizes' },
+            // TODO(timeline): add dates and team size
+            { label: 'Timeline', value: 'TODO(timeline): add dates and team size' }
+        ],
+        assetDir: '/case-studies/live-mcq-redesign',
+        sections: [
+            {
+                type: 'section',
+                eyebrow: 'Context',
+                title: 'What Live MCQ is, and the one job users hire it for',
+                content: [
+                    'Live MCQ is an ed-tech platform for people preparing for competitive government job exams in Bangladesh — BCS, NTRCA, bank recruitment, and more. Underneath every feature sits one job: sit a mock exam, and find out where you stand. Around that job are the study materials that get you ready — live and pre-recorded classes, class notes, and previous exams with a written explanation for every answer.',
+                    'It works because it’s social and competitive. A user picks a goal, takes the mock tests tied to it, and after results publish, reads the answer sheet, checks the mark sheet, and sees their rank on the merit list against everyone chasing the same goal. The product was never short on content or features. It was short on a way through them.'
+                ]
+            },
+            {
+                type: 'section',
+                stageLabel: '01 · Empathize',
+                title: 'Listening to people who were lost inside their own app',
+                content: [
+                    'Before touching a single screen, the goal was to understand the lived experience of the app — not what we intended it to be, but what it actually felt like to use.'
+                ]
+            },
+            {
+                type: 'text',
+                content: [
+                    'The support channel told the first part of the story. New users would open the app and immediately tap Contact Support — not after getting stuck, but first, before trying anything. They needed a person to walk them through basics: how to register, how to buy a package, where preparation even begins. Support wasn’t a safety net; it had become the onboarding.'
+                ]
+            },
+            {
+                type: 'section',
+                title: 'What we kept hearing and seeing',
+                list: [
+                    'First-time users wandered the login screen, tapping buttons just to see what they did.',
+                    'After registering, people didn’t know where to start.',
+                    'Users couldn’t tell how to join a class, retake a missed exam, or redo an old one.',
+                    'No way to answer “am I ready?” — no read on their own preparation.',
+                    'Features existed that users never discovered — they didn’t know the app could do it.',
+                    'Finding a known feature meant digging; people asked friends or the Facebook page.',
+                    'The home screen forced users to memorise which button led where.',
+                    'Buying a package — the revenue moment — was unclear enough that many never did.'
+                ]
+            },
+            {
+                type: 'callout',
+                text: 'Veteran users were posting YouTube tutorials for beginners.',
+                caption: 'The community had written the manual the app was missing.'
+            },
+            {
+                type: 'text',
+                content: [
+                    'That last one reframed everything. It’s easy to read heavy support volume as a staffing problem. The tutorials made it undeniable that it was a design problem: the app needed external guidance to be usable, and none of that guidance lived inside it.'
+                ]
+            },
+            {
+                type: 'chips',
+                title: 'How we listened — mixed methods, not vibes',
+                items: [
+                    'Microsoft Clarity (session replay & heatmaps)', 'User segmentation', 'Segment interviews',
+                    'Task-based observation', 'Study-pattern mapping', 'Expectation gap analysis',
+                    'Competitive analysis', 'Primary + secondary research', 'Quantitative + qualitative'
+                ]
+            },
+            {
+                // TODO(img): clarity-evidence
+                type: 'image',
+                id: 'clarity-evidence',
+                alt: 'Microsoft Clarity heatmap or rage-tap session recording showing user struggle on the old Live MCQ home or login screen.',
+                caption: 'Session-replay evidence of users getting stuck before they even started.'
+            },
+            {
+                // TODO(img): research-synthesis
+                type: 'image',
+                id: 'research-synthesis',
+                alt: 'Affinity map and segment boards synthesizing findings from interviews and task-based sessions.',
+                caption: 'Synthesizing interviews and task sessions into patterns.'
+            },
+            {
+                type: 'section',
+                stageLabel: '02 · Define',
+                title: 'The real problem wasn’t missing features. It was missing structure.',
+                content: [
+                    'Synthesis turned a pile of symptoms into a diagnosis. The app had everything; it had no legible shape.'
+                ]
+            },
+            {
+                type: 'cards',
+                title: 'What the evidence added up to',
+                cards: [
+                    { title: 'IA · Disorganised information architecture', body: 'A large, flat feature set with no grouping — so no feature could be predicted from where it lived.' },
+                    { title: 'FLOW · Unnatural user flows', body: 'Screens that needed a call-to-action didn’t have one; journeys stalled with no obvious next step.' },
+                    { title: 'LOAD · High cognitive load', body: 'Nothing had breathing room — everything crammed in tight, so the eye had nowhere to rest and nothing to prioritise.' },
+                    { title: 'COST · Expensive actions', body: 'Simple tasks took too long. Dead taps were high across the app, and navigation bounced back and forth instead of moving forward.' },
+                    { title: '$$ · The business tell', body: 'Lots of registrations, few conversions to paid — and early users who started, then quietly stopped.' }
+                ]
+            },
+            {
+                type: 'steps',
+                title: 'What users were actually trying to do',
+                items: [
+                    'Set a goal (an exam target)', 'Take the mock tests tied to it',
+                    'Study — classes, notes, past Q&A + explanations', 'Review results — answer sheet, mark sheet',
+                    'Read their rank on the merit list'
+                ]
+            },
+            {
+                type: 'callout',
+                text: '“Whether they’re brand new or long-time users, people should be able to move through Live MCQ on their own — find their goal, prepare, test themselves, and see where they stand — without asking a human for directions.”'
+            },
+            {
+                type: 'cards',
+                title: 'Two constraints that shaped every decision',
+                cards: [
+                    { title: 'Don’t alienate the veterans', body: 'A large base of experienced users already had muscle memory. The redesign had to feel new and clearer to first-timers without yanking the floor out from under people who’d learned the old maze.' },
+                    { title: 'One experience, every screen', body: 'The product spans phone and web. It had to be genuinely adaptive — the layout reshaping to the screen size — not a phone UI stretched onto a desktop.' }
+                ]
+            },
+            {
+                type: 'section',
+                stageLabel: '03 · Ideate',
+                title: 'Take the app apart. Find the structure it always had.',
+                content: [
+                    'Instead of designing screens, we started with the content model. We dissected the entire product into individual pieces of information and asked what naturally belonged together.'
+                ]
+            },
+            {
+                type: 'text',
+                content: [
+                    'Two organising truths fell out. First, everything in the app is anchored to an exam target and, through it, a subject in that target’s syllabus. Second, all content is one of just two kinds: an exam (made of questions) or study material (made of classes — and a class is a video plus a class note). Once those axes were named, the sprawling feature list stopped being a list and became a place with rooms.'
+                ]
+            },
+            {
+                // TODO(img): ia-before-after — signature visual: sprawl of ~24 ungrouped feature tags vs. the nested Target → Subject → Exam/Study taxonomy
+                type: 'image',
+                id: 'ia-before-after',
+                alt: 'Before-and-after: a flat wall of roughly two dozen ungrouped feature tags (Compass, Offline, Video, PDF, Audio, Study Group, Bookstore, Quiz Game, Smart Search, Info Panel, Topic Guru, Job Solution, Wrong & Unanswered, Central Archive, Central Favourite, Central Result, Quiz Master, Profile, Referral, Packages, Statistics, Award Mania, Settings, তথ্যকল্পদ্রুম) next to a nested taxonomy: Target → Subject → Exam (Questions) / Study (Classes: video + class note).',
+                caption: 'Before: two dozen features, no hierarchy — you had to already know a feature existed to find it. After: every feature hangs off a target and a content type, matching how users already think about their prep.'
+            },
+            {
+                type: 'chips',
+                title: 'Ten targets became the backbone',
+                items: [
+                    'BCS', 'NTRCA', 'Primary Teacher', '9th–13th Grade', '14th–20th Grade',
+                    'Bar', 'BJS', 'Nursing & Midwifery', 'BCS (Education)', 'BCS (Health)'
+                ]
+            },
+            {
+                type: 'text',
+                content: [
+                    'Each with its own syllabus, subjects, and exam data behind it, not just a label.'
+                ]
+            },
+            {
+                type: 'cards',
+                title: 'And a place to grow into',
+                cards: [
+                    { title: 'Job Circular Alert', body: 'Surface new postings for the target a user is prepping for.' },
+                    { title: 'Application Tracker', body: 'Follow each application through circular → exam → result.' },
+                    { title: 'CV Builder', body: 'Turn preparation into an application, without leaving the app.' }
+                ]
+            },
+            {
+                type: 'section',
+                stageLabel: '04 · Prototype',
+                title: 'A working prototype, built to make the decisions visible',
+                content: [
+                    'The IA became a real, navigable prototype spanning seventeen pages — every one rendered from a single data-driven system, so the whole product stays consistent by construction.'
+                ]
+            },
+            {
+                type: 'section',
+                title: 'One adaptive shell, three forms',
+                content: [
+                    'Compact renders a bottom bar, medium a navigation rail, expanded a navigation drawer — it changes form, not just width, by size class.'
+                ]
+            },
+            {
+                // TODO(img): adaptive-nav — triptych: compact (bottom bar), medium (navigation rail), expanded (navigation drawer)
+                type: 'image',
+                id: 'adaptive-nav',
+                alt: 'Triptych showing the navigation shell changing form across size classes: a bottom bar in compact, a navigation rail in medium, and a navigation drawer in expanded.'
+            },
+            {
+                type: 'cards',
+                title: 'The three moves that attacked the findings directly',
+                cards: [
+                    { title: 'Goal-aware home', body: 'The home page personalises to the user’s chosen target, so they no longer have to memorise which button leads where. It answers “what do I do now?” on open.' },
+                    { title: 'Redesigned onboarding & login', body: 'A first-run flow that sets a goal and starts users in the right place — directly targeting the wandering-the-login-screen behaviour.' },
+                    { title: 'CTAs where journeys stall', body: 'Every screen now offers its obvious next action, so a path never dead-ends and dead taps have somewhere to go.' }
+                ]
+            },
+            {
+                // TODO(img): new-home
+                type: 'image',
+                id: 'new-home',
+                alt: 'The redesigned goal-aware home screen, phone and desktop.'
+            },
+            {
+                // TODO(img): onboarding-before-after
+                type: 'image',
+                id: 'onboarding-before-after',
+                alt: 'The old login screen next to the new first-run onboarding flow.'
+            },
+            {
+                type: 'section',
+                stageLabel: '05 · Test',
+                title: 'Validate against the exact tasks that used to fail',
+                content: [
+                    'The tasks people couldn’t complete in research became the pass/fail criteria for the prototype — the same task-based method, run again on the new flows.'
+                ]
+            },
+            {
+                type: 'text',
+                content: [
+                    'The bar was simple and unforgiving: could a first-time user, with no help and no tutorial, get through the core loop? Register, pick a goal, find and start a mock test, and get a read on their readiness — alone.'
+                ]
+            },
+            {
+                type: 'section',
+                title: 'The task battery',
+                list: [
+                    'Register and reach a useful home unaided',
+                    'Pick an exam target and understand what it changed',
+                    'Find and start a mock test for that target',
+                    'Locate a class / note without asking anyone',
+                    'Find “where do I stand?” after a result'
+                ]
+            },
+            {
+                // TODO(content): test-findings — qualitative usability results not yet supplied
+                type: 'pending',
+                label: 'Awaiting findings',
+                text: 'Usability results (qualitative) — completion without help, drop in support-first taps, veteran reactions. To be supplied; keep qualitative, no invented numbers.'
+            },
+            {
+                type: 'section',
+                stageLabel: '06 · Iterate',
+                title: 'The system earned the right to get simpler',
+                content: [
+                    'A later pass shows the redesign holding up under change — and, tellingly, most of the moves removed things. Structure that fits the problem lets you take complexity away.'
+                ]
+            },
+            {
+                type: 'text',
+                content: [
+                    'Growing from three goals to ten would normally pile on decisions. Instead, onboarding dropped a step: the old flow asked users to tap a star to nominate a primary target after multi-selecting. Now selection order decides it — whichever target you pick first becomes primary. The star and the daily-study-hours slider were removed outright, not restyled.'
+                ]
+            },
+            {
+                type: 'compare',
+                rows: [
+                    { before: 'Multi-select, then tap a star to set your primary target — an extra decision per target.', after: 'Selection order sets primary automatically. First pick wins. Star removed.' },
+                    { before: 'Home carried progress rings, an end-of-day countdown, and a day-timeline with prev/next/date-picker — all hand-maintained.', after: 'Plain “all exams / all results / all classes” links to the full pages that already existed. Less to keep in sync.' },
+                    { before: 'Exam and result cards were separate one-off layouts that only knew attended / unattended / upcoming.', after: 'One shared card component understands live and provisional states too — used by home, exam center, and results alike.' }
+                ]
+            },
+            {
+                type: 'text',
+                content: [
+                    'Type and iconography got a quieter tune in the same pass — titles set lighter, body copy a touch heavier, and icon strokes thinned across the app — small moves that let the denser exam content breathe. The direction of every change was the same: match the structure to how people actually work, then remove whatever the structure made unnecessary.'
+                ]
+            },
+            {
+                type: 'section',
+                title: 'Learnings',
+                list: [
+                    '**A product that needs a tutorial has a research finding, not a support problem.** The community’s YouTube videos were the sharpest signal in the whole project. Read heavy support volume as a symptom of design, not a cost to staff around.',
+                    '**Fix the information architecture before the pixels.** The app didn’t need more features or prettier screens. It needed a structure that matched the user’s mental model — goal, then subject, then content. Everything downstream got easier once the model was right.',
+                    '**The best redesign move is often removal.** Rings, timers, timeline controls, an onboarding star — all deleted. When structure fits the problem, you earn the ability to subtract, and subtraction is what lowers cognitive load.',
+                    '**Adaptive is a form change, not a width change.** Serving phone and web meant the navigation reshaping itself per size class — bottom bar, rail, drawer — so each screen feels native instead of stretched.',
+                    '**Redesign for two audiences at once.** Clearer for first-timers, familiar enough for veterans. Holding both was a harder constraint than either alone, and it kept the work honest.'
+                ]
+            }
+        ]
+    },
     'dhaka-city-branding': {
         title: 'Dhaka City Branding',
         role: 'As Principal Brand Designer',
@@ -698,9 +989,21 @@ const ProjectDetail = () => {
         <div className="project-detail-page fade-in">
             <Link to="/" className="back-link">← Back to Work</Link>
             <header className="project-detail-header">
+                {project.eyebrow && <p className="project-eyebrow">{project.eyebrow}</p>}
                 <h1 className="project-title">{project.title}</h1>
                 {project.deck && <p className="project-deck">{project.deck}</p>}
-                <p className="project-role">{project.role}</p>
+                {project.thesis && <p className="project-thesis">{renderRichText(project.thesis)}</p>}
+                {project.heroStats && project.heroStats.length > 0 && (
+                    <div className="case-study-stats project-hero-stats">
+                        {project.heroStats.map((stat, index) => (
+                            <div key={index} className="case-study-stat">
+                                <p className="case-study-stat-value">{stat.value}</p>
+                                <p className="case-study-stat-label">{stat.label}</p>
+                            </div>
+                        ))}
+                    </div>
+                )}
+                {project.role && <p className="project-role">{project.role}</p>}
                 {project.meta && project.meta.length > 0 && (
                     <ul className="project-meta">
                         {project.meta.map((item, index) => (
@@ -716,7 +1019,7 @@ const ProjectDetail = () => {
             {project.cover && (
                 <figure className="case-study-figure case-study-figure--cover">
                     <img
-                        src={`${LIVE_MCQ_ASSET_DIR}/${project.cover.id}.png`}
+                        src={`${project.assetDir || DEFAULT_ASSET_DIR}/${project.cover.id}.png`}
                         alt={project.cover.alt}
                         loading="lazy"
                         className="case-study-image"
@@ -758,7 +1061,53 @@ const ProjectDetail = () => {
                             {section.type === 'callout' && (
                                 <blockquote className="case-study-callout">
                                     <p>{renderRichText(section.text)}</p>
+                                    {section.caption && <p className="case-study-callout-caption">{section.caption}</p>}
                                 </blockquote>
+                            )}
+
+                            {section.type === 'chips' && (
+                                <div className="case-study-chip-list">
+                                    {section.items.map((item, chipIndex) => (
+                                        <span key={chipIndex} className="case-study-chip">{item}</span>
+                                    ))}
+                                </div>
+                            )}
+
+                            {section.type === 'steps' && (
+                                <div className="case-study-steps">
+                                    {section.items.map((item, stepIndex) => (
+                                        <React.Fragment key={stepIndex}>
+                                            {stepIndex > 0 && <span className="case-study-steps-arrow" aria-hidden="true">→</span>}
+                                            <span className="case-study-step">{item}</span>
+                                        </React.Fragment>
+                                    ))}
+                                </div>
+                            )}
+
+                            {section.type === 'compare' && (
+                                <table className="case-study-compare">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Before</th>
+                                            <th scope="col">After</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {section.rows.map((row, rowIndex) => (
+                                            <tr key={rowIndex}>
+                                                <td>{renderRichText(row.before)}</td>
+                                                <td>{renderRichText(row.after)}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            )}
+
+                            {section.type === 'pending' && (
+                                <div className="case-study-pending">
+                                    {section.label && <p className="case-study-pending-label">{section.label}</p>}
+                                    <p className="case-study-pending-text">{section.text}</p>
+                                </div>
                             )}
 
                             {section.type === 'cards' && (
@@ -789,7 +1138,7 @@ const ProjectDetail = () => {
                                 section.id ? (
                                     <figure className="case-study-figure">
                                         <img
-                                            src={`${LIVE_MCQ_ASSET_DIR}/${section.id}.png`}
+                                            src={`${project.assetDir || DEFAULT_ASSET_DIR}/${section.id}.png`}
                                             alt={section.alt}
                                             loading="lazy"
                                             className="case-study-image"

@@ -6,10 +6,10 @@ import motomanIcon from '../assets/work/project_icon/motoman.png'
 
 const projects = [
     {
-        title: 'Live MCQ',
-        description: 'Building a Design System for cross-platform development',
+        title: 'Live MCQ — Product Redesign',
+        description: 'Research, IA, and flows behind a redesign built to need no tutorial',
         icon: liveMcqIcon,
-        slug: 'live-mcq'
+        slug: 'live-mcq-redesign'
     },
     {
         title: 'Dino Hop',
