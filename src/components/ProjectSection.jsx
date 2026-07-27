@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import './ProjectSection.css'
 import liveMcqIcon from '../assets/work/project_icon/live_mcq.png'
-import ezwageIcon from '../assets/work/project_icon/ezwage.png'
 import dragonParadiseIcon from '../assets/work/project_icon/dragon_paradise_city.png'
 import motomanIcon from '../assets/work/project_icon/motoman.png'
 
@@ -13,13 +12,7 @@ const projects = [
         slug: 'live-mcq'
     },
     {
-        title: 'EzWage',
-        description: 'Crafted UX writings for localization',
-        icon: ezwageIcon,
-        slug: 'ezwage'
-    },
-    {
-        title: 'Dragon Paradise City',
+        title: 'Dino Hop',
         description: 'Designing a fantasy user interface and characters',
         icon: dragonParadiseIcon,
         slug: 'dragon-paradise-city'

@@ -2,6 +2,7 @@ import React from 'react'
 import Hero from '../components/Hero'
 import ProjectSection from '../components/ProjectSection'
 import DesignSystemSection from '../components/DesignSystemSection'
+import UXWritingSection from '../components/UXWritingSection'
 
 const Work = () => {
     return (
@@ -9,6 +10,7 @@ const Work = () => {
             <Hero />
             <DesignSystemSection />
             <ProjectSection />
+            <UXWritingSection />
         </div>
     )
 }

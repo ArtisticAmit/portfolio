@@ -311,7 +311,7 @@ const projectData = {
         ]
     },
     'live-design-kit': {
-        title: 'Live MCQ Design System',
+        title: 'Live Design Kit',
         // TODO: confirm exact role title
         role: 'Design System Owner · UI/UX & Product Designer',
         deck: 'Rebuilding a fragmented Flutter app into one accessible, scalable design language — worked through the five stages of design thinking.',
@@ -622,7 +622,7 @@ const projectData = {
         ]
     },
     'dragon-paradise-city': {
-        title: 'Dragon Paradise City',
+        title: 'Dino Hop',
         role: 'Game UI Artist',
         description: 'A simulation game where players build and manage a city for dragons.',
         details: [

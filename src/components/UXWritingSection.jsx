@@ -1,24 +1,24 @@
 import { useNavigate } from 'react-router-dom'
 import './ProjectSection.css'
-import liveMcqIcon from '../assets/work/project_icon/live_mcq.png'
+import ezwageIcon from '../assets/work/project_icon/ezwage.png'
 
-const designSystems = [
+const uxWritingProjects = [
     {
-        title: 'Live Design Kit',
-        description: 'Rebuilding a fragmented Flutter app into one accessible, scalable design language',
-        icon: liveMcqIcon,
-        slug: 'live-design-kit'
+        title: 'EzWage',
+        description: 'Crafted UX writings for localization',
+        icon: ezwageIcon,
+        slug: 'ezwage'
     }
 ]
 
-const DesignSystemSection = () => {
+const UXWritingSection = () => {
     const navigate = useNavigate()
 
     return (
         <section className="projects" style={{ marginTop: '2rem' }}>
-            <h3 className="section-title">Design System</h3>
+            <h3 className="section-title">UX Writing</h3>
             <div className="project-list">
-                {designSystems.map((item, index) => (
+                {uxWritingProjects.map((item, index) => (
                     <div
                         key={index}
                         className="project-card"
@@ -38,4 +38,4 @@ const DesignSystemSection = () => {
     )
 }
 
-export default DesignSystemSection
+export default UXWritingSection
