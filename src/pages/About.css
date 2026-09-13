@@ -152,11 +152,9 @@
 .companies-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background-color: var(--border-color);
-    border: 1px solid var(--border-color);
+    gap: 1rem;
+    background-color: var(--bg-color);
     border-radius: 0;
-    overflow: hidden;
     margin-bottom: 4rem;
 }
 
@@ -168,6 +166,7 @@
     justify-content: center;
     padding: 2rem;
     transition: var(--transition);
+    border: 1px solid var(--border-color);
 }
 
 .company-logo img {
@@ -181,10 +180,6 @@
 
 .company-logo:hover {
     background-color: var(--card-bg);
-}
-
-.company-logo--filler:hover {
-    background-color: var(--bg-color);
 }
 
 .company-logo:hover img {

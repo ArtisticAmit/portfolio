@@ -191,9 +191,6 @@ const About = () => {
                     <div className="company-logo"><img src={insparofaithLogo} alt="Insparofaith Games" /></div>
                     <div className="company-logo"><img src={mitroLogo} alt="Mitro" /></div>
                     <div className="company-logo"><img src={ygenLogo} alt="Ygen Engineering" /></div>
-                    <div className="company-logo company-logo--filler" aria-hidden="true"></div>
-                    <div className="company-logo company-logo--filler" aria-hidden="true"></div>
-                    <div className="company-logo company-logo--filler" aria-hidden="true"></div>
                 </div>
             </section>
 
