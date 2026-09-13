@@ -137,7 +137,7 @@
     aspect-ratio: 16/9;
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 12px;
+    border-radius: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -249,7 +249,7 @@
 .case-study-image {
     width: 100%;
     display: block;
-    border-radius: 12px;
+    border-radius: 0;
     border: 1px solid var(--border-color);
     background-color: var(--card-bg);
 }
@@ -275,7 +275,7 @@
     padding: 1.5rem;
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 12px;
+    border-radius: 0;
 }
 
 .case-study-quote p {
@@ -297,7 +297,7 @@
     padding: 1.5rem 1.75rem;
     background-color: var(--card-bg);
     border-left: 3px solid var(--accent-color, #646cff);
-    border-radius: 8px;
+    border-radius: 0;
 }
 
 .case-study-callout p {
@@ -329,7 +329,7 @@
     background-color: var(--pill-bg);
     border: 1px solid var(--border-color);
     padding: 0.4rem 0.9rem;
-    border-radius: 100px;
+    border-radius: 0;
 }
 
 /* Process / user-loop steps */
@@ -354,7 +354,7 @@
     width: 100%;
     border-collapse: collapse;
     border: 1px solid var(--border-color);
-    border-radius: 12px;
+    border-radius: 0;
     overflow: hidden;
 }
 
@@ -388,7 +388,7 @@
 /* Content awaiting real data */
 .case-study-pending {
     border: 1px dashed var(--border-color);
-    border-radius: 12px;
+    border-radius: 0;
     padding: 1.25rem 1.5rem;
 }
 
@@ -421,7 +421,7 @@
     padding: 1.5rem;
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 12px;
+    border-radius: 0;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -441,7 +441,7 @@
     background-color: var(--pill-active-bg);
     border: 1px solid var(--border-color);
     padding: 0.2rem 0.6rem;
-    border-radius: 100px;
+    border-radius: 0;
 }
 
 .case-study-card-title {

@@ -2,7 +2,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 4rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.5rem var(--container-padding);
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .logo a {
@@ -20,32 +29,30 @@
 .nav-list {
     display: flex;
     gap: 0.5rem;
-    background-color: var(--pill-bg);
-    padding: 0.25rem;
-    border-radius: 100px;
-    border: 1px solid var(--border-color);
 }
 
 .nav-item {
-    border-radius: 100px;
-    transition: var(--transition);
     display: flex;
 }
 
 .nav-item a {
     padding: 0.5rem 1.25rem;
-    border-radius: 100px;
+    border-radius: 0;
+    border: 1.5px solid transparent;
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 500;
-    color: var(--pill-text);
+    color: var(--text-primary);
     transition: var(--transition);
 }
 
 .nav-item a.active {
-    background-color: var(--pill-active-bg);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    color: var(--pill-active-text);
+    border-color: var(--text-primary);
+    background-color: transparent;
+}
+
+.nav-item a.active:hover {
+    background-color: var(--card-bg);
 }
 
 .nav-item a:hover:not(.active) {

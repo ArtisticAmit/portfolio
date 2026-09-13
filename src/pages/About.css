@@ -6,28 +6,14 @@
 .about-header {
     margin-bottom: 4rem;
     display: flex;
-    align-items: center;
+    align-items: stretch;
+    justify-content: space-between;
     gap: 3rem;
 }
 
 .header-top {
     display: contents;
     /* Allow children to participate in the flex container of .about-header */
-}
-
-.profile-tile {
-    width: 200px;
-    height: 200px;
-    flex-shrink: 0;
-    border-radius: 50%;
-    overflow: hidden;
-    background-color: var(--card-bg);
-}
-
-.profile-tile img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
 .header-info-container {
@@ -64,7 +50,7 @@
 .btn-filled,
 .btn-outlined {
     padding: 0.8rem 2.5rem;
-    border-radius: 999px;
+    border-radius: 0;
     font-size: 1rem;
     font-weight: 500;
     cursor: pointer;
@@ -102,11 +88,6 @@
 
     .header-name {
         font-size: 2.5rem;
-    }
-
-    .profile-tile {
-        width: 150px;
-        height: 150px;
     }
 
     .button-row {
@@ -174,14 +155,14 @@
     gap: 1px;
     background-color: var(--border-color);
     border: 1px solid var(--border-color);
-    border-radius: 12px;
+    border-radius: 0;
     overflow: hidden;
     margin-bottom: 4rem;
 }
 
 .company-logo {
     background-color: var(--bg-color);
-    aspect-ratio: 3/2;
+    aspect-ratio: 1/1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -190,16 +171,20 @@
 }
 
 .company-logo img {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 50%;
+    max-height: 50%;
     object-fit: contain;
     filter: grayscale(1);
-    opacity: 0.7;
+    opacity: 1;
     transition: var(--transition);
 }
 
 .company-logo:hover {
     background-color: var(--card-bg);
+}
+
+.company-logo--filler:hover {
+    background-color: var(--bg-color);
 }
 
 .company-logo:hover img {
@@ -219,7 +204,7 @@
 }
 
 .testimonial-card {
-    border-radius: 24px;
+    border-radius: 0;
     margin-bottom: 1rem;
 }
 
@@ -232,7 +217,7 @@
 .quote-bar {
     width: 2px;
     background-color: var(--border-color);
-    border-radius: 1px;
+    border-radius: 0;
     flex-shrink: 0;
 }
 
@@ -257,7 +242,7 @@
 .author-avatar {
     width: 48px;
     height: 48px;
-    border-radius: 50%;
+    border-radius: 0;
     overflow: hidden;
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);

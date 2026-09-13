@@ -6,7 +6,7 @@ import motomanIcon from '../assets/work/project_icon/motoman.png'
 
 const projects = [
     {
-        title: 'Live MCQ — Product Redesign',
+        title: 'Live MCQ',
         description: 'Research, IA, and flows behind a redesign built to need no tutorial',
         icon: liveMcqIcon,
         slug: 'live-mcq-redesign'
