@@ -2,6 +2,14 @@
     margin-bottom: 4rem;
 }
 
+.hero-greeting {
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    opacity: 0.9;
+}
+
 .hero-title {
     font-size: 2rem;
     font-weight: 800;

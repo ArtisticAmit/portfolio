@@ -42,9 +42,27 @@ const About = () => {
 
             <section className="about-bio">
                 <p>
-                    I am a UI/UX designer who integrates a formal background in fine arts with digital product design to solve complex visual and functional problems. With a Master's degree in Drawing and Painting, I apply principles of composition and color theory to create intuitive interfaces across the ed-tech, fintech, and mobile gaming sectors. By combining user research with iterative design, I translate intricate requirements into scalable systems that enhance user engagement and simplify the digital experience.
+                    I am a product designer who integrates a formal background in fine arts with digital product design to solve complex visual and functional problems. With a Master's degree in Drawing and Painting, I apply principles of composition and color theory to create intuitive interfaces across the ed-tech, fintech, and mobile gaming sectors. By combining user research with iterative design, I translate intricate requirements into scalable systems that enhance user engagement and simplify the digital experience.
                 </p>
 
+                <div className="about-stats">
+                    <div className="about-stat">
+                        <p className="about-stat-value">6+</p>
+                        <p className="about-stat-label">Years</p>
+                    </div>
+                    <div className="about-stat">
+                        <p className="about-stat-value">10</p>
+                        <p className="about-stat-label">Products</p>
+                    </div>
+                    <div className="about-stat">
+                        <p className="about-stat-value">56+</p>
+                        <p className="about-stat-label">Projects</p>
+                    </div>
+                    <div className="about-stat">
+                        <p className="about-stat-value">∞</p>
+                        <p className="about-stat-label">Learnings</p>
+                    </div>
+                </div>
             </section>
 
             <hr />
@@ -180,17 +198,17 @@ const About = () => {
             <hr />
 
             <section className="companies-section">
-                <h3 className="section-title">Worked with</h3>
+                <h3 className="section-title">Companies I've worked with</h3>
                 <div className="companies-grid">
-                    <div className="company-logo"><img src={cracktechLogo} alt="Cracktech" /></div>
-                    <div className="company-logo"><img src={ezwageLogo} alt="EZ Wage" /></div>
-                    <div className="company-logo"><img src={yoyosoLogo} alt="Yoyoso" /></div>
-                    <div className="company-logo"><img src={undpLogo} alt="UNDP" /></div>
-                    <div className="company-logo"><img src={fakirLogo} alt="Fakir Apparels" /></div>
-                    <div className="company-logo"><img src={duLogo} alt="University of Dhaka" /></div>
-                    <div className="company-logo"><img src={insparofaithLogo} alt="Insparofaith Games" /></div>
-                    <div className="company-logo"><img src={mitroLogo} alt="Mitro" /></div>
-                    <div className="company-logo"><img src={ygenLogo} alt="Ygen Engineering" /></div>
+                    <a className="company-logo" href="https://cracktech.com.bd/" target="_blank" rel="noopener noreferrer"><img src={cracktechLogo} alt="Cracktech" /></a>
+                    <a className="company-logo" href="https://ezwage.com/bangladesh/" target="_blank" rel="noopener noreferrer"><img src={ezwageLogo} alt="EZ Wage" /></a>
+                    <a className="company-logo" href="https://www.yoyosobangladesh.com/" target="_blank" rel="noopener noreferrer"><img src={yoyosoLogo} alt="Yoyoso" /></a>
+                    <a className="company-logo" href="https://www.undp.org/bangladesh" target="_blank" rel="noopener noreferrer"><img src={undpLogo} alt="UNDP" /></a>
+                    <a className="company-logo" href="https://fakirapparels.com/" target="_blank" rel="noopener noreferrer"><img src={fakirLogo} alt="Fakir Apparels" /></a>
+                    <a className="company-logo" href="https://www.du.ac.bd/" target="_blank" rel="noopener noreferrer"><img src={duLogo} alt="University of Dhaka" /></a>
+                    <a className="company-logo" href="https://play.google.com/store/apps/developer?id=Insparofaith+Games&hl=en" target="_blank" rel="noopener noreferrer"><img src={insparofaithLogo} alt="Insparofaith Games" /></a>
+                    <a className="company-logo" href="https://www.linkedin.com/company/mitroapp/?originalSubdomain=bd" target="_blank" rel="noopener noreferrer"><img src={mitroLogo} alt="Mitro" /></a>
+                    <a className="company-logo" href="http://www.ygenbd.com/" target="_blank" rel="noopener noreferrer"><img src={ygenLogo} alt="Ygen Engineering" /></a>
                 </div>
             </section>
 

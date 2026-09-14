@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import './ProjectSection.css'
 import liveMcqIcon from '../assets/work/project_icon/live_mcq.png'
+import ezwageIcon from '../assets/work/project_icon/ezwage.png'
 
 const designSystems = [
     {
@@ -8,6 +9,13 @@ const designSystems = [
         description: 'Rebuilding a fragmented Flutter app into one accessible, scalable design language',
         icon: liveMcqIcon,
         slug: 'live-design-kit'
+    },
+    {
+        title: 'Coin Design Vault',
+        description: 'Creating a design system from the ground up for a personal finance management service',
+        // TODO: replace with a dedicated Coin Design Vault icon
+        icon: ezwageIcon,
+        slug: 'coin-design-vault'
     }
 ]
 

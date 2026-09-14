@@ -90,6 +90,10 @@
         font-size: 2.5rem;
     }
 
+    .about-stat-value {
+        font-size: 2.5rem;
+    }
+
     .button-row {
         flex-direction: row;
     }
@@ -106,6 +110,37 @@
     color: var(--text-primary);
     margin-bottom: 1.5rem;
     opacity: 0.9;
+}
+
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.about-stat {
+    padding: 1.25rem;
+    border: 1.5px solid var(--border-color);
+}
+
+.about-stat-value {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin: 0 0 0.25rem;
+}
+
+.about-stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .about-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 /* Work Experience */
@@ -151,7 +186,7 @@
 /* Companies Grid */
 .companies-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     gap: 1rem;
     background-color: var(--bg-color);
     border-radius: 0;
@@ -164,32 +199,43 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
+    padding: 0.75rem;
     transition: var(--transition);
-    border: 1px solid var(--border-color);
+    border: 1.5px solid var(--border-color);
+    text-decoration: none;
 }
 
 .company-logo img {
-    max-width: 50%;
-    max-height: 50%;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
-    filter: grayscale(1);
     opacity: 1;
     transition: var(--transition);
 }
 
 .company-logo:hover {
     background-color: var(--card-bg);
+    border-color: var(--text-primary);
+    opacity: 1;
 }
 
-.company-logo:hover img {
-    filter: grayscale(0);
-    opacity: 1;
+@media (max-width: 1024px) {
+    .companies-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .company-logo {
+        padding: 1.5rem;
+    }
 }
 
 @media (max-width: 768px) {
     .companies-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .company-logo {
+        padding: 0.5rem;
     }
 }
 

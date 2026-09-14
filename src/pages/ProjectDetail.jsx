@@ -20,8 +20,9 @@ const renderRichText = (text) => {
 const projectData = {
     'live-mcq': {
         title: 'Live MCQ Design System',
+        eyebrow: 'UI/UX Design · Case Study',
+        thesis: 'From Fragmented Screens to a Scalable Learning System - Building a Design System for an EdTech App',
         role: 'As UI/UX Designer',
-        description: 'From Fragmented Screens to a Scalable Learning System - Building a Design System for an EdTech App',
         sections: [
             {
                 type: 'intro',
@@ -313,9 +314,10 @@ const projectData = {
     },
     'live-design-kit': {
         title: 'Live Design Kit',
+        eyebrow: 'UI/UX Design · Case Study',
+        thesis: 'Rebuilding a fragmented Flutter app into one accessible, scalable design language — worked through the five stages of design thinking.',
         // TODO: confirm exact role title
         role: 'Design System Owner · UI/UX & Product Designer',
-        deck: 'Rebuilding a fragmented Flutter app into one accessible, scalable design language — worked through the five stages of design thinking.',
         meta: [
             { label: 'Platform', value: 'Flutter (Mobile & Web)' },
             { label: 'Foundation', value: 'Material Design (customized)' },
@@ -525,8 +527,30 @@ const projectData = {
             }
         ]
     },
+    'medical-higher-study': {
+        title: 'Medical Higher Study',
+        eyebrow: 'UI/UX Design · Case Study',
+        thesis: 'Exam-prep platform for medical higher studies.',
+        // TODO: confirm exact role title
+        role: 'UI/UX Designer',
+        // TODO: add real details/contributions for this project
+        details: [
+            'TODO: add key contributions for Medical Higher Study.',
+        ]
+    },
+    'coin-design-vault': {
+        title: 'Coin Design Vault',
+        eyebrow: 'UI/UX Design · Case Study',
+        thesis: 'Creating a design system from the ground up for a personal finance management service.',
+        role: 'Design System Owner · UI/UX Designer',
+        details: [
+            'Built the design system from scratch — no prior component library or style guide existed.',
+            'Defined color, typography, spacing, and component foundations tailored to a personal finance product.',
+            'Established reusable, documented components to keep the app consistent as it scales.',
+        ]
+    },
     'live-mcq-redesign': {
-        title: 'Rebuilding Live MCQ so no one needs a tutorial to start.',
+        title: 'Live MCQ',
         eyebrow: 'Product Design · Case Study',
         thesis: 'Users had struggled with the app so long that some of them filmed their own YouTube tutorials to help newcomers find their way in. That video was the clearest research finding we ever got: the product couldn’t be used without a guide, and the guide lived everywhere except inside the app.',
         heroStats: [
@@ -817,8 +841,9 @@ const projectData = {
     },
     'dhaka-city-branding': {
         title: 'Dhaka City Branding',
+        eyebrow: 'Brand Design · Case Study',
+        thesis: 'Reimagining the Civic Identity, Wayfinding, and Public Transit System of Dhaka',
         role: 'As Principal Brand Designer',
-        description: 'Reimagining the Civic Identity, Wayfinding, and Public Transit System of Dhaka',
         sections: [
             {
                 type: 'intro',
@@ -864,8 +889,9 @@ const projectData = {
     },
     'motoman': {
         title: 'Motoman',
+        eyebrow: 'Product Design · Case Study',
+        thesis: 'Optimizing Logistics and Navigation for On-Demand Motorcycle Delivery Services',
         role: 'As Lead Product Designer',
-        description: 'Optimizing Logistics and Navigation for On-Demand Motorcycle Delivery Services',
         sections: [
             {
                 type: 'intro',
@@ -903,9 +929,10 @@ const projectData = {
         ]
     },
     'ezwage': {
-        title: 'EzWage',
+        title: 'EZ Wage',
+        eyebrow: 'UI/UX Design · Case Study',
+        thesis: 'Financial wellness platform allowing employees to access earned wages on demand.',
         role: 'UI/UX Designer',
-        description: 'Financial wellness platform allowing employees to access earned wages on demand.',
         details: [
             'Designed intuitive onboarding flows for diverse user demographics.',
             'Created distinct interfaces for employee app and employer dashboard.',
@@ -914,8 +941,9 @@ const projectData = {
     },
     'dragon-paradise-city': {
         title: 'Dino Hop',
+        eyebrow: 'Game Design · Case Study',
+        thesis: 'A simulation game where players build and manage a city for dragons.',
         role: 'Game UI Artist',
-        description: 'A simulation game where players build and manage a city for dragons.',
         details: [
             'Created high-quality 2D assets and UI components.',
             'Designed engaging icons, menus, and HUD elements.',
@@ -924,8 +952,9 @@ const projectData = {
     },
     'insparofaith-games': {
         title: 'Insparofaith Games',
+        eyebrow: 'UI/UX Design · Case Study',
+        thesis: 'Creating immersive and intuitive experiences for mobile games using Figma and Unreal Engine 5.',
         role: 'UI/UX Designer',
-        description: 'Creating immersive and intuitive experiences for mobile games using Figma and Unreal Engine 5.',
         details: [
             'Developed wireframes, prototypes, and high-fidelity mockups for various game titles.',
             'Collaborated with cross-functional teams to shape user journeys and optimize gameplay mechanics.',
@@ -934,8 +963,9 @@ const projectData = {
     },
     'ez-wage': {
         title: 'EZ Wage Ltd.',
+        eyebrow: 'UI/UX Design · Case Study',
+        thesis: 'Refining fintech product interfaces for better efficiency and user satisfaction.',
         role: 'UI/UX Designer',
-        description: 'Refining fintech product interfaces for better efficiency and user satisfaction.',
         details: [
             'Conducted user research and usability testing to identify pain points in current financial tools.',
             'Collaborated with developers and product managers to align designs with business objectives.',
@@ -944,8 +974,9 @@ const projectData = {
     },
     'yoyoso-bangladesh': {
         title: 'Yoyoso Bangladesh',
+        eyebrow: 'Visual Design · Case Study',
+        thesis: 'Curation of graphics, animations, and illustrations for social media and marketing.',
         role: 'Creative Visualizer',
-        description: 'Curation of graphics, animations, and illustrations for social media and marketing.',
         details: [
             'Designed digital and print publications including brochures, flyers, and posters.',
             'Conceptualized event branding materials including banners and signage.',
@@ -954,8 +985,9 @@ const projectData = {
     },
     'fakir-apparels': {
         title: 'Fakir Apparels Ltd.',
+        eyebrow: 'Visual Design · Case Study',
+        thesis: 'Providing visualization and design services on a contract basis.',
         role: 'Visualizer',
-        description: 'Providing visualization and design services on a contract basis.',
         details: [
             'Created marketing materials and internal brand visualizations.',
             'Worked closely with the communication department for event branding.',
@@ -963,8 +995,9 @@ const projectData = {
     },
     'undp': {
         title: 'UNDP',
+        eyebrow: 'Graphic Design · Case Study',
+        thesis: 'Professional graphic design services for organizational initiatives.',
         role: 'Graphic Designer',
-        description: 'Professional graphic design services for organizational initiatives.',
         details: [
             'Developed visual assets for social campaigns and official reports.',
             'Maintained brand consistency across global organizational standards.',
@@ -987,10 +1020,17 @@ const ProjectDetail = () => {
 
     return (
         <div className="project-detail-page fade-in">
-            <Link to="/" className="back-link">← Back to Work</Link>
             <header className="project-detail-header">
                 {project.eyebrow && <p className="project-eyebrow">{project.eyebrow}</p>}
-                <h1 className="project-title">{project.title}</h1>
+                <div className="project-title-row">
+                    <Link to="/" className="back-link" aria-label="Back to Work">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <line x1="19" y1="12" x2="5" y2="12" />
+                            <polyline points="12 19 5 12 12 5" />
+                        </svg>
+                    </Link>
+                    <h1 className="project-title">{project.title}</h1>
+                </div>
                 {project.deck && <p className="project-deck">{project.deck}</p>}
                 {project.thesis && <p className="project-thesis">{renderRichText(project.thesis)}</p>}
                 {project.heroStats && project.heroStats.length > 0 && (
@@ -1158,7 +1198,6 @@ const ProjectDetail = () => {
             ) : (
                 <>
                     <section className="project-content">
-                        <p className="project-intro">{project.description}</p>
                         <div className="project-highlights">
                             <h3 className="section-subtitle">Key Contributions</h3>
                             <ul className="details-list">

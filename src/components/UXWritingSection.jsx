@@ -4,7 +4,7 @@ import ezwageIcon from '../assets/work/project_icon/ezwage.png'
 
 const uxWritingProjects = [
     {
-        title: 'EzWage',
+        title: 'EZ Wage',
         description: 'Crafted UX writings for localization',
         icon: ezwageIcon,
         slug: 'ezwage'
