@@ -7,9 +7,8 @@
     left: 0;
     right: 0;
     z-index: 1000;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 1.5rem var(--container-padding);
+    /* Full-bleed bar; inner content aligns with the centered page column */
+    padding: 1.5rem max(var(--container-padding), calc((100% - var(--max-width)) / 2 + var(--container-padding)));
     background-color: var(--bg-color);
     border-bottom: 1px solid var(--border-color);
 }
