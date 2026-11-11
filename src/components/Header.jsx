@@ -1,5 +1,4 @@
 import { NavLink, Link } from 'react-router-dom'
-import logo from '../assets/logo.png'
 import './Header.css'
 
 const Header = () => {
@@ -7,7 +6,10 @@ const Header = () => {
         <header className="header">
             <div className="logo">
                 <Link to="/">
-                    <img src={logo} alt="Amit R. Logo" />
+                    <picture>
+                        <source srcSet="/favicon_dark.svg" media="(prefers-color-scheme: dark)" />
+                        <img src="/favicon_light.svg" alt="Amit R. Logo" />
+                    </picture>
                 </Link>
             </div>
             <nav className="nav">
