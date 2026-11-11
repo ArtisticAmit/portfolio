@@ -571,3 +571,79 @@
         transition: none;
     }
 }
+/* Image slot whose file hasn't been supplied yet: a deliberate banner rather
+   than broken alt text. Compact on purpose so it doesn't read as a hole. */
+.case-study-banner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background-color: var(--card-bg);
+    border: 1px dashed var(--border-color);
+    border-image: var(--pen-line-dashed) 12 / 12px / 6px round;
+}
+
+.case-study-banner-icon {
+    flex-shrink: 0;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--brand-color);
+}
+
+.case-study-banner-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    margin: 0 0 0.25rem;
+}
+
+.case-study-banner-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    font-style: italic;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.case-study-figure--cover .case-study-banner {
+    min-height: 8rem;
+}
+
+/* Story mode: chapters read as chapters, and the prologue opens like a book. */
+.is-story .case-study-stage-label {
+    color: var(--brand-color);
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    border-image: var(--pen-line) 12 / 12px 0 0 0 / 6px 0 0 0 stretch;
+}
+
+.is-story .section-intro .case-study-stage-label {
+    padding-top: 0;
+    border-top: none;
+    border-image: none;
+}
+
+.is-story .section-intro .case-study-text {
+    font-size: 1.15rem;
+    line-height: 1.75;
+}
+
+.is-story .section-intro .case-study-stage-label + .case-study-text::first-letter {
+    float: left;
+    font-size: 3.4rem;
+    line-height: 0.9;
+    font-weight: 800;
+    padding: 0.3rem 0.5rem 0 0;
+    color: var(--brand-color);
+}
+
+.is-story .section-subsection .case-study-subtitle {
+    color: var(--text-primary);
+    font-size: 1.3rem;
+}
+
+.case-study-infographic .image-caption {
+    margin-top: 0.75rem;
+}

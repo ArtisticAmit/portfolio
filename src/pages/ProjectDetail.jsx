@@ -1,6 +1,54 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import './ProjectDetail.css'
+import {
+    Fragments, Languages, Decision, Pipeline, ColorTuning, FontEval,
+    TypeSystem, Buttons, Icons, Spacing, TestLoop
+} from '../components/infographics/LiveDesignKitInfographics'
+
+// Coded infographics a case study can reference by name: { type: 'infographic', name }.
+const infographics = {
+    fragments: Fragments,
+    languages: Languages,
+    decision: Decision,
+    pipeline: Pipeline,
+    'color-tuning': ColorTuning,
+    'font-eval': FontEval,
+    'type-system': TypeSystem,
+    buttons: Buttons,
+    icons: Icons,
+    spacing: Spacing,
+    'test-loop': TestLoop
+}
+
+// Images that haven't been supplied yet show an intentional "coming soon"
+// banner instead of broken alt text; dropping the file in swaps it for the
+// real image with no code change.
+const MediaSlot = ({ src, alt, caption, className = '' }) => {
+    const [missing, setMissing] = useState(false)
+
+    if (missing) {
+        return (
+            <figure className={`case-study-figure ${className}`}>
+                <div className="case-study-banner" role="note">
+                    <span className="case-study-banner-icon" aria-hidden="true">◐</span>
+                    <div>
+                        <p className="case-study-banner-label">Visual coming soon</p>
+                        <p className="case-study-banner-text">{alt}</p>
+                    </div>
+                </div>
+                {caption && <figcaption className="image-caption">{caption}</figcaption>}
+            </figure>
+        )
+    }
+
+    return (
+        <figure className={`case-study-figure ${className}`}>
+            <img src={src} alt={alt} loading="lazy" className="case-study-image" onError={() => setMissing(true)} />
+            {caption && <figcaption className="image-caption">{caption}</figcaption>}
+        </figure>
+    )
+}
 
 // Public-folder path (not a static import) so dropping a real file in later
 // requires no code change, and a missing placeholder never breaks the build.
@@ -1057,18 +1105,16 @@ const ProjectDetail = () => {
             </header>
 
             {project.cover && (
-                <figure className="case-study-figure case-study-figure--cover">
-                    <img
-                        src={`${project.assetDir || DEFAULT_ASSET_DIR}/${project.cover.id}.png`}
-                        alt={project.cover.alt}
-                        loading="lazy"
-                        className="case-study-image"
-                    />
-                </figure>
+                <MediaSlot
+                    key={`${slug}-cover`}
+                    className="case-study-figure--cover"
+                    src={`${project.assetDir || DEFAULT_ASSET_DIR}/${project.cover.id}.png`}
+                    alt={project.cover.alt}
+                />
             )}
 
             {project.sections ? (
-                <div className="project-case-study">
+                <div className={`project-case-study${project.story ? ' is-story' : ''}`}>
                     {project.sections.map((section, index) => (
                         <div key={index} className={`case-study-section section-${section.type}`}>
                             {section.stageLabel && <p className="case-study-stage-label">{section.stageLabel}</p>}
@@ -1174,17 +1220,21 @@ const ProjectDetail = () => {
                                 </div>
                             )}
 
+                            {section.type === 'infographic' && infographics[section.name] && (
+                                <figure className="case-study-figure case-study-infographic">
+                                    {React.createElement(infographics[section.name])}
+                                    {section.caption && <figcaption className="image-caption">{section.caption}</figcaption>}
+                                </figure>
+                            )}
+
                             {section.type === 'image' && (
                                 section.id ? (
-                                    <figure className="case-study-figure">
-                                        <img
-                                            src={`${project.assetDir || DEFAULT_ASSET_DIR}/${section.id}.png`}
-                                            alt={section.alt}
-                                            loading="lazy"
-                                            className="case-study-image"
-                                        />
-                                        {section.caption && <figcaption className="image-caption">{section.caption}</figcaption>}
-                                    </figure>
+                                    <MediaSlot
+                                        key={`${slug}-${section.id}`}
+                                        src={`${project.assetDir || DEFAULT_ASSET_DIR}/${section.id}.png`}
+                                        alt={section.alt}
+                                        caption={section.caption}
+                                    />
                                 ) : (
                                     <div className="placeholder-image">
                                         <div className="image-box">{section.placeholder || 'Image Placeholder'}</div>

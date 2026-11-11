@@ -1,0 +1,908 @@
+/* Live Design Kit infographics. Everything derives from the site tokens in
+   index.css so the diagrams follow light/dark mode with the rest of the page. */
+
+.ldk {
+    --ldk-bad: #b3261e;
+    --ldk-tonal: color-mix(in srgb, var(--brand-color) 14%, var(--bg-color));
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-image: var(--pen-line) 12 / 12px / 6px stretch;
+}
+
+@media (prefers-color-scheme: dark) {
+    .ldk {
+        --ldk-bad: #f2b8b5;
+    }
+}
+
+/* Global p margins would break every compact label in here. */
+.ldk p {
+    margin: 0;
+    font-size: inherit;
+}
+
+.ldk-label {
+    font-size: 0.75rem !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+}
+
+.ldk-footnote {
+    font-size: 0.8rem !important;
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.ldk-check {
+    color: var(--brand-color);
+    font-weight: 700;
+}
+
+.ldk-badge {
+    align-self: flex-start;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--bg-color);
+    background-color: var(--brand-color);
+    padding: 0.2rem 0.55rem;
+}
+
+.ldk-arrow {
+    color: var(--text-secondary);
+    font-size: 1.25rem;
+    line-height: 1;
+    align-self: center;
+}
+
+.ldk-arrow--right::before { content: '→'; }
+.ldk-arrow--down::before { content: '↓'; }
+
+.ldk-merge {
+    display: flex;
+    justify-content: center;
+}
+
+/* Shared "chosen" treatment: the strong accent pen line. */
+.ldk .is-chosen {
+    border: 2px solid var(--brand-color);
+    border-image: var(--pen-line-accent) 12 / 12px / 6px stretch;
+}
+
+/* ---------- Fragments ---------- */
+
+.ldk-screens {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.ldk-screen-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.ldk-screen {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.9rem 0.75rem 1rem;
+    min-height: 150px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-image: var(--pen-line) 12 / 12px / 6px stretch;
+    color: var(--text-primary);
+}
+
+.ldk-screen-bar {
+    width: 40%;
+    height: 4px;
+    background-color: var(--border-color);
+}
+
+.ldk-screen-title {
+    font-weight: 700;
+    font-size: 0.95rem !important;
+    line-height: 1.2;
+}
+
+.ldk-screen-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem !important;
+    color: var(--text-secondary);
+}
+
+.ldk-screen-meta svg {
+    width: 14px;
+    height: 14px;
+}
+
+.ldk-screen-btn {
+    display: inline-block;
+    align-self: flex-start;
+    margin-top: auto;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Four improvised buttons — each one plausible alone, a mess together. */
+.ldk-btn--a {
+    padding: 0.5rem 0.9rem;
+    background-color: var(--text-primary);
+    color: var(--bg-color);
+    border-radius: 0;
+    font-family: Georgia, serif;
+}
+
+.ldk-btn--b {
+    padding: 0.3rem 0.6rem;
+    border: 1px solid var(--text-primary);
+    color: var(--text-primary);
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
+}
+
+.ldk-btn--c {
+    padding: 0.65rem 1.4rem;
+    background-color: var(--brand-color);
+    color: var(--bg-color);
+    border-radius: 999px;
+    font-size: 0.85rem;
+}
+
+.ldk-btn--d {
+    padding: 0.45rem 0.8rem;
+    background-color: #3a3a3a;
+    color: #5c5c5c;
+    border-radius: 14px;
+}
+
+.ldk-screen--a .ldk-screen-title { font-family: Georgia, serif; }
+.ldk-screen--b .ldk-screen-title { font-family: 'Courier New', monospace; font-weight: 400; }
+.ldk-screen--c { gap: 0.15rem; padding: 0.5rem; }
+.ldk-screen--c .ldk-screen-title { font-family: system-ui, sans-serif; font-size: 1.05rem !important; }
+
+.ldk-screen--d {
+    background-color: #222;
+    color: #555;
+}
+
+.ldk-screen--d .ldk-screen-meta { color: #4a4a4a; }
+.ldk-screen--d .ldk-screen-bar { background-color: #333; }
+
+.ldk-screen-label {
+    font-size: 0.8rem !important;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.ldk-screen-note {
+    font-size: 0.75rem !important;
+    line-height: 1.4;
+    color: var(--text-secondary);
+}
+
+.ldk-symptoms {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem 1.25rem;
+    padding: 0;
+}
+
+.ldk-symptom {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: var(--text-primary);
+}
+
+.ldk-x {
+    color: var(--ldk-bad);
+    font-weight: 700;
+}
+
+/* ---------- Languages ---------- */
+
+.ldk-grammars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.ldk-grammar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    padding: 1rem;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-image: var(--pen-line) 12 / 12px / 6px stretch;
+}
+
+.ldk-grammar-sample {
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.ldk-grammar-sample--material {
+    padding: 0.55rem 1.25rem;
+    border-radius: 999px;
+    background-color: var(--brand-color);
+    color: var(--bg-color);
+}
+
+.ldk-grammar-sample--swift {
+    padding: 0.6rem 1.4rem;
+    border-radius: 12px;
+    background-color: #0a84ff;
+    color: #fff;
+    font-family: -apple-system, system-ui, sans-serif;
+}
+
+.ldk-grammar-sample--shadcn {
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    background-color: var(--text-primary);
+    color: var(--bg-color);
+    font-family: system-ui, sans-serif;
+    font-weight: 500;
+}
+
+.ldk-grammar-name {
+    font-weight: 600;
+    font-size: 0.95rem !important;
+    color: var(--text-primary);
+}
+
+.ldk-grammar-note {
+    font-size: 0.8rem !important;
+    line-height: 1.4;
+    color: var(--text-secondary);
+}
+
+.ldk-result {
+    padding: 1rem 1.25rem;
+    border-left: 3px solid var(--ldk-bad);
+    background-color: var(--bg-color);
+}
+
+.ldk-result-title {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem !important;
+}
+
+.ldk-result-body {
+    font-size: 0.9rem !important;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
+/* ---------- Decision ---------- */
+
+.ldk-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.ldk-option {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.1rem;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-image: var(--pen-line) 12 / 12px / 6px stretch;
+}
+
+.ldk-option-name {
+    font-weight: 600;
+    font-size: 1rem !important;
+    line-height: 1.3;
+    color: var(--text-primary);
+}
+
+.ldk-option-scores {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin: 0;
+}
+
+.ldk-option-row dt {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-secondary);
+}
+
+.ldk-option-row dd {
+    margin: 0.15rem 0 0;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--text-primary);
+}
+
+.ldk-option-verdict {
+    margin-top: auto !important;
+    font-size: 0.85rem !important;
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.ldk-option.is-chosen .ldk-option-verdict {
+    color: var(--brand-color);
+    font-weight: 600;
+}
+
+.ldk-meter {
+    display: inline-flex;
+    gap: 3px;
+}
+
+.ldk-meter-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1.5px solid var(--text-secondary);
+}
+
+.ldk-meter-dot.is-on {
+    background-color: var(--text-primary);
+    border-color: var(--text-primary);
+}
+
+.ldk-option.is-chosen .ldk-meter-dot.is-on {
+    background-color: var(--brand-color);
+    border-color: var(--brand-color);
+}
+
+/* ---------- Pipeline & loop ---------- */
+
+.ldk-pipeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    padding: 0;
+    list-style: none;
+}
+
+.ldk-pipe-step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 1rem;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-image: var(--pen-line) 12 / 12px / 6px stretch;
+}
+
+.ldk-pipe-step + .ldk-pipe-step::before {
+    content: '→';
+    position: absolute;
+    left: -1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+}
+
+.ldk-pipe-step.is-focus {
+    border: 2px solid var(--brand-color);
+    border-image: var(--pen-line-accent) 12 / 12px / 6px stretch;
+}
+
+.ldk-pipe-num {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--brand-color);
+}
+
+.ldk-pipe-title {
+    font-weight: 600;
+    font-size: 0.95rem !important;
+    line-height: 1.3;
+    color: var(--text-primary);
+}
+
+.ldk-pipe-body {
+    font-size: 0.82rem !important;
+    line-height: 1.45;
+    color: var(--text-secondary);
+}
+
+.ldk-loop {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    gap: 0.75rem;
+    align-items: stretch;
+}
+
+.ldk-loop-node {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 1rem;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-image: var(--pen-line) 12 / 12px / 6px stretch;
+}
+
+.ldk-loop-node--question {
+    border-image-source: var(--pen-line-dashed);
+    border-image-repeat: round;
+    justify-content: center;
+}
+
+.ldk-branches {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.ldk-branch {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 0.9rem 1rem;
+    background-color: var(--bg-color);
+    border-left: 3px solid var(--text-secondary);
+}
+
+.ldk-branch--pass {
+    border-left-color: var(--brand-color);
+}
+
+.ldk-branch-tag {
+    font-weight: 700;
+    font-size: 0.9rem !important;
+    color: var(--text-primary);
+}
+
+.ldk-branch--pass .ldk-branch-tag {
+    color: var(--brand-color);
+}
+
+/* ---------- Color tuning ---------- */
+
+.ldk-tuning {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.ldk-tuning-row {
+    display: grid;
+    grid-template-columns: 9rem 1fr 13rem;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.75rem;
+    background-color: var(--bg-color);
+    border: 1px solid transparent;
+}
+
+.ldk-tuning-label {
+    font-weight: 600;
+    font-size: 0.9rem !important;
+    color: var(--text-primary);
+}
+
+.ldk-swatches {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    height: 2.25rem;
+}
+
+.ldk-tuning-verdict {
+    font-size: 0.85rem !important;
+    line-height: 1.4;
+    color: var(--text-secondary);
+}
+
+.ldk-tuning-row.is-chosen .ldk-tuning-verdict {
+    color: var(--text-primary);
+}
+
+/* ---------- Fonts ---------- */
+
+.ldk-font-retired {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 0.75rem;
+    padding: 0.75rem 1rem;
+    background-color: var(--bg-color);
+    border-left: 3px solid var(--ldk-bad);
+}
+
+.ldk-font-retired-name {
+    font-weight: 600;
+    text-decoration: line-through;
+    color: var(--text-primary);
+}
+
+.ldk-font-retired-why {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.ldk-fonts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.ldk-font {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1rem;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-image: var(--pen-line) 12 / 12px / 6px stretch;
+}
+
+.ldk-font-name {
+    font-size: 0.75rem !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+}
+
+.ldk-font-sample {
+    font-size: 1.25rem !important;
+    line-height: 1.5;
+    color: var(--text-primary);
+}
+
+.ldk-font-sample--latin {
+    font-size: 0.95rem !important;
+}
+
+.ldk-font-verdict {
+    margin-top: auto !important;
+    font-size: 0.82rem !important;
+    color: var(--text-secondary);
+}
+
+.ldk-font.is-chosen .ldk-font-verdict {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* ---------- Type system ---------- */
+
+.ldk-sans { font-family: 'Noto Sans', sans-serif; }
+.ldk-serif { font-family: 'Noto Serif', serif; }
+
+.ldk-families {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.ldk-family {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 1rem 1.25rem;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-image: var(--pen-line) 12 / 12px / 6px stretch;
+}
+
+.ldk-family-aa {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    color: var(--text-primary);
+}
+
+.ldk-family-name {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.ldk-family-role {
+    font-size: 0.85rem !important;
+    color: var(--brand-color);
+}
+
+.ldk-roles {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+.ldk-role {
+    display: grid;
+    grid-template-columns: 7rem 1fr;
+    gap: 1rem;
+    align-items: baseline;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border-color);
+    border-image: var(--pen-line) 12 / 0 0 12px 0 / 0 0 6px 0 stretch;
+}
+
+.ldk-role:last-child {
+    border-bottom: none;
+    border-image: none;
+}
+
+.ldk-role-name {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.ldk-role-font {
+    font-weight: 400;
+    font-size: 0.7rem;
+}
+
+.ldk-role-sample {
+    line-height: 1.3;
+    color: var(--text-primary);
+}
+
+/* ---------- Buttons ---------- */
+
+.ldk-btn-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.ldk-btn-row .ldk-screen-btn {
+    margin-top: 0;
+}
+
+.ldk-btn-family {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.ldk-btn-spec {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+}
+
+.ldk-m3-btn {
+    display: inline-flex;
+    align-items: center;
+    height: 40px;
+    padding: 0 1.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.ldk-m3-btn--filled {
+    background-color: var(--brand-color);
+    color: var(--bg-color);
+}
+
+.ldk-m3-btn--tonal {
+    background-color: var(--ldk-tonal);
+    color: var(--brand-color);
+}
+
+.ldk-m3-btn--outlined {
+    border: 1px solid var(--text-secondary);
+    color: var(--brand-color);
+}
+
+.ldk-m3-btn--text {
+    padding: 0 0.75rem;
+    color: var(--brand-color);
+}
+
+.ldk-btn-name {
+    font-weight: 600;
+    font-size: 0.9rem !important;
+    color: var(--text-primary);
+}
+
+.ldk-btn-role {
+    font-size: 0.8rem !important;
+    color: var(--text-secondary);
+}
+
+/* ---------- Icons ---------- */
+
+.ldk-symbol {
+    font-family: 'Material Symbols Rounded';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 28px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    white-space: nowrap;
+    direction: ltr;
+    font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    font-variation-settings: 'wght' 300;
+    color: var(--text-primary);
+}
+
+.ldk-weights {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.ldk-weight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 1rem 0.5rem;
+    background-color: var(--bg-color);
+    border: 1px solid transparent;
+}
+
+.ldk-weight .ldk-symbol {
+    font-size: 40px;
+}
+
+.ldk-weight-num {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.ldk-weight.is-chosen .ldk-weight-num {
+    color: var(--brand-color);
+}
+
+.ldk-icon-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 0.75rem;
+    padding: 0;
+}
+
+.ldk-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.ldk-icon-name {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+}
+
+/* ---------- Spacing ---------- */
+
+.ldk-spacing {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding-top: 0.5rem;
+}
+
+.ldk-space {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.ldk-space-bar {
+    width: 100%;
+    max-width: 48px;
+    background-color: var(--ldk-tonal);
+    border-top: 2px solid var(--brand-color);
+}
+
+.ldk-space-px {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.ldk-space-mult {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 700px) {
+    .ldk {
+        padding: 1rem;
+    }
+
+    .ldk-screens,
+    .ldk-btn-family,
+    .ldk-weights {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ldk-icon-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .ldk-grammars,
+    .ldk-options,
+    .ldk-fonts,
+    .ldk-symptoms {
+        grid-template-columns: 1fr;
+    }
+
+    .ldk-pipeline {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+    }
+
+    .ldk-pipe-step + .ldk-pipe-step::before {
+        content: '↓';
+        left: 50%;
+        top: -1.45rem;
+        transform: translateX(-50%);
+    }
+
+    .ldk-loop {
+        grid-template-columns: 1fr;
+    }
+
+    .ldk-loop {
+        gap: 0.5rem;
+    }
+
+    .ldk-loop .ldk-arrow {
+        justify-self: center;
+    }
+
+    .ldk-loop .ldk-arrow::before {
+        content: '↓';
+    }
+
+    .ldk-tuning-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .ldk-families,
+    .ldk-branches {
+        grid-template-columns: 1fr;
+    }
+
+    .ldk-role {
+        grid-template-columns: 5rem 1fr;
+    }
+}
