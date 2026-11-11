@@ -362,8 +362,8 @@ const projectData = {
     },
     'live-design-kit': {
         title: 'Live Design Kit',
-        eyebrow: 'UI/UX Design · Case Study',
-        thesis: 'Rebuilding a fragmented Flutter app into one accessible, scalable design language — worked through the five stages of design thinking.',
+        eyebrow: 'Design System · A story in five chapters',
+        thesis: 'Live MCQ had grown into an app that felt like several apps. This is how it learned to speak one language again — told through the five stages of design thinking.',
         // TODO: confirm exact role title
         role: 'Design System Owner · UI/UX & Product Designer',
         meta: [
@@ -372,53 +372,70 @@ const projectData = {
             { label: 'Tools', value: 'Figma · Material Theme Builder' }
             // TODO: add a Timeline entry here if you want one, e.g. { label: 'Timeline', value: '...' }
         ],
-        // TODO: replace image — cover (drop file at public/case-studies/live-mcq/cover.png)
-        cover: { id: 'cover', alt: 'Live MCQ design system cover.' },
+        // Renders a "coming soon" banner until public/case-studies/live-mcq/cover.png exists.
+        cover: { id: 'cover', alt: 'Cover shot of the Live Design Kit — the hero image for this story.' },
+        story: true,
         sections: [
             {
-                type: 'section',
-                stageLabel: '01 · Empathize',
-                eyebrow: 'Understand the people, not just the pixels',
-                title: 'An app that felt like several apps',
+                type: 'intro',
+                stageLabel: 'Prologue',
                 content: [
-                    'I started by listening — to the people using the product and the people building it. Both were frustrated for the same underlying reason, even if they described it differently.'
+                    'Tap through a few screens of the old Live MCQ and nothing looked broken. But something felt off. A button was a pill on one screen and a hard-edged rectangle on the next. Headlines switched typefaces. Icons looked like they came from different apps — because they did. Switch to dark mode, and some of the text simply faded into the background.',
+                    'Nobody set out to build it that way. It happened one feature at a time. This is the story of how we noticed, why it kept happening, and how one design kit gave the whole team a single language to speak.'
+                ]
+            },
+            {
+                type: 'section',
+                stageLabel: 'Chapter 1 · Empathize',
+                title: 'Two sides of the same frustration',
+                content: [
+                    'I didn’t start in Figma. I started by listening — to the students using the app, and to the designers and developers building it. They described very different pain. But when I lined their words up side by side, they were describing the same thing.'
                 ]
             },
             {
                 type: 'quotes',
                 quotes: [
-                    { label: 'End users', quote: 'Every screen looks a little different — is this even the same app? And in dark mode it’s hard to read.' },
-                    { label: 'Designers & developers', quote: 'We rebuild the same button from scratch every feature, and we don’t even call things by the same names.' }
+                    { label: 'Students using the app', quote: 'Every screen looks a little different — is this even the same app? And in dark mode it’s hard to read.' },
+                    { label: 'Designers & developers building it', quote: 'We rebuild the same button from scratch every feature, and we don’t even call things by the same names.' }
                 ]
             },
             {
                 type: 'text',
                 content: [
-                    'Designers created new components for every feature; developers re-implemented them from scratch too. With no style guide and no shared vocabulary, buttons changed shape and size screen to screen, spacing was ad-hoc, typography mixed multiple font families, and icons came from different libraries. Accessibility had been skipped: color contrast didn’t meet standards, and dark mode suffered from inconsistent, ill-suited colors. Even identical components often carried different corner radii.'
+                    'Behind those quotes was a pattern. Every new feature got new components — designed from scratch by a designer, then rebuilt from scratch by a developer. With no style guide and no shared vocabulary, each person made their own reasonable choices. The app had become the sum of everyone’s reasonable choices.',
+                    'So I audited it. Screen by screen, component by component, I collected every version of everything.'
                 ]
             },
             {
-                // TODO: replace image — empathize-old-screens
-                type: 'image',
-                id: 'empathize-old-screens',
-                alt: 'Old Live MCQ screens showing inconsistent styling across the app.',
-                caption: 'The audit: every screen its own snowflake.'
+                type: 'infographic',
+                name: 'fragments',
+                caption: 'Reconstructed from the audit to show the pattern. Every “Start exam” was somebody’s reasonable choice.'
             },
             {
-                // TODO: replace image — empathize-audit (optional)
-                type: 'image',
-                id: 'empathize-audit',
-                alt: 'Audit of inconsistent components across the app.'
+                type: 'text',
+                content: [
+                    'The quietest finding was the most serious. Accessibility had fallen through the cracks: color contrast didn’t meet standards, and dark mode had been assembled from colors that were never meant for it.'
+                ]
             },
             {
                 type: 'section',
-                stageLabel: '02 · Define',
-                eyebrow: 'Synthesize into one clear problem',
-                title: 'Naming the root cause, not the symptoms',
+                stageLabel: 'Chapter 2 · Define',
+                title: 'The problem wasn’t a screen. It was the missing system.',
                 content: [
-                    'Auditing the back catalogue turned scattered complaints into a single diagnosis. Fixing individual screens would never hold — the cause was structural.',
-                    'There was no proper design kit; almost every element had been drawn by hand. A very basic system technically existed, but it was never updated, never consistently followed, and shipped with no implementation guidelines for developers. Because designers invented patterns on demand and several developers worked with no shared standard, each person produced their own version of everything.',
-                    'The deeper cause lived in the stack. Flutter’s widgets are grounded in Material Design, yet our UI borrowed from several languages at once — some screens felt like SwiftUI, others like shadcn/ui. Each system carries its own grammar; mixing them made everything slower and impossible to keep consistent. The problem wasn’t a screen — it was the absence of a system.'
+                    'With the audit laid out, the scattered complaints collapsed into one diagnosis. Fixing screens one at a time would never hold — the next feature would simply bring the mess back.',
+                    'Technically, a basic design system already existed. But it was never updated, never consistently followed, and never came with implementation guidelines for developers. So designers invented patterns on demand, several developers worked without a shared standard, and everyone shipped their own version of everything.',
+                    'Then I found the deeper cause, hiding in the stack itself.'
+                ]
+            },
+            {
+                type: 'infographic',
+                name: 'languages',
+                caption: 'Flutter’s widgets are grounded in Material. Our screens were borrowing from three design languages at once.'
+            },
+            {
+                type: 'text',
+                content: [
+                    'Some screens felt like SwiftUI, others like shadcn/ui, others like Material. Each of those systems carries its own grammar. Mixing them made everything slower to build and impossible to keep consistent. The problem wasn’t any one screen — it was the absence of a system.'
                 ]
             },
             {
@@ -427,137 +444,160 @@ const projectData = {
             },
             {
                 type: 'section',
-                stageLabel: '03 · Ideate',
-                eyebrow: 'Explore the paths, then commit',
-                title: 'Three ways forward, weighed honestly',
+                stageLabel: 'Chapter 3 · Ideate',
+                title: 'Three roads out',
                 content: [
-                    'A system is only as good as its ability to survive real teams and timelines. I judged each option against flexibility, speed, and long-term sustainability.'
+                    'There was more than one way out, and each looked appealing from a distance. But a system is only as good as its ability to survive real teams and real deadlines. So I put every road through the same three questions: how flexible is it, how fast can we stand it up, and will it still be standing in a few years?'
                 ]
             },
             {
-                type: 'cards',
-                cards: [
-                    { title: 'Build a fully custom system', body: 'Maximum flexibility with custom-coded Flutter widgets, but heavy research, long build time, and permanent maintenance.', tag: 'Too costly to sustain' },
-                    { title: 'Adopt a third-party system', body: 'Fastest to stand up with an existing library, but ties us to an external service that could change or shut down anytime.', tag: 'Fragile dependency' },
-                    { title: 'Build on Material Design', body: 'Mature, first-class in Flutter, and deeply customizable; a proven base to extend into our brand without reinventing or renting it.', tag: 'Practical & ownable', chosen: true }
-                ]
-            },
-            {
-                type: 'section',
-                stageLabel: '04 · Prototype',
-                eyebrow: 'Make the system real',
-                title: 'A customized Material system, built to be used',
-                content: [
-                    'I generated a base theme with Material Theme Builder, then customized it extensively — treating Material as a foundation to extend, not a template to accept — and built a demo Flutter app to prototype it in a real product.'
-                ]
-            },
-            {
-                type: 'cards',
-                cards: [
-                    { title: 'Color — A brand-tuned palette', body: 'Material’s defaults felt too muted, so I re-tuned the tonal values. Our brand colors were highly saturated — great for a logo, hard on a UI — so I refined them to keep the personality while staying comfortable and accessible in light and dark.' },
-                    { title: 'Type — Noto Sans + Noto Serif', body: 'A global family with strong multilingual support: Noto Serif for body, Noto Sans for headings and UI. I reworked Material’s type scale to match our identity.' },
-                    { title: 'Foundations — Spacing, scale & components', body: 'A consistent spacing system, standardized reusable components, and Material Symbols (Rounded, weight 300), chosen because the rounded terminals matched our style.' }
-                ]
-            },
-            {
-                // TODO: replace image — prototype-color-palette
-                type: 'image',
-                id: 'prototype-color-palette',
-                alt: 'Live MCQ color palette and tonal ramps.',
-                caption: 'Brand-tuned tonal palette, accessible in light and dark.'
-            },
-            {
-                // TODO: replace image — prototype-typography (text-style specimen, to be supplied as an image)
-                type: 'image',
-                id: 'prototype-typography',
-                alt: 'Typography system — Noto Sans and Noto Serif text styles.',
-                caption: 'The type scale and text styles.'
-            },
-            {
-                // TODO: replace image — prototype-buttons (button designs, to be supplied as an image)
-                type: 'image',
-                id: 'prototype-buttons',
-                alt: 'Button family — primary, tonal, outline, and text variants.',
-                caption: 'One button family replacing four improvised ones.'
-            },
-            {
-                // TODO: replace image — prototype-components (optional)
-                type: 'image',
-                id: 'prototype-components',
-                alt: 'Before-and-after of standardized components.'
-            },
-            {
-                // TODO: replace image — prototype-icons (optional)
-                type: 'image',
-                id: 'prototype-icons',
-                alt: 'Material Symbols Rounded icon set.'
-            },
-            {
-                // TODO: replace image — prototype-spacing (optional)
-                type: 'image',
-                id: 'prototype-spacing',
-                alt: '4px-based spacing scale.'
+                type: 'infographic',
+                name: 'decision',
+                caption: 'Each road, scored against the same three questions.'
             },
             {
                 type: 'text',
                 content: [
-                    'We previously paired Kalpurush (Bangla) with Inter (English), but Kalpurush lacked multilingual and symbol support — a structural weakness for a bilingual product. I evaluated three candidates against real content: **Balooda**, **Anek Bangla**, and **Noto Sans**. Noto Sans won on stability and language support.'
+                    'Material didn’t win because it was the easiest road. It won because it was the one we could own. It was already native to Flutter, mature enough to trust, and customizable enough to become ours — **a foundation to extend, not a template to accept.**'
                 ]
-            },
-            {
-                // TODO: replace image — prototype-font-eval (optional)
-                type: 'image',
-                id: 'prototype-font-eval',
-                alt: 'Font evaluation: Balooda, Anek Bangla, Noto Sans.'
             },
             {
                 type: 'section',
-                stageLabel: '05 · Test',
-                eyebrow: 'Validate, refine, repeat',
-                title: 'Testing the system against real use',
+                stageLabel: 'Chapter 4 · Prototype',
+                title: 'Making Material sound like us',
                 content: [
-                    'Design thinking loops here — testing fed straight back into prototyping. I validated the system in a working product and refined it every time reality disagreed with the theory.'
+                    'I generated a base theme with Material Theme Builder. That was the easy part. The real work was bending it, piece by piece, until it sounded like Live MCQ — and then proving it inside a real app.'
                 ]
             },
             {
-                type: 'cards',
-                cards: [
-                    { title: 'Validate in a real build — A demo Flutter app', body: 'I implemented the system in a demo Flutter application to prove it survived real code, not just looked right in a design file. Components had to work in context, not in isolation.' },
-                    { title: 'Refine on failure — Tune until it behaves', body: 'Whenever a component failed a usability or visual test because of color, I looped back and adjusted the palette — re-tuning tonal values until every component passed, in both light and dark.' }
+                type: 'infographic',
+                name: 'pipeline',
+                caption: 'From Material’s defaults to a kit that’s ours. Most of the story happens in step three.'
+            },
+            {
+                type: 'subsection',
+                title: 'Color: between too quiet and too loud',
+                content: [
+                    'Material’s default tones felt muted — safe, but characterless. Our brand colors sat at the opposite extreme: highly saturated, perfect on a logo, exhausting across a whole screen. I re-tuned the tonal values to land between the two, keeping the personality and losing the glare — while staying accessible in both light and dark.'
                 ]
             },
             {
-                // TODO: replace image — test-demo-app
+                type: 'infographic',
+                name: 'color-tuning'
+            },
+            {
+                // Renders a "coming soon" banner until prototype-color-palette.png exists.
+                type: 'image',
+                id: 'prototype-color-palette',
+                alt: 'The production Live MCQ palette and tonal ramps, in light and dark.',
+                caption: 'The production palette, accessible in light and dark.'
+            },
+            {
+                type: 'subsection',
+                title: 'Type: a family that speaks both languages',
+                content: [
+                    'Live MCQ is bilingual, so type wasn’t decoration — it was infrastructure. We had been pairing Kalpurush for Bangla with Inter for English, but Kalpurush lacked multilingual and symbol support: a structural weakness for a product that lives in two scripts. I put three candidates in front of real content — **Balooda**, **Anek Bangla**, and **Noto Sans**.'
+                ]
+            },
+            {
+                type: 'infographic',
+                name: 'font-eval',
+                caption: 'The font trial: same exam copy, three candidates.'
+            },
+            {
+                type: 'text',
+                content: [
+                    'Noto won on stability and language support, and that decision shaped the whole type system: Noto Sans for headings and UI, Noto Serif for long-form reading, on a type scale reworked from Material’s defaults to match our identity.'
+                ]
+            },
+            {
+                type: 'infographic',
+                name: 'type-system'
+            },
+            {
+                type: 'subsection',
+                title: 'Components, icons, and the space between',
+                content: [
+                    'With color and type settled, the rest of the kit followed: standardized, reusable components that are designed once and used everywhere. The button family was the first proof — four improvised buttons became one family with four clear roles.'
+                ]
+            },
+            {
+                type: 'infographic',
+                name: 'buttons',
+                caption: 'Rendered in code to show the structure; production colors come from the tuned palette.'
+            },
+            {
+                type: 'text',
+                content: [
+                    'For icons, one library instead of several: Material Symbols Rounded at weight 300, chosen because its rounded terminals matched our style.'
+                ]
+            },
+            {
+                type: 'infographic',
+                name: 'icons'
+            },
+            {
+                type: 'text',
+                content: [
+                    'And underneath everything, a consistent spacing system built on a 4px base — so layouts stop being negotiated screen by screen.'
+                ]
+            },
+            {
+                type: 'infographic',
+                name: 'spacing'
+            },
+            {
+                type: 'section',
+                stageLabel: 'Chapter 5 · Test',
+                title: 'If it only works in Figma, it doesn’t work',
+                content: [
+                    'A design system that lives only in a design file isn’t a system yet. So I built a demo Flutter app and implemented the kit inside it. Components had to hold up in context, next to each other, in real code — not just look right in isolation.',
+                    'This is where design thinking stops being a line and becomes a loop. Whenever a component failed a usability or visual check because of color, I went back to the palette, re-tuned the tonal values, and ran it again — in light and in dark — until every component passed.'
+                ]
+            },
+            {
+                type: 'infographic',
+                name: 'test-loop',
+                caption: 'The loop every component went through before it entered the kit.'
+            },
+            {
+                // Renders a "coming soon" banner until test-demo-app.png exists.
                 type: 'image',
                 id: 'test-demo-app',
-                alt: 'Demo Flutter app built with the new design system, light and dark.',
+                alt: 'Screens from the demo Flutter app built with the new design system, in light and dark.',
                 caption: 'The system, proven in a real build.'
+            },
+            {
+                type: 'section',
+                title: 'What changed',
+                content: [
+                    'The biggest shift wasn’t visual. It was that design and engineering finally meant the same thing when they said the same word.'
+                ]
+            },
+            {
+                type: 'compare',
+                rows: [
+                    { before: 'The same button was rebuilt for every feature — once in Figma, again in code.', after: 'Standardized, reusable components that both sides pick up instead of reinventing.' },
+                    { before: 'The same color or component could carry two different names.', after: 'Shared tokens, naming, and documentation — one name, understood on both sides of the handoff.' },
+                    { before: 'Contrast fell below standards; dark mode was an afterthought.', after: 'Contrast meets accessibility standards, and dark mode is coherent by design.' },
+                    { before: 'A basic system that nobody updated or followed.', after: 'A living kit with a clear process to identify, discuss, and resolve issues as they surface.' }
+                ]
             },
             {
                 type: 'stats',
                 stats: [
                     { value: '1', label: 'Unified system replacing many improvised ones' },
-                    { value: '3', label: 'Typefaces evaluated for multilingual support' },
-                    { value: '2', label: 'Themes: light & dark, both accessible' },
+                    { value: '3', label: 'Typefaces trialled for multilingual support' },
+                    { value: '2', label: 'Themes — light & dark, both accessible' },
                     { value: '1', label: 'Shared vocabulary across design & dev' }
                 ]
             },
             {
-                type: 'text',
-                list: [
-                    'Design and engineering now share one language, so handoff moves faster and means the same thing on both sides.',
-                    'Standardized design tokens, naming, and documentation closed the old gap where the same color or component had two names.',
-                    'Color contrast now meets accessibility standards, and dark mode is coherent rather than an afterthought.',
-                    'The system is sustainable and still evolving, with a clear process to identify, discuss, and resolve issues as they surface.'
-                ]
-            },
-            {
                 type: 'section',
-                stageLabel: '↻ · Iterate',
-                eyebrow: 'The loop keeps turning',
-                title: 'What the process taught me',
+                stageLabel: 'Epilogue · Iterate',
+                title: 'The loop keeps turning',
                 content: [
-                    'Design thinking never really ends — the system keeps evolving as new needs surface. Here’s what I carried out of it.'
+                    'The kit isn’t finished, and that’s the point. It keeps evolving as new needs surface. Here’s what I carried out of it.'
                 ]
             },
             {
