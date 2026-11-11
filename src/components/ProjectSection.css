@@ -25,31 +25,15 @@
     transition: background-color 0.2s ease;
     border-radius: 0;
     position: relative;
+    border: 1.5px solid var(--border-color);
+    border-image: var(--pen-line) 12 / 12px / 6px stretch;
     background-color: var(--bg-color);
-}
-
-/* Hand-drawn pen outline: four slightly bowed strokes that overshoot at the
-   corners, like a box sketched on paper. The SVG is a mask, so the line
-   color comes from background-color; non-scaling-stroke keeps the line
-   weight even when the SVG stretches to the card's shape. */
-.project-card::before {
-    content: '';
-    position: absolute;
-    inset: -6px;
-    pointer-events: none;
-    background-color: var(--border-color);
-    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%23000' stroke-width='1.6' stroke-linecap='round' vector-effect='non-scaling-stroke'%3E%3Cpath vector-effect='non-scaling-stroke' d='M1 3.6C30 2.7 65 4.3 99 2.9'/%3E%3Cpath vector-effect='non-scaling-stroke' d='M97.7 1C98.5 35 97.3 70 98.3 99'/%3E%3Cpath vector-effect='non-scaling-stroke' d='M99.2 96.7C70 97.7 35 96.1 1.4 97.3'/%3E%3Cpath vector-effect='non-scaling-stroke' d='M2.5 99.2C1.8 65 3 30 2.2 1.2'/%3E%3C/g%3E%3C/svg%3E") center / 100% 100% no-repeat;
-    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%23000' stroke-width='1.6' stroke-linecap='round' vector-effect='non-scaling-stroke'%3E%3Cpath vector-effect='non-scaling-stroke' d='M1 3.6C30 2.7 65 4.3 99 2.9'/%3E%3Cpath vector-effect='non-scaling-stroke' d='M97.7 1C98.5 35 97.3 70 98.3 99'/%3E%3Cpath vector-effect='non-scaling-stroke' d='M99.2 96.7C70 97.7 35 96.1 1.4 97.3'/%3E%3Cpath vector-effect='non-scaling-stroke' d='M2.5 99.2C1.8 65 3 30 2.2 1.2'/%3E%3C/g%3E%3C/svg%3E") center / 100% 100% no-repeat;
-    transition: background-color 0.2s ease;
 }
 
 .project-card:hover {
     background-color: #f7f7f7;
+    border-image-source: var(--pen-line-strong);
     cursor: pointer;
-}
-
-.project-card:hover::before {
-    background-color: var(--text-primary);
 }
 
 @media (prefers-color-scheme: dark) {

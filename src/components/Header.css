@@ -11,6 +11,7 @@
     padding: 1.5rem max(var(--container-padding), calc((100% - var(--max-width)) / 2 + var(--container-padding)));
     background-color: var(--bg-color);
     border-bottom: 1px solid var(--border-color);
+    border-image: var(--pen-line) 12 / 0 0 12px 0 / 0 0 6px 0 stretch;
 }
 
 .logo a {

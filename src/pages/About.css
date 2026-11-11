@@ -71,6 +71,7 @@
 .btn-outlined {
     background-color: transparent;
     border-color: var(--text-primary);
+    border-image: var(--pen-line-strong) 12 / 12px / 6px stretch;
     color: var(--text-primary);
 }
 
@@ -121,6 +122,7 @@
 .about-stat {
     padding: 1.25rem;
     border: 1.5px solid var(--border-color);
+    border-image: var(--pen-line) 12 / 12px / 6px stretch;
 }
 
 .about-stat-value {
@@ -202,6 +204,7 @@
     padding: 0.75rem;
     transition: var(--transition);
     border: 1.5px solid var(--border-color);
+    border-image: var(--pen-line) 12 / 12px / 6px stretch;
     text-decoration: none;
 }
 
@@ -216,6 +219,7 @@
 .company-logo:hover {
     background-color: var(--card-bg);
     border-color: var(--text-primary);
+    border-image-source: var(--pen-line-strong);
     opacity: 1;
 }
 
@@ -287,6 +291,7 @@
     overflow: hidden;
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
+    border-image: var(--pen-line) 12 / 12px / 6px stretch;
 }
 
 .author-avatar img {

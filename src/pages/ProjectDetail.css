@@ -10,6 +10,7 @@
     width: 2.5rem;
     height: 2.5rem;
     border: 1px solid var(--border-color);
+    border-image: var(--pen-line) 12 / 12px / 6px stretch;
     border-radius: 0;
     color: var(--text-secondary);
     text-decoration: none;
@@ -81,6 +82,7 @@
     margin-top: 1.5rem;
     padding-top: 1.5rem;
     border-top: 1px solid var(--border-color);
+    border-image: var(--pen-line) 12 / 12px 0 0 0 / 6px 0 0 0 stretch;
     list-style: none;
     padding-left: 0;
 }
@@ -142,6 +144,7 @@
     aspect-ratio: 16/9;
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
+    border-image: var(--pen-line) 12 / 12px / 6px stretch;
     border-radius: 0;
     display: flex;
     flex-direction: column;
@@ -256,6 +259,7 @@
     display: block;
     border-radius: 0;
     border: 1px solid var(--border-color);
+    border-image: var(--pen-line) 12 / 12px / 6px stretch;
     background-color: var(--card-bg);
 }
 
@@ -280,6 +284,7 @@
     padding: 1.5rem;
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
+    border-image: var(--pen-line) 12 / 12px / 6px stretch;
     border-radius: 0;
 }
 
@@ -302,6 +307,7 @@
     padding: 1.5rem 1.75rem;
     background-color: var(--card-bg);
     border-left: 3px solid var(--accent-color, #646cff);
+    border-image: var(--pen-line-accent) 12 / 0 0 0 12px / 0 0 0 6px stretch;
     border-radius: 0;
 }
 
@@ -333,6 +339,7 @@
     color: var(--pill-text);
     background-color: var(--pill-bg);
     border: 1px solid var(--border-color);
+    border-image: var(--pen-line) 12 / 12px / 6px stretch;
     padding: 0.4rem 0.9rem;
     border-radius: 0;
 }
@@ -357,8 +364,10 @@
 /* Before / after comparison table */
 .case-study-compare {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     border: 1px solid var(--border-color);
+    border-image: var(--pen-line) 12 / 12px / 6px stretch;
     border-radius: 0;
     overflow: hidden;
 }
@@ -371,6 +380,7 @@
     line-height: 1.5;
     vertical-align: top;
     border-bottom: 1px solid var(--border-color);
+    border-image: var(--pen-line) 12 / 0 0 12px 0 / 0 0 6px 0 stretch;
 }
 
 .case-study-compare th {
@@ -388,11 +398,13 @@
 
 .case-study-compare tr:last-child td {
     border-bottom: none;
+    border-image: none;
 }
 
 /* Content awaiting real data */
 .case-study-pending {
     border: 1px dashed var(--border-color);
+    border-image: var(--pen-line-dashed) 12 / 12px / 6px round;
     border-radius: 0;
     padding: 1.25rem 1.5rem;
 }
@@ -426,6 +438,7 @@
     padding: 1.5rem;
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
+    border-image: var(--pen-line) 12 / 12px / 6px stretch;
     border-radius: 0;
     display: flex;
     flex-direction: column;
@@ -434,6 +447,7 @@
 
 .case-study-card.is-chosen {
     border-color: var(--text-primary);
+    border-image-source: var(--pen-line-strong);
 }
 
 .case-study-card-badge {
@@ -445,6 +459,7 @@
     color: var(--pill-active-text);
     background-color: var(--pill-active-bg);
     border: 1px solid var(--border-color);
+    border-image: var(--pen-line) 12 / 12px / 6px stretch;
     padding: 0.2rem 0.6rem;
     border-radius: 0;
 }
@@ -515,14 +530,17 @@
 
     .case-study-compare tr {
         border-bottom: 1px solid var(--border-color);
+        border-image: var(--pen-line) 12 / 0 0 12px 0 / 0 0 6px 0 stretch;
     }
 
     .case-study-compare tr:last-child {
         border-bottom: none;
+        border-image: none;
     }
 
     .case-study-compare td {
         border-bottom: none;
+        border-image: none;
         padding: 0.6rem 1.1rem;
     }
 
