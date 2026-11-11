@@ -12,6 +12,10 @@
   --pill-text: #666666;
   --pill-active-text: #000000;
 
+  /* Brand — matches the logo mark (favicon_light.svg / favicon_dark.svg) */
+  --brand-color: #003434;
+  --accent-color: var(--brand-color);
+
   --max-width: 720px;
   --container-padding: 2rem;
 
@@ -30,6 +34,8 @@
     --pill-active-bg: #333333;
     --pill-text: #a1a1a1;
     --pill-active-text: #ffffff;
+
+    --brand-color: #00d095;
   }
 }
 
