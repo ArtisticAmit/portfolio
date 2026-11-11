@@ -56,11 +56,11 @@
     right: 1rem;
     bottom: -2px;
     height: 7px;
-    /* Hand-drawn pen stroke: an uneven, tapered, slightly rising shape used
+    /* Hand-drawn pen stroke: an uneven, tapered, level shape used
        as a mask so it takes the brand color in both themes */
     background-color: var(--brand-color);
-    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10' preserveAspectRatio='none'%3E%3Cpath d='M1.2 6.6C14 5.4 30 5.6 48 4.9S82 3.5 98.6 3.1C99.6 3.2 99.7 4.3 98.8 4.7C86 5.6 70 6 52 6.8S18 8.3 2.4 8.6C0.6 8.6 0.3 6.9 1.2 6.6Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
-    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10' preserveAspectRatio='none'%3E%3Cpath d='M1.2 6.6C14 5.4 30 5.6 48 4.9S82 3.5 98.6 3.1C99.6 3.2 99.7 4.3 98.8 4.7C86 5.6 70 6 52 6.8S18 8.3 2.4 8.6C0.6 8.6 0.3 6.9 1.2 6.6Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10' preserveAspectRatio='none'%3E%3Cpath d='M1.2 3.6C14 3.3 30 4.1 48 3.9S82 4.3 98.6 4.4C99.6 4.5 99.7 5.4 98.8 5.6C86 5.8 70 5.9 52 6.1S18 6.4 2.4 6.5C0.6 6.5 0.3 3.8 1.2 3.6Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10' preserveAspectRatio='none'%3E%3Cpath d='M1.2 3.6C14 3.3 30 4.1 48 3.9S82 4.3 98.6 4.4C99.6 4.5 99.7 5.4 98.8 5.6C86 5.8 70 5.9 52 6.1S18 6.4 2.4 6.5C0.6 6.5 0.3 3.8 1.2 3.6Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
     animation: pen-stroke 0.45s cubic-bezier(0.65, 0, 0.35, 1) both;
 }
 
