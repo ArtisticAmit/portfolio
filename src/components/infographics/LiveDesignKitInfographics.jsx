@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import './LiveDesignKitInfographics.css'
 
 // Coded infographics for the Live Design Kit story. They stand in for
@@ -10,6 +10,9 @@ import './LiveDesignKitInfographics.css'
 const TYPE_FONTS = 'https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;600&family=Baloo+Da+2:wght@400;600&family=Noto+Sans:wght@400;600&family=Noto+Sans+Bengali:wght@400;600&family=Noto+Serif:wght@400;600&display=swap'
 // icon_names keeps the variable icon font down to the handful of glyphs shown.
 const SYMBOL_FONT = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=bookmark,check_circle,emoji_events,leaderboard,menu_book,quiz,school,timer&display=block'
+// The two styles Rounded was compared against, pinned to weight 300 and
+// trimmed to the glyphs shown so the comparison costs a few KB.
+const SYMBOL_STYLE_FONT = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@300&family=Material+Symbols+Sharp:wght@300&icon_names=quiz,timer&display=block'
 
 const loadedSheets = new Set()
 const useStylesheet = (href) => {
@@ -198,12 +201,13 @@ export const Pipeline = () => (
     </div>
 )
 
-// Concept only: the hue is simplified so the diagram explains the decision
-// (saturation) without pretending to be the production palette.
+// Illustrative ramps drawn on the real hues: the production primary (1441CC
+// sits at ~226°) and the first draft's raw brand blue (3333FF, 240°). The
+// exact production values live in PaletteEvolution below.
 const TUNING_ROWS = [
-    { label: 'Material defaults', saturation: 16, verdict: 'Too muted — safe, but characterless' },
-    { label: 'Tuned for Live MCQ', saturation: 58, verdict: 'Personality without the glare', chosen: true },
-    { label: 'Raw brand colors', saturation: 100, verdict: 'Great on a logo, hard on a whole UI' }
+    { label: 'Material defaults', hue: 226, saturation: 16, verdict: 'Too muted — safe, but characterless' },
+    { label: 'Tuned for Live MCQ', hue: 226, saturation: 75, verdict: 'Personality without the glare', chosen: true },
+    { label: 'Raw brand colors', hue: 240, saturation: 100, verdict: 'Great on a logo, hard on a whole UI' }
 ]
 const TONES = [92, 78, 60, 42, 26]
 
@@ -215,16 +219,347 @@ export const ColorTuning = () => (
                     <p className="ldk-tuning-label">{row.label}</p>
                     <div className="ldk-swatches" aria-hidden="true">
                         {TONES.map((lightness) => (
-                            <span key={lightness} className="ldk-swatch" style={{ background: `hsl(168 ${row.saturation}% ${lightness}%)` }} />
+                            <span key={lightness} className="ldk-swatch" style={{ background: `hsl(${row.hue} ${row.saturation}% ${lightness}%)` }} />
                         ))}
                     </div>
                     <p className="ldk-tuning-verdict">{row.chosen && <span className="ldk-check" aria-hidden="true">✓ </span>}{row.verdict}</p>
                 </div>
             ))}
         </div>
-        <p className="ldk-footnote">Concept diagram with a simplified hue. Every tuned pairing also had to stay accessible in light and dark.</p>
+        <p className="ldk-footnote">Illustrative tone ramps on the production primary hue. Every tuned pairing also had to stay accessible in light and dark.</p>
     </div>
 )
+
+// Exact values from the kit's Figma token tables, as [light, dark].
+const DRAFT_TOKENS = [
+    ['Primary', '3333FF', '5C5CFF'],
+    ['Secondary', 'FF6600', 'FF7A1A'],
+    ['On Primary', 'F5F5FF', 'F5F5FF'],
+    ['On Secondary', 'FFF3EB', '3D332C'],
+    ['Primary Text', '4B4B4B', 'D1D2D3'],
+    ['Secondary Text', 'ADACAC', '8F8D8D'],
+    ['Primary Text Active', '292A2F', 'FAFAFA'],
+    ['Secondary Text Active', '4B4B4B', 'ADACAC'],
+    ['Primary Background', 'EDF0F5', '121318'],
+    ['On Primary Background', 'DADCE0', '434759'],
+    ['Secondary Background', 'FAFAFA', '292A2F'],
+    ['On Secondary Background', 'E6E6E6', '474952'],
+    ['Success', 'C1EC75', '006921'],
+    ['Error', 'FFF5F5', '3B0303'],
+    ['Warning', 'FFCC00', '665200'],
+    ['Info', '85D6FF', '185A7A'],
+    ['On Success', '006921', 'C1EC75'],
+    ['On Error', 'FF3232', 'FF3232'],
+    ['On Warning', '665200', 'FFCC00'],
+    ['On Info', '185A7A', '85D6FF']
+]
+
+// Material Theme Builder's untouched output for key color 3333FF. Values are
+// sampled from its light/dark preview, which doesn't show the fixed roles.
+const MATERIAL_DEFAULT = {
+    accents: [
+        { name: 'Primary', role: ['57598E', 'C0C1FA'], on: ['FFFFFF', '282A5D'], container: ['E1E0FC', '3F4174'], onContainer: ['3F4174', 'E1E0FC'] },
+        { name: 'Secondary', role: ['5C5D70', 'C5C4DB'], on: ['FFFFFF', '2E2F41'], container: ['E2E0F7', '454557'], onContainer: ['454557', 'E2E0F7'] },
+        { name: 'Tertiary', role: ['735569', 'E1BBD3'], on: ['FFFFFF', '42283A'], container: ['F9DAEC', '5A3E51'], onContainer: ['5A3E51', 'F9DAEC'] },
+        { name: 'Error', role: ['AB2D25', 'F4B7AE'], on: ['FFFFFF', '600F0C'], container: ['F9DBD7', '861915'], onContainer: ['861915', 'F9DBD7'] }
+    ],
+    surfaces: [
+        ['Dim', 'DCD9DF', '131318'],
+        ['Lowest', 'FFFFFF', '0E0E13'],
+        ['Low', 'F5F2F9', '1B1B20'],
+        ['Container', 'EFECF3', '1F1F25'],
+        ['High', 'E9E7EE', '2A292F'],
+        ['Highest', 'E3E1E8', '353439'],
+        ['Bright', 'FBF8FF', '39383E']
+    ],
+    neutrals: [
+        ['Surface', 'FBF8FF', '131318'],
+        ['On Surface', '1B1B20', 'E3E1E8'],
+        ['On Surface Variant', '46464E', 'C7C5CF'],
+        ['Outline', '77767F', '918F99'],
+        ['Outline Variant', 'C7C5CF', '46464E'],
+        ['Inverse Surface', '303036', 'E3E1E8'],
+        ['Inverse On Surface', 'F2EFF6', '303036'],
+        ['Inverse Primary', 'C0C1FA', '57598E']
+    ]
+}
+
+// The Material stages share one shape: accent quads, a surface ramp,
+// neutrals and mode-independent fixed roles.
+const TRANSLATION = {
+    accents: [
+        { name: 'Primary', role: ['3840DD', '99A5FF'], on: ['FFFFFF', '001A97'], container: ['5365DE', '5365DE'], onContainer: ['F7F5FF', 'F7F5FF'] },
+        { name: 'Secondary', role: ['575C81', 'F3F2FF'], on: ['FFFFFF', '292E50'], container: ['D0D4FF', 'D0D4FF'], onContainer: ['565B7F', '565B7F'] },
+        { name: 'Tertiary', role: ['924B1F', 'FFC9AE'], on: ['FFFFFF', '542100'], container: ['FFA26F', 'FFA26F'], onContainer: ['78360B', '78360B'] },
+        { name: 'Error', role: ['BB0014', 'FFB4AB'], on: ['FFFFFF', '690006'], container: ['E51B23', 'FF544B'], onContainer: ['FFFBFF', '470003'] }
+    ],
+    surfaces: [
+        ['Dim', 'D9D9DD', '141314'],
+        ['Lowest', 'E7E7EB', '0E0E0F'],
+        ['Low', 'F3F3F6', '1C1B1C'],
+        ['Container', 'F8F8FC', '201F20'],
+        ['High', 'FBFBFD', '2A2A2B'],
+        ['Highest', 'FFFFFF', '353435'],
+        ['Bright', 'EDEDF1', '3A393A']
+    ],
+    neutrals: [
+        ['Background', 'EDEDF1', '12131A'],
+        ['On Surface', '1C1B1C', 'E5E1E2'],
+        ['Surface Variant', 'E1E1EA', '46464D'],
+        ['On Surface Variant', '46464D', 'C7C5CE'],
+        ['Outline', '77767E', '919098'],
+        ['Outline Variant', 'C7C5CE', '46464D'],
+        ['Surface Tint', '3F51CA', 'BBC3FF'],
+        ['Inverse Surface', '313031', 'E5E1E2'],
+        ['Inverse On Surface', 'F0F0F4', '313031'],
+        ['Inverse Primary', 'BBC3FF', '3F51CA']
+    ],
+    fixed: [
+        ['Primary Fixed', 'DFE0FF'],
+        ['Primary Fixed Dim', 'BBC3FF'],
+        ['Secondary Fixed', 'DFE0FF'],
+        ['Secondary Fixed Dim', 'C0C4EE'],
+        ['Tertiary Fixed', 'FFDBCA'],
+        ['Tertiary Fixed Dim', 'FFB690']
+    ]
+}
+
+const FINAL = {
+    accents: [
+        { name: 'Primary', role: ['1441CC', 'BBD2FF'], on: ['FFFFFF', '002087'], container: ['A6C4FF', '2337B2'], onContainer: ['000000', 'DFEAFF'] },
+        { name: 'Secondary', role: ['0C5FFF', 'C0CFEE'], on: ['FFFFFF', '141939'], container: ['D6E4FF', '404D68'], onContainer: ['000000', 'DFEAFF'] },
+        { name: 'Tertiary', role: ['E25B01', 'FFB690'], on: ['FFFFFF', '331100'], container: ['FFA366', '753409'], onContainer: ['000000', 'FFDBCA'] },
+        { name: 'Error', role: ['D40000', 'FFB4AB'], on: ['FFFFFF', '690005'], container: ['FFDAD6', '93000A'], onContainer: ['930000', 'FFDAD6'] }
+    ],
+    surfaces: [
+        ['Dim', 'E6E6E6', '111318'],
+        ['Lowest', 'FFFFFF', '0C0E13'],
+        ['Low', 'FFFFFF', '191C22'],
+        ['Container', 'FFFFFF', '1D2028'],
+        ['High', 'F4F6FA', '282B32'],
+        ['Highest', 'EAEEF6', '33363D'],
+        ['Bright', 'FFFFFF', '37393F']
+    ],
+    neutrals: [
+        ['Background', 'FFFFFF', '111318'],
+        ['On Surface', '000000', 'F5F5F5'],
+        ['Surface Variant', 'E3E3E3', '2E2E2E'],
+        ['On Surface Variant', '484848', 'C5C5C5'],
+        ['Outline', '787878', '8F8F8F'],
+        ['Outline Variant', 'C7C7C7', '444444'],
+        ['Surface Tint', '3F51CA', 'BBD2FF'],
+        ['Inverse Surface', '000000', 'E2E2E9'],
+        ['Inverse On Surface', 'FFFFFF', '2E2E35'],
+        ['Inverse Primary', 'BBD2FF', '1441CC']
+    ],
+    fixed: [
+        ['Primary Fixed', 'DFEAFF'],
+        ['Primary Fixed Dim', 'BBD2FF'],
+        ['Secondary Fixed', 'DFEAFF'],
+        ['Secondary Fixed Dim', 'C0CFEE'],
+        ['Tertiary Fixed', 'FFDBCA'],
+        ['Tertiary Fixed Dim', 'FFB690']
+    ]
+}
+
+// Before the system: brand ramps spread across four Figma frames, each a
+// slightly different copy. `main` is the swatch each mode used as the base.
+const SCATTERED_RAMPS = [
+    { name: 'Blue', tones: ['EBEBFF', 'D6D6FF', '9999FF', '7171FF', '5C5CFF', '3333FF'], main: ['3333FF', '7171FF'] },
+    { name: 'Yellow', tones: ['FFFAE6', 'FFF5CC', 'FFEB99', 'FFE066', 'FFCC00'], main: ['FFCC00', 'FFE066'] },
+    { name: 'Orange', tones: ['FFF0E6', 'FFB27F', 'FFA366', 'FF8533', 'FF6600'], main: ['FF6600', 'FFB27F'] },
+    { name: 'Greys', tones: [['EAEAEA', 'ABABAB', '959595', '000000'], ['FFFFFF', '808080', '565656', '414141']] },
+    { name: 'Status', tones: [['F34336', '0A920A'], ['F34336', '21C921']] }
+]
+
+const ScatteredPalette = ({ mode }) => (
+    <div className="ldk-ramps">
+        {SCATTERED_RAMPS.map((ramp) => {
+            const tones = Array.isArray(ramp.tones[0]) ? ramp.tones[mode] : ramp.tones
+            const main = ramp.main?.[mode]
+            return (
+                <div key={ramp.name} className="ldk-ramp">
+                    <p className="ldk-ramp-name">{ramp.name}</p>
+                    <ul className="ldk-ramp-tones">
+                        {tones.map((hex) => (
+                            <li key={hex} className={`ldk-ramp-tone${hex === main ? ' is-main' : ''}`}>
+                                <span className="ldk-ramp-swatch" style={{ background: `#${hex}` }} aria-hidden="true" />
+                                <code className="ldk-chip-hex">{hex}</code>
+                                {hex === main && <span className="ldk-ramp-main">main</span>}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )
+        })}
+    </div>
+)
+
+// Notes are [kind, text]: 'bad' renders a cross, 'good' a check.
+const STAGES = [
+    {
+        tab: 'Before',
+        title: 'Brand swatches scattered across Figma',
+        scattered: true,
+        notes: [
+            ['bad', 'Four Figma frames, each with a slightly different copy of the same ramps'],
+            ['bad', 'Labels that contradict their values: “Orange - 4” is both 60% and 80%, and a swatch named White is coded #000000'],
+            ['bad', 'It lived only in Figma, so the app picked a few of these at random']
+        ]
+    },
+    {
+        tab: 'First draft',
+        title: '20 hand-named tokens',
+        notes: [
+            ['bad', 'Raw brand blue (3333FF) and orange (FF6600) at full saturation'],
+            ['bad', 'No on-color / container pairs to build components from'],
+            ['bad', 'Two flat backgrounds — no tonal surfaces for elevation']
+        ]
+    },
+    {
+        tab: 'Material default',
+        title: 'Theme Builder’s output for 3333FF',
+        palette: MATERIAL_DEFAULT,
+        notes: [
+            ['good', 'A complete role set and surface ramp, generated from our brand blue'],
+            ['bad', 'Muted to a dusty lavender primary (57598E): safe, but it no longer looked like Live MCQ'],
+            ['bad', 'Secondary and tertiary drifted to slate and mauve, and the brand’s orange was gone']
+        ]
+    },
+    {
+        tab: 'Material translation',
+        title: 'The draft, rebuilt on Material roles',
+        palette: TRANSLATION,
+        notes: [
+            ['good', 'Every accent now arrives with its on-color and container'],
+            ['good', 'Brand blue eased from 3333FF to 3840DD'],
+            ['bad', 'Containers stayed the same in light and dark'],
+            ['bad', 'Orange sank to a brown tertiary; secondary went slate grey']
+        ]
+    },
+    {
+        tab: 'Final',
+        title: 'Tuned Material roles',
+        palette: FINAL,
+        notes: [
+            ['good', 'Containers re-tuned separately for light and dark'],
+            ['good', 'A deeper primary (1441CC), a clear blue secondary, and orange back as a vivid tertiary (E25B01)'],
+            ['good', 'Clean white light surfaces and a cool tonal dark ramp']
+        ]
+    }
+]
+
+const Chip = ({ name, hex }) => (
+    <li className="ldk-chip">
+        <span className="ldk-chip-swatch" style={{ background: `#${hex}` }} aria-hidden="true" />
+        <span className="ldk-chip-name">{name}</span>
+        <code className="ldk-chip-hex">{hex}</code>
+    </li>
+)
+
+const MaterialPalette = ({ palette, mode }) => {
+    const pick = (pair) => pair[mode]
+    return (
+        <>
+            <div className="ldk-accents">
+                {palette.accents.map((a) => (
+                    <div key={a.name} className="ldk-accent">
+                        <div className="ldk-accent-half" style={{ background: `#${pick(a.role)}`, color: `#${pick(a.on)}` }}>
+                            <span className="ldk-accent-name">{a.name}</span>
+                            <code>{pick(a.role)}</code>
+                        </div>
+                        <div className="ldk-accent-half" style={{ background: `#${pick(a.container)}`, color: `#${pick(a.onContainer)}` }}>
+                            <span className="ldk-accent-name">Container</span>
+                            <code>{pick(a.container)}</code>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <p className="ldk-palette-sub">Surface containers, dim → bright</p>
+            <ol className="ldk-surfaces">
+                {palette.surfaces.map(([name, light, dark]) => {
+                    const hex = mode ? dark : light
+                    return (
+                        <li key={name} className="ldk-surface">
+                            <span className="ldk-surface-swatch" style={{ background: `#${hex}` }} aria-hidden="true" />
+                            <span className="ldk-surface-name">{name}</span>
+                            <code className="ldk-chip-hex">{hex}</code>
+                        </li>
+                    )
+                })}
+            </ol>
+
+            <p className="ldk-palette-sub">Neutrals & inverse</p>
+            <ul className="ldk-chips">
+                {palette.neutrals.map(([name, light, dark]) => (
+                    <Chip key={name} name={name} hex={mode ? dark : light} />
+                ))}
+            </ul>
+
+            {palette.fixed && (
+                <>
+                    <p className="ldk-palette-sub">Fixed — same in light and dark</p>
+                    <ul className="ldk-chips">
+                        {palette.fixed.map(([name, hex]) => <Chip key={name} name={name} hex={hex} />)}
+                    </ul>
+                </>
+            )}
+        </>
+    )
+}
+
+export const PaletteEvolution = () => {
+    const [stageIndex, setStageIndex] = useState(STAGES.length - 1)
+    const [mode, setMode] = useState(0) // 0 = light, 1 = dark
+    const stage = STAGES[stageIndex]
+
+    return (
+        <div className="ldk">
+            <div className="ldk-palette-head">
+                <ol className="ldk-stages" aria-label="Palette stage">
+                    {STAGES.map((s, i) => (
+                        <li key={s.tab}>
+                            <button type="button" className="ldk-stage-btn" aria-pressed={stageIndex === i} onClick={() => setStageIndex(i)}>
+                                <span className="ldk-stage-num">{String(i + 1).padStart(2, '0')}</span>
+                                {s.tab}
+                            </button>
+                        </li>
+                    ))}
+                </ol>
+                <div className="ldk-mode" role="group" aria-label="Palette mode">
+                    {['Light', 'Dark'].map((label, i) => (
+                        <button key={label} type="button" className="ldk-mode-btn" aria-pressed={mode === i} onClick={() => setMode(i)}>
+                            {label}
+                        </button>
+                    ))}
+                </div>
+            </div>
+
+            <section className={`ldk-palette-col${stage.palette === FINAL ? ' is-chosen' : ''}`}>
+                <p className="ldk-label">{stage.tab} · {stage.title}</p>
+                {stage.scattered ? (
+                    <ScatteredPalette mode={mode} />
+                ) : stage.palette ? (
+                    <MaterialPalette palette={stage.palette} mode={mode} />
+                ) : (
+                    <ul className="ldk-chips">
+                        {DRAFT_TOKENS.map(([name, light, dark]) => (
+                            <Chip key={name} name={name} hex={mode ? dark : light} />
+                        ))}
+                    </ul>
+                )}
+                <ul className="ldk-palette-notes">
+                    {stage.notes.map(([kind, text]) => (
+                        <li key={text} className={`is-${kind}`}>{text}</li>
+                    ))}
+                </ul>
+            </section>
+
+            <p className="ldk-footnote">Values from the Figma files at each stage; the Material default is read from Theme Builder’s preview. Switch modes to compare.</p>
+        </div>
+    )
+}
 
 const BANGLA_SAMPLE = 'প্রশ্ন ১২ · সঠিক উত্তরটি বেছে নাও'
 const LATIN_SAMPLE = 'Mock Test 12 — 75% · ৳500'
@@ -324,6 +659,11 @@ export const Buttons = () => (
     </div>
 )
 
+const ICON_STYLES = [
+    { name: 'Outlined', family: 'Material Symbols Outlined', verdict: 'Squared-off terminals' },
+    { name: 'Rounded', family: 'Material Symbols Rounded', verdict: 'Soft terminals that matched our style', chosen: true },
+    { name: 'Sharp', family: 'Material Symbols Sharp', verdict: 'Hard corners, more technical' }
+]
 const ICON_WEIGHTS = [200, 300, 400, 600]
 const ICON_SET = [
     ['quiz', 'Quiz'], ['timer', 'Timer'], ['school', 'Course'], ['menu_book', 'Notes'],
@@ -332,8 +672,23 @@ const ICON_SET = [
 
 export const Icons = () => {
     useStylesheet(SYMBOL_FONT)
+    useStylesheet(SYMBOL_STYLE_FONT)
     return (
         <div className="ldk">
+            <p className="ldk-label">Material Symbols — picking the style</p>
+            <div className="ldk-weights ldk-weights--styles">
+                {ICON_STYLES.map((style) => (
+                    <div key={style.name} className={`ldk-weight${style.chosen ? ' is-chosen' : ''}`}>
+                        <span className="ldk-style-glyphs" aria-hidden="true">
+                            {['quiz', 'timer'].map((glyph) => (
+                                <span key={glyph} className="ldk-symbol" style={{ fontFamily: `'${style.family}'` }}>{glyph}</span>
+                            ))}
+                        </span>
+                        <span className="ldk-weight-num">{style.name}</span>
+                        <span className="ldk-style-verdict">{style.chosen && <span className="ldk-check" aria-hidden="true">✓ </span>}{style.verdict}</span>
+                    </div>
+                ))}
+            </div>
             <p className="ldk-label">Material Symbols Rounded — picking the weight</p>
             <div className="ldk-weights">
                 {ICON_WEIGHTS.map((weight) => (

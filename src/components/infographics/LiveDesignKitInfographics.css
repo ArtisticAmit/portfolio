@@ -3,6 +3,10 @@
 
 .ldk {
     --ldk-bad: #b3261e;
+    /* Left-edge pen strokes, same hand as --pen-rule-v-accent; colors are
+       baked into the SVG, so each theme redraws them. */
+    --ldk-pen-v-muted: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='120' viewBox='0 0 12 120'%3E%3Cpath d='M6.9 1.5C6.6 5 6.13 9 6 12C5.2 30 5.3 45 6 60S6.8 90 6 108C5.82 112 5.6 116 5.3 118.5' fill='none' stroke='%23666666' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+    --ldk-pen-v-bad: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='120' viewBox='0 0 12 120'%3E%3Cpath d='M6.9 1.5C6.6 5 6.13 9 6 12C5.2 30 5.3 45 6 60S6.8 90 6 108C5.82 112 5.6 116 5.3 118.5' fill='none' stroke='%23b3261e' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
     --ldk-tonal: color-mix(in srgb, var(--brand-color) 14%, var(--bg-color));
     display: flex;
     flex-direction: column;
@@ -16,6 +20,8 @@
 @media (prefers-color-scheme: dark) {
     .ldk {
         --ldk-bad: #f2b8b5;
+        --ldk-pen-v-muted: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='120' viewBox='0 0 12 120'%3E%3Cpath d='M6.9 1.5C6.6 5 6.13 9 6 12C5.2 30 5.3 45 6 60S6.8 90 6 108C5.82 112 5.6 116 5.3 118.5' fill='none' stroke='%23a1a1a1' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+        --ldk-pen-v-bad: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='120' viewBox='0 0 12 120'%3E%3Cpath d='M6.9 1.5C6.6 5 6.13 9 6 12C5.2 30 5.3 45 6 60S6.8 90 6 108C5.82 112 5.6 116 5.3 118.5' fill='none' stroke='%23f2b8b5' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
     }
 }
 
@@ -277,6 +283,7 @@
 .ldk-result {
     padding: 1rem 1.25rem;
     border-left: 3px solid var(--ldk-bad);
+    border-image: var(--ldk-pen-v-bad) 12 0 12 12 / 12px 0 12px 12px / 0 6px round;
     background-color: var(--bg-color);
 }
 
@@ -356,24 +363,37 @@
 
 .ldk-meter {
     display: inline-flex;
-    gap: 3px;
+    gap: 2px;
 }
 
+/* Pen-drawn dots: a loose sketched loop whose stroke overshoots where
+   it started, filled with a scribble when on. Shapes are masks, so the
+   color comes from background-color and follows the theme. Each dot is
+   turned a little differently so they don't read as stamped copies. */
 .ldk-meter-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    border: 1.5px solid var(--text-secondary);
+    width: 11px;
+    height: 11px;
+    background-color: var(--text-secondary);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M9.6 3.4C7.6 1.2 3.6 1.6 2.1 4.6C0.9 7.2 2.6 10.6 5.8 10.7C8.8 10.8 10.9 8.4 10.6 5.6C10.4 4 9.3 2.6 7.4 1.6' fill='none' stroke='%23000' stroke-width='1.3' stroke-linecap='round'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M9.6 3.4C7.6 1.2 3.6 1.6 2.1 4.6C0.9 7.2 2.6 10.6 5.8 10.7C8.8 10.8 10.9 8.4 10.6 5.6C10.4 4 9.3 2.6 7.4 1.6' fill='none' stroke='%23000' stroke-width='1.3' stroke-linecap='round'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+}
+
+.ldk-meter-dot:nth-child(2) {
+    transform: rotate(130deg);
+}
+
+.ldk-meter-dot:nth-child(3) {
+    transform: rotate(250deg) scale(0.95);
 }
 
 .ldk-meter-dot.is-on {
     background-color: var(--text-primary);
-    border-color: var(--text-primary);
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M9.6 3.4C7.6 1.2 3.6 1.6 2.1 4.6C0.9 7.2 2.6 10.6 5.8 10.7C8.8 10.8 10.9 8.4 10.6 5.6C10.4 4.4 10.1 3.9 9.6 3.4Z'/%3E%3Cg fill='none' stroke='%23000' stroke-linecap='round'%3E%3Cpath d='M3.4 4.6L6.6 2.8M2.6 6.6L8.4 3.4M2.9 8.4L9.4 4.8M4.2 9.6L9.6 6.6M6.4 10L9.2 8.4' stroke-width='1.7'/%3E%3Cpath d='M9.6 3.4C7.6 1.2 3.6 1.6 2.1 4.6C0.9 7.2 2.6 10.6 5.8 10.7C8.8 10.8 10.9 8.4 10.6 5.6C10.4 4 9.3 2.6 7.4 1.6' stroke-width='1.3'/%3E%3C/g%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M9.6 3.4C7.6 1.2 3.6 1.6 2.1 4.6C0.9 7.2 2.6 10.6 5.8 10.7C8.8 10.8 10.9 8.4 10.6 5.6C10.4 4.4 10.1 3.9 9.6 3.4Z'/%3E%3Cg fill='none' stroke='%23000' stroke-linecap='round'%3E%3Cpath d='M3.4 4.6L6.6 2.8M2.6 6.6L8.4 3.4M2.9 8.4L9.4 4.8M4.2 9.6L9.6 6.6M6.4 10L9.2 8.4' stroke-width='1.7'/%3E%3Cpath d='M9.6 3.4C7.6 1.2 3.6 1.6 2.1 4.6C0.9 7.2 2.6 10.6 5.8 10.7C8.8 10.8 10.9 8.4 10.6 5.6C10.4 4 9.3 2.6 7.4 1.6' stroke-width='1.3'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 .ldk-option.is-chosen .ldk-meter-dot.is-on {
     background-color: var(--brand-color);
-    border-color: var(--brand-color);
 }
 
 /* ---------- Pipeline & loop ---------- */
@@ -466,10 +486,12 @@
     padding: 0.9rem 1rem;
     background-color: var(--bg-color);
     border-left: 3px solid var(--text-secondary);
+    border-image: var(--ldk-pen-v-muted) 12 0 12 12 / 12px 0 12px 12px / 0 6px round;
 }
 
 .ldk-branch--pass {
     border-left-color: var(--brand-color);
+    border-image: var(--pen-rule-v-accent) 12 0 12 12 / 12px 0 12px 12px / 0 6px round;
 }
 
 .ldk-branch-tag {
@@ -532,6 +554,7 @@
     padding: 0.75rem 1rem;
     background-color: var(--bg-color);
     border-left: 3px solid var(--ldk-bad);
+    border-image: var(--ldk-pen-v-bad) 12 0 12 12 / 12px 0 12px 12px / 0 6px round;
 }
 
 .ldk-font-retired-name {
@@ -773,6 +796,30 @@
     font-size: 40px;
 }
 
+.ldk-weights--styles {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.ldk-style-glyphs {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.ldk-weights--styles .ldk-symbol {
+    font-size: 40px;
+}
+
+.ldk-style-verdict {
+    font-size: 0.78rem;
+    line-height: 1.35;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.ldk-weight.is-chosen .ldk-style-verdict {
+    color: var(--text-primary);
+}
+
 .ldk-weight-num {
     font-size: 0.8rem;
     font-weight: 600;
@@ -840,6 +887,289 @@
 
 /* ---------- Responsive ---------- */
 
+/* ---------- Palette evolution ---------- */
+
+.ldk-palette-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem 1.25rem;
+}
+
+.ldk-stages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ldk-stage-btn {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    padding: 0.35rem 0.75rem;
+    font: inherit;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-image: var(--pen-line) 12 / 12px / 6px stretch;
+    cursor: pointer;
+}
+
+.ldk-stage-btn[aria-pressed='true'] {
+    color: var(--text-primary);
+    font-weight: 600;
+    background-color: var(--ldk-tonal);
+    border-color: var(--brand-color);
+    border-image: var(--pen-line-strong) 12 / 12px / 6px stretch;
+}
+
+.ldk-stage-num {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--brand-color);
+}
+
+.ldk-mode {
+    display: inline-flex;
+    border: 1px solid var(--border-color);
+    border-image: var(--pen-line) 12 / 12px / 6px stretch;
+}
+
+.ldk-mode-btn {
+    padding: 0.35rem 0.9rem;
+    font: inherit;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.ldk-mode-btn[aria-pressed='true'] {
+    color: var(--text-primary);
+    font-weight: 600;
+    background-color: var(--ldk-tonal);
+}
+
+.ldk-stage-btn:focus-visible,
+.ldk-mode-btn:focus-visible {
+    outline: 2px solid var(--brand-color);
+    outline-offset: -2px;
+}
+
+.ldk-palette-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-width: 0;
+    padding: 1rem;
+    background-color: var(--bg-color);
+    border: 1px solid transparent;
+}
+
+.ldk-palette-col.is-chosen {
+    border-color: var(--brand-color);
+}
+
+.ldk-palette-sub {
+    font-size: 0.8rem !important;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.ldk-chips {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+    gap: 0.35rem 0.75rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ldk-chip {
+    display: grid;
+    grid-template-columns: 1rem minmax(0, 1fr) auto;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.8rem;
+    color: var(--text-primary);
+}
+
+.ldk-chip-swatch,
+.ldk-surface-swatch {
+    border: 1px solid var(--border-color);
+}
+
+.ldk-chip-swatch {
+    width: 1rem;
+    height: 1rem;
+}
+
+.ldk-chip-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ldk-chip-hex {
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    background: none;
+    padding: 0;
+}
+
+.ldk-accents {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+    gap: 0.5rem;
+}
+
+.ldk-accent {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    border: 1px solid var(--border-color);
+}
+
+.ldk-accent-half {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.6rem 0.7rem;
+    font-size: 0.8rem;
+}
+
+.ldk-accent-name {
+    font-weight: 600;
+}
+
+.ldk-accent-half code {
+    font-size: 0.72rem;
+    color: inherit;
+    background: none;
+    padding: 0;
+    opacity: 0.85;
+}
+
+.ldk-surfaces {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ldk-surface {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    min-width: 0;
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+}
+
+.ldk-surface-swatch {
+    height: 2.25rem;
+}
+
+.ldk-surface-name {
+    color: var(--text-primary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ldk-surface .ldk-chip-hex {
+    font-size: 0.62rem;
+}
+
+.ldk-palette-notes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin: 0.25rem 0 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.82rem;
+    color: var(--text-primary);
+}
+
+.ldk-palette-notes .is-bad::before {
+    content: '✕ ';
+    color: var(--ldk-bad);
+    font-weight: 700;
+}
+
+.ldk-palette-notes .is-good::before {
+    content: '✓ ';
+    color: var(--brand-color);
+    font-weight: 700;
+}
+
+.ldk-ramps {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.ldk-ramp {
+    display: grid;
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+    gap: 0.75rem;
+    align-items: start;
+}
+
+.ldk-ramp-name {
+    padding-top: 0.6rem;
+    font-size: 0.8rem !important;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.ldk-ramp-tones {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ldk-ramp-tone {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 0;
+}
+
+.ldk-ramp-swatch {
+    height: 2.25rem;
+    border: 1px solid var(--border-color);
+}
+
+.ldk-ramp-tone.is-main .ldk-ramp-swatch {
+    outline: 2px solid var(--text-primary);
+    outline-offset: 1px;
+}
+
+.ldk-ramp-tone .ldk-chip-hex {
+    font-size: 0.62rem;
+}
+
+.ldk-ramp-main {
+    font-size: 0.62rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-primary);
+}
+
 @media (max-width: 700px) {
     .ldk {
         padding: 1rem;
@@ -853,6 +1183,10 @@
 
     .ldk-icon-grid {
         grid-template-columns: repeat(4, 1fr);
+    }
+
+    .ldk-weights--styles {
+        grid-template-columns: 1fr;
     }
 
     .ldk-grammars,
@@ -897,6 +1231,28 @@
 }
 
 @media (max-width: 420px) {
+    .ldk-ramp {
+        grid-template-columns: 1fr;
+        gap: 0.35rem;
+    }
+
+    .ldk-ramp-name {
+        padding-top: 0;
+    }
+
+    .ldk-ramp-tone .ldk-chip-hex {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        align-self: center;
+    }
+
+    .ldk-surface-name,
+    .ldk-surface .ldk-chip-hex {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        align-self: center;
+    }
+
     .ldk-families,
     .ldk-branches {
         grid-template-columns: 1fr;

@@ -6,10 +6,7 @@ const Header = () => {
         <header className="header">
             <div className="logo">
                 <Link to="/">
-                    <picture>
-                        <source srcSet="/favicon_dark.svg" media="(prefers-color-scheme: dark)" />
-                        <img src="/favicon_light.svg" alt="Amit R. Logo" />
-                    </picture>
+                    <img src="/favicon_dark.svg" alt="Amit R. Logo" />
                 </Link>
             </div>
             <nav className="nav">

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import './ProjectDetail.css'
 import {
-    Fragments, Languages, Decision, Pipeline, ColorTuning, FontEval,
+    Fragments, Languages, Decision, Pipeline, ColorTuning, PaletteEvolution, FontEval,
     TypeSystem, Buttons, Icons, Spacing, TestLoop
 } from '../components/infographics/LiveDesignKitInfographics'
 
@@ -13,6 +13,7 @@ const infographics = {
     decision: Decision,
     pipeline: Pipeline,
     'color-tuning': ColorTuning,
+    'palette-evolution': PaletteEvolution,
     'font-eval': FontEval,
     'type-system': TypeSystem,
     buttons: Buttons,
@@ -478,7 +479,8 @@ const projectData = {
                 type: 'subsection',
                 title: 'Color: between too quiet and too loud',
                 content: [
-                    'Material’s default tones felt muted — safe, but characterless. Our brand colors sat at the opposite extreme: highly saturated, perfect on a logo, exhausting across a whole screen. I re-tuned the tonal values to land between the two, keeping the personality and losing the glare — while staying accessible in both light and dark.'
+                    'Material’s default tones felt muted — safe, but characterless. Our brand colors sat at the opposite extreme: highly saturated, perfect on a logo, exhausting across a whole screen. I re-tuned the tonal values to land between the two, keeping the personality and losing the glare — while staying accessible in both light and dark.',
+                    'Before any of this, color was a set of brand swatches scattered across four Figma frames, each a slightly different copy, and the app used a handful of them at random. My first draft gathered them into named tokens but kept the brand colors almost as-is — a 3333FF blue and an FF6600 orange — across twenty tokens. It looked bold in Figma and fell apart in components: nothing told you which color sat on which, and there was no way to express elevation. Feeding 3333FF into Material Theme Builder gave us a complete system, but a muted, lavender one: exactly the “too quiet” end. So the next pass rebuilt the draft’s own colors on Material’s roles, so every color finally came with the partners it needs, but the containers didn’t change between light and dark, and the orange sank to a brown. The final tune fixed both: a deeper 1441CC primary, a clear blue secondary, orange back as a vivid tertiary, and containers tuned separately for each mode.'
                 ]
             },
             {
@@ -486,11 +488,9 @@ const projectData = {
                 name: 'color-tuning'
             },
             {
-                // Renders a "coming soon" banner until prototype-color-palette.png exists.
-                type: 'image',
-                id: 'prototype-color-palette',
-                alt: 'The production Live MCQ palette and tonal ramps, in light and dark.',
-                caption: 'The production palette, accessible in light and dark.'
+                type: 'infographic',
+                name: 'palette-evolution',
+                caption: 'Five stages of the palette: scattered Figma swatches, a first draft of tokens, Material’s default, our colors on Material roles, and the final tune. Switch stages and modes to compare.'
             },
             {
                 type: 'subsection',
@@ -529,7 +529,7 @@ const projectData = {
             {
                 type: 'text',
                 content: [
-                    'For icons, one library instead of several: Material Symbols Rounded at weight 300, chosen because its rounded terminals matched our style.'
+                    'For icons, one library instead of several: Material Symbols. It comes in three styles, so I set Outlined, Rounded and Sharp side by side on the same glyphs. Outlined’s squared terminals felt plain and Sharp’s hard corners felt too technical for a study app. Rounded’s soft terminals matched our style. Then I tuned the weight and settled on 300, light enough to sit quietly next to Noto without disappearing.'
                 ]
             },
             {
