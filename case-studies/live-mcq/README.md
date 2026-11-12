@@ -1,25 +1,15 @@
-# Live MCQ Design System — image drop-in slots
+# Live Design Kit — image drop-in slots
 
-Drop PNG files into this folder using the exact filenames below. The case study
-page (`src/pages/ProjectDetail.jsx`, `'live-design-kit'` entry) references these
-paths directly by URL — no code changes needed once a file lands here.
-
-Required (referenced in the page today):
+The Live Design Kit story (`src/pages/ProjectDetail.jsx`, `'live-design-kit'`
+entry) draws most of its visuals in code
+(`src/components/infographics/LiveDesignKitInfographics.jsx`). Only the visuals
+that need real artwork are image slots. Drop PNGs here using the exact
+filenames below and they replace the "Visual coming soon" banner automatically,
+with no code change:
 
 - `cover.png` — hero/cover shot of the design system or a key screen
-- `empathize-old-screens.png` — before-state screenshots of the old, inconsistent UI
-- `prototype-color-palette.png` — color palette / tonal ramps
-- `prototype-typography.png` — typography / text-style specimen (image, not coded)
-- `prototype-buttons.png` — button family specimen (image, not coded)
+- `prototype-color-palette.png` — the production palette / tonal ramps, light + dark
 - `test-demo-app.png` — demo Flutter app screenshots, light + dark
 
-Optional (also wired up, safe to leave empty):
-
-- `empathize-audit.png` — component-inconsistency audit board
-- `prototype-components.png` — before/after of standardized components
-- `prototype-icons.png` — Material Symbols Rounded set in use
-- `prototype-spacing.png` — spacing scale
-- `prototype-font-eval.png` — font comparison (Balooda / Anek Bangla / Noto Sans)
-
-Until a file exists, the browser shows the image's alt text in its place instead
-of a broken build.
+The audit, font trial, type scale, buttons, icons, spacing and process
+diagrams are coded infographics and no longer need image files.
