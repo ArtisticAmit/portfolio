@@ -12,7 +12,7 @@
   --pill-text: #666666;
   --pill-active-text: #000000;
 
-  /* Brand — matches the logo mark (favicon_dark.svg), same in both themes */
+  /* Brand — matches the logo mark (logo_mark.svg), same in both themes */
   --brand-color: #00d095;
   --accent-color: var(--brand-color);
 
