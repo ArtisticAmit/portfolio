@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom'
 import './ProjectSection.css'
 import liveMcqIcon from '../assets/work/project_icon/live_mcq.png'
-import dragonParadiseIcon from '../assets/work/project_icon/dragon_paradise_city.png'
 import motomanIcon from '../assets/work/project_icon/motoman.png'
-import medicalHigherStudyIcon from '../assets/work/project_icon/medical_higher_study.png'
+// TODO: replace with Tasker's real app icon
+import taskerIcon from '../assets/work/project_icon/tasker.svg'
 
 const projects = [
     {
@@ -13,22 +13,16 @@ const projects = [
         slug: 'live-mcq-redesign'
     },
     {
-        title: 'Dino Hop',
-        description: 'Designing a fantasy user interface and characters',
-        icon: dragonParadiseIcon,
-        slug: 'dragon-paradise-city'
-    },
-    {
         title: 'Motoman',
         description: 'On-demand motorcycle delivery and logistics platform coordination suite',
         icon: motomanIcon,
         slug: 'motoman'
     },
     {
-        title: 'Medical Higher Study',
-        description: 'Exam-prep platform for medical higher studies',
-        icon: medicalHigherStudyIcon,
-        slug: 'medical-higher-study'
+        title: 'Tasker',
+        description: 'Task management service that keeps a team’s work in one place',
+        icon: taskerIcon,
+        slug: 'tasker'
     }
 ]
 

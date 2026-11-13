@@ -615,15 +615,15 @@ const projectData = {
             }
         ]
     },
-    'medical-higher-study': {
-        title: 'Medical Higher Study',
-        eyebrow: 'UI/UX Design · Case Study',
-        thesis: 'Exam-prep platform for medical higher studies.',
+    'tasker': {
+        title: 'Tasker',
+        eyebrow: 'Product Design · Case Study',
+        thesis: 'A task management service that helps a team plan, assign and track its work in one place.',
         // TODO: confirm exact role title
-        role: 'UI/UX Designer',
+        role: 'Product Designer',
         // TODO: add real details/contributions for this project
         details: [
-            'TODO: add key contributions for Medical Higher Study.',
+            'TODO: add key contributions for Tasker.',
         ]
     },
     'fiber-visual-thread': {
@@ -1138,17 +1138,6 @@ const projectData = {
             'Designed intuitive onboarding flows for diverse user demographics.',
             'Created distinct interfaces for employee app and employer dashboard.',
             'Established a consistent design system for the brand.',
-        ]
-    },
-    'dragon-paradise-city': {
-        title: 'Dino Hop',
-        eyebrow: 'Game Design · Case Study',
-        thesis: 'A simulation game where players build and manage a city for dragons.',
-        role: 'Game UI Artist',
-        details: [
-            'Created high-quality 2D assets and UI components.',
-            'Designed engaging icons, menus, and HUD elements.',
-            'Collaborated with developers to ensure asset optimization and integration.',
         ]
     },
     'insparofaith-games': {
