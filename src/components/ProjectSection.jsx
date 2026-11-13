@@ -3,6 +3,8 @@ import './ProjectSection.css'
 import liveMcqIcon from '../assets/work/project_icon/live_mcq.png'
 import motomanIcon from '../assets/work/project_icon/motoman.png'
 import cracktechIcon from '../assets/about/company/cracktech.png'
+// TODO: replace with Fordo's real app icon
+import fordoIcon from '../assets/work/project_icon/fordo.svg'
 
 const projects = [
     {
@@ -22,6 +24,12 @@ const projects = [
         description: 'Task management service that keeps a team’s work in one place',
         icon: cracktechIcon,
         slug: 'tasker'
+    },
+    {
+        title: 'Fordo',
+        description: 'Doctor’s appointment booking service',
+        icon: fordoIcon,
+        slug: 'fordo'
     }
 ]
 

@@ -626,6 +626,17 @@ const projectData = {
             'TODO: add key contributions for Tasker.',
         ]
     },
+    'fordo': {
+        title: 'Fordo',
+        eyebrow: 'Product Design · Case Study',
+        thesis: 'A doctor’s appointment booking service that helps patients find a doctor and book a visit.',
+        // TODO: confirm exact role title
+        role: 'Product Designer',
+        // TODO: add real details/contributions for this project
+        details: [
+            'TODO: add key contributions for Fordo.',
+        ]
+    },
     'fiber-visual-thread': {
         title: 'Fiber Visual Thread',
         eyebrow: 'Visual Language · A story in four chapters',
