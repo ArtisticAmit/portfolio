@@ -2,8 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import './ProjectSection.css'
 import liveMcqIcon from '../assets/work/project_icon/live_mcq.png'
 import motomanIcon from '../assets/work/project_icon/motoman.png'
-// TODO: replace with Tasker's real app icon
-import taskerIcon from '../assets/work/project_icon/tasker.svg'
+import cracktechIcon from '../assets/about/company/cracktech.png'
 
 const projects = [
     {
@@ -21,7 +20,7 @@ const projects = [
     {
         title: 'Tasker',
         description: 'Task management service that keeps a team’s work in one place',
-        icon: taskerIcon,
+        icon: cracktechIcon,
         slug: 'tasker'
     }
 ]
