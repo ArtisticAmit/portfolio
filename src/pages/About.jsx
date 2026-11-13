@@ -84,8 +84,12 @@ const About = () => {
                     <div className="experience-item">
                         <span className="exp-company">Insparofaith Games</span>
                         <div className="exp-position">
-                            <span className="exp-role">UI/UX Designer</span>
-                            <span className="exp-date">Mar 2018 — Oct 2024</span>
+                            <span className="exp-role">User Experience Designer</span>
+                            <span className="exp-date">Jul 2021 — Oct 2024</span>
+                        </div>
+                        <div className="exp-position">
+                            <span className="exp-role">Digital Artist</span>
+                            <span className="exp-date">Mar 2018 — Jun 2021</span>
                         </div>
                     </div>
                     <div className="experience-item">
