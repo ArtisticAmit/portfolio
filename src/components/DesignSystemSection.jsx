@@ -11,10 +11,10 @@ const designSystems = [
         slug: 'live-design-kit'
     },
     {
-        title: 'Fiber Visual Language',
+        title: 'Fiber Visual Thread',
         description: 'Turning Fakir Apparels’ scattered communication design into one visual language that reads as a single source',
         icon: fakirApparelsIcon,
-        slug: 'fiber-visual-language'
+        slug: 'fiber-visual-thread'
     }
 ]
 

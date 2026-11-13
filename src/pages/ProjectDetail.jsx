@@ -626,8 +626,8 @@ const projectData = {
             'TODO: add key contributions for Medical Higher Study.',
         ]
     },
-    'fiber-visual-language': {
-        title: 'Fiber Visual Language',
+    'fiber-visual-thread': {
+        title: 'Fiber Visual Thread',
         eyebrow: 'Visual Language · A story in four chapters',
         thesis: 'Fakir Apparels had one name, one logo and one brand identity, yet its posters, banners and event materials looked like they came from several different companies. This is how I grew a single visual language out of the brand it already had, so that every design now reads as coming from one source.',
         role: 'Visualizer (Contract)',
@@ -638,9 +638,9 @@ const projectData = {
             // TODO(timeline): confirm the dates for this project
             { label: 'Timeline', value: 'Apr 2023 — Mar 2024' }
         ],
-        assetDir: '/case-studies/fiber-visual-language',
-        // Renders a "coming soon" banner until public/case-studies/fiber-visual-language/cover.png exists.
-        cover: { id: 'cover', alt: 'Cover: a spread of Fakir Apparels communication materials designed in the Fiber visual language.' },
+        assetDir: '/case-studies/fiber-visual-thread',
+        // Renders a "coming soon" banner until public/case-studies/fiber-visual-thread/cover.png exists.
+        cover: { id: 'cover', alt: 'Cover: a spread of Fakir Apparels communication materials designed with Fiber Visual Thread.' },
         story: true,
         sections: [
             {
@@ -677,7 +677,7 @@ const projectData = {
                 title: 'The brand already knew who it was',
                 content: [
                     'The answer was not a new brand. Fakir Apparels already had an identity it believed in: its logo, its colours and its name. What was missing was a grammar that turned that identity into finished designs. So instead of starting over, I started from the brand and asked what it was already trying to say.',
-                    'I took the identity apart into its building blocks and treated each one as a rule to grow from, not a decoration to paste on. The logo’s forms suggested shapes and graphic motifs. The brand colours became a palette with clear roles. The company’s world of fibre, thread and fabric gave the language its name and its texture: **Fiber**.'
+                    'I took the identity apart into its building blocks and treated each one as a rule to grow from, not a decoration to paste on. The logo’s forms suggested shapes and graphic motifs. The brand colours became a palette with clear roles. The company’s world of fibre, thread and fabric gave the language its name and its texture: **Fiber Visual Thread**, one thread running through every piece.'
                 ]
             },
             {
@@ -701,7 +701,7 @@ const projectData = {
                 // Renders a "coming soon" banner until system.png exists.
                 type: 'image',
                 id: 'system',
-                alt: 'The Fiber visual language sheet: colour roles, type hierarchy, graphic elements and layout rules.',
+                alt: 'The Fiber Visual Thread sheet: colour roles, type hierarchy, graphic elements and layout rules.',
                 caption: 'The language on one page: the decisions every new design starts from.'
             },
             {
@@ -709,7 +709,7 @@ const projectData = {
                 stageLabel: 'Chapter 4 · Speak',
                 title: 'Proving it through the work',
                 content: [
-                    'A visual language only exists once it has been used. So I established Fiber the practical way: through the communication materials themselves. Every new event backdrop, marketing piece and internal visual was built on the same palette, the same type, the same elements and the same grids.',
+                    'A visual language only exists once it has been used. So I established Fiber Visual Thread the practical way: through the communication materials themselves. Every new event backdrop, marketing piece and internal visual was built on the same palette, the same type, the same elements and the same grids.',
                     'Each piece made the next one easier. Instead of starting from a blank canvas, a design started from the language, and the only decisions left were about the message. Working closely with the communication department, the rules were tested on real deadlines and refined wherever they did not hold up.'
                 ]
             },
@@ -717,7 +717,7 @@ const projectData = {
                 // Renders a "coming soon" banner until applications.png exists.
                 type: 'image',
                 id: 'applications',
-                alt: 'Fakir Apparels communication materials designed in the Fiber visual language, shown together.',
+                alt: 'Fakir Apparels communication materials designed with Fiber Visual Thread, shown together.',
                 caption: 'After: different formats and different messages, all recognisably from one source.'
             },
             {
@@ -741,7 +741,7 @@ const projectData = {
                 stageLabel: 'Epilogue',
                 title: 'What I carried forward',
                 content: [
-                    'Fiber taught me that consistency is not about making everything look the same. It is about every design answering the same questions in the same way, so the audience hears one voice even when the messages change.'
+                    'Fiber Visual Thread taught me that consistency is not about making everything look the same. It is about every design answering the same questions in the same way, so the audience hears one voice even when the messages change.'
                 ]
             },
             {
