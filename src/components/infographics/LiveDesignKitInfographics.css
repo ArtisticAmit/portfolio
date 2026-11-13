@@ -215,8 +215,15 @@
 }
 
 .ldk-x {
-    color: var(--ldk-bad);
-    font-weight: 700;
+    flex: none;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    fill: none;
+    stroke: var(--ldk-bad);
+    stroke-width: 2.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
 /* ---------- Languages ---------- */

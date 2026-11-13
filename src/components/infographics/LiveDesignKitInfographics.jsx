@@ -77,6 +77,25 @@ const AUDIT_SYMPTOMS = [
     'No style guide, no shared names'
 ]
 
+// Pen-drawn crosses: each stroke is a slightly bowed curve with a tapering
+// overshoot, and a few variants rotate so the marks don't look stamped.
+const PEN_CROSSES = [
+    ['M4.2 4.8 C8.5 9.2 13.6 14.1 19.6 19.4', 'M19.1 4.1 C14.8 8.9 9.6 14.6 4.6 20.2'],
+    ['M5 4.1 C9.1 8.4 14.9 13.8 19.2 19.9', 'M18.6 5.2 C13.9 9.6 9.2 14.1 3.9 19.3'],
+    ['M4.6 5.3 C9.8 9.6 14.1 14.9 20.1 18.8', 'M19.5 4.6 C15.4 9.8 10.1 14.3 5.1 19.8'],
+    ['M3.9 4.4 C8.8 8.6 14.6 14.4 18.9 20.1', 'M18.9 3.9 C14.1 9.1 9.4 15.1 4.3 19.6']
+]
+
+const PenCross = ({ variant = 0 }) => {
+    const [a, b] = PEN_CROSSES[variant % PEN_CROSSES.length]
+    return (
+        <svg className="ldk-x" viewBox="0 0 24 24" aria-hidden="true">
+            <path d={a} />
+            <path d={b} />
+        </svg>
+    )
+}
+
 export const Fragments = () => (
     <div className="ldk">
         <p className="ldk-label">One “Start exam” button, four strangers</p>
@@ -96,8 +115,8 @@ export const Fragments = () => (
         </div>
         <p className="ldk-label">What the audit kept finding</p>
         <ul className="ldk-symptoms">
-            {AUDIT_SYMPTOMS.map((item) => (
-                <li key={item} className="ldk-symptom"><span className="ldk-x" aria-hidden="true">✕</span>{item}</li>
+            {AUDIT_SYMPTOMS.map((item, i) => (
+                <li key={item} className="ldk-symptom"><PenCross variant={i} />{item}</li>
             ))}
         </ul>
     </div>
