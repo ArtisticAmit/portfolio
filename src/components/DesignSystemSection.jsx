@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import './ProjectSection.css'
 import liveMcqIcon from '../assets/work/project_icon/live_mcq.png'
-import ezwageIcon from '../assets/work/project_icon/ezwage.png'
+import fakirApparelsIcon from '../assets/about/company/fakir_apparels.png'
 
 const designSystems = [
     {
@@ -11,11 +11,10 @@ const designSystems = [
         slug: 'live-design-kit'
     },
     {
-        title: 'Coin Design Vault',
-        description: 'Creating a design system from the ground up for a personal finance management service',
-        // TODO: replace with a dedicated Coin Design Vault icon
-        icon: ezwageIcon,
-        slug: 'coin-design-vault'
+        title: 'Fiber Visual Language',
+        description: 'Turning Fakir Apparels’ scattered communication design into one visual language that reads as a single source',
+        icon: fakirApparelsIcon,
+        slug: 'fiber-visual-language'
     }
 ]
 
