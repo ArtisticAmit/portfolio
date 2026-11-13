@@ -161,13 +161,21 @@
 
 .experience-item {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.25rem;
 }
 
 .exp-main {
     display: flex;
     flex-direction: column;
+}
+
+/* One row per role, so each date lines up with its role, not the company */
+.exp-position {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
 }
 
 .exp-company {

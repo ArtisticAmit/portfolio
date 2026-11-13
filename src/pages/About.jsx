@@ -71,67 +71,64 @@ const About = () => {
                 <h3 className="section-title">Experience</h3>
                 <div className="experience-list">
                     <div className="experience-item">
-                        <div className="exp-main">
-                            <span className="exp-company">Cracktech Ltd.</span>
+                        <span className="exp-company">Cracktech Ltd.</span>
+                        <div className="exp-position">
                             <span className="exp-role">Product Designer</span>
+                            <span className="exp-date">Sep 2026 — Present</span>
                         </div>
-                        <span className="exp-date">Sep 2026 — Present</span>
-                    </div>
-                    <div className="experience-item">
-                        <div className="exp-main">
-                            <span className="exp-company">Cracktech Ltd.</span>
+                        <div className="exp-position">
                             <span className="exp-role">UI/UX Designer</span>
+                            <span className="exp-date">Nov 2024 — Aug 2026</span>
                         </div>
-                        <span className="exp-date">Nov 2024 — Aug 2026</span>
                     </div>
                     <div className="experience-item">
-                        <div className="exp-main">
-                            <span className="exp-company">Insparofaith Games</span>
+                        <span className="exp-company">Insparofaith Games</span>
+                        <div className="exp-position">
                             <span className="exp-role">UI/UX Designer</span>
+                            <span className="exp-date">Mar 2018 — Oct 2024</span>
                         </div>
-                        <span className="exp-date">Mar 2018 — Oct 2024</span>
                     </div>
                     <div className="experience-item">
-                        <div className="exp-main">
-                            <span className="exp-company">EZ Wage Software Ltd.</span>
+                        <span className="exp-company">EZ Wage Software Ltd.</span>
+                        <div className="exp-position">
                             <span className="exp-role">UI/UX Designer</span>
+                            <span className="exp-date">Oct 2022 — Apr 2023</span>
                         </div>
-                        <span className="exp-date">Oct 2022 — Apr 2023</span>
                     </div>
                     <div className="experience-item">
-                        <div className="exp-main">
-                            <span className="exp-company">Yoyoso Bangladesh</span>
+                        <span className="exp-company">Yoyoso Bangladesh</span>
+                        <div className="exp-position">
                             <span className="exp-role">Creative Visualizer (Contract)</span>
+                            <span className="exp-date">Apr 2023 — Mar 2024</span>
                         </div>
-                        <span className="exp-date">Apr 2023 — Mar 2024</span>
                     </div>
                     <div className="experience-item">
-                        <div className="exp-main">
-                            <span className="exp-company">Fakir Apparels</span>
+                        <span className="exp-company">Fakir Apparels</span>
+                        <div className="exp-position">
                             <span className="exp-role">Visualizer (Contract)</span>
+                            <span className="exp-date">Apr 2023 — Mar 2024</span>
                         </div>
-                        <span className="exp-date">Apr 2023 — Mar 2024</span>
                     </div>
                     <div className="experience-item">
-                        <div className="exp-main">
-                            <span className="exp-company">University of Dhaka</span>
+                        <span className="exp-company">University of Dhaka</span>
+                        <div className="exp-position">
                             <span className="exp-role">Design Consultant (Contract)</span>
+                            <span className="exp-date">Jul 2020 — Jun 2022</span>
                         </div>
-                        <span className="exp-date">Jul 2020 — Jun 2022</span>
                     </div>
                     <div className="experience-item">
-                        <div className="exp-main">
-                            <span className="exp-company">YGEN Engineering Ltd.</span>
+                        <span className="exp-company">YGEN Engineering Ltd.</span>
+                        <div className="exp-position">
                             <span className="exp-role">Design Consultant (Contract)</span>
+                            <span className="exp-date">Feb 2020 — Present</span>
                         </div>
-                        <span className="exp-date">Feb 2020 — Present</span>
                     </div>
                     <div className="experience-item">
-                        <div className="exp-main">
-                            <span className="exp-company">UNDP in Bangladesh</span>
+                        <span className="exp-company">UNDP in Bangladesh</span>
+                        <div className="exp-position">
                             <span className="exp-role">Graphic Designer (Contract)</span>
+                            <span className="exp-date">Jul 2019 — Jun 2020</span>
                         </div>
-                        <span className="exp-date">Jul 2019 — Jun 2020</span>
                     </div>
                 </div>
             </section>
