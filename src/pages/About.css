@@ -197,13 +197,12 @@
 }
 
 /* Companies Grid
-   Fixed-size tiles and a fixed logo box, so logos stay the same size on every
-   screen: the grid only changes how many tiles fit per row, never their size.
-   104px tiles with 12px gaps fit 6 per row at the 720px content width and
-   3 per row on a 375px phone. */
+   Tiles stretch to fill the content width: 6 per row, dropping to 4 on
+   narrow screens. The logo box inside stays a fixed size, so logos look the
+   same on every screen even though the tiles grow and shrink. */
 .companies-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 104px);
+    grid-template-columns: repeat(6, 1fr);
     gap: 0.75rem;
     background-color: var(--bg-color);
     border-radius: 0;
@@ -212,8 +211,7 @@
 
 .company-logo {
     background-color: var(--bg-color);
-    width: 104px;
-    height: 104px;
+    aspect-ratio: 1 / 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -223,13 +221,22 @@
     text-decoration: none;
 }
 
-/* Square marks render at 56x56; wide wordmarks get up to 72px of width. */
+/* Square marks render at 56x56; wide wordmarks get up to 72px of width.
+   The max-width only kicks in on the smallest phones, where 4 tiles are
+   narrower than the logo box. */
 .company-logo img {
     width: 72px;
     height: 56px;
+    max-width: calc(100% - 16px);
     object-fit: contain;
     opacity: 1;
     transition: var(--transition);
+}
+
+@media (max-width: 600px) {
+    .companies-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 .company-logo:hover {
