@@ -1107,10 +1107,9 @@
     color: var(--text-primary);
 }
 
-.ldk-palette-notes .is-bad::before {
-    content: '✕ ';
-    color: var(--ldk-bad);
-    font-weight: 700;
+.ldk-palette-notes .is-bad {
+    display: flex;
+    gap: 0.35rem;
 }
 
 .ldk-palette-notes .is-good::before {
