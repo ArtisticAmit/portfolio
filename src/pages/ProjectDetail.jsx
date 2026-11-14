@@ -977,13 +977,303 @@ const projectData = {
     },
     'ezwage': {
         title: 'EZ Wage',
-        eyebrow: 'UI/UX Design · Case Study',
-        thesis: 'Financial wellness platform allowing employees to access earned wages on demand.',
-        role: 'UI/UX Designer',
-        details: [
-            'Designed intuitive onboarding flows for diverse user demographics.',
-            'Created distinct interfaces for employee app and employer dashboard.',
-            'Established a consistent design system for the brand.',
+        eyebrow: 'UX Writing · Localization · Case Study',
+        deck: 'Rewriting a payday app in the language its users actually speak',
+        thesis: 'EZ Wage lets workers draw wages they’ve already earned before payday. The app came to Bangladesh speaking English, quoting rupees and asking for Pakistani ID numbers. Most of the people it was built for read little or no English. This is the story of rewriting every word so a worker could take out their own money without asking anyone what the buttons meant.',
+        heroStats: [
+            { value: '40+', label: 'Screens rewritten in Bengali' },
+            { value: 'Eng ⇄ বাংলা', label: 'One toggle on every entry screen' },
+            { value: '3', label: 'Market swaps: NID, +88, bKash' },
+            { value: '1', label: 'New screen: plain-language consent before cash-out' }
+        ],
+        meta: [
+            { label: 'Product', value: 'EZ Wage — earned wage access, employee mobile app' },
+            { label: 'Role', value: 'UX Writer · Bengali localization and microcopy' },
+            { label: 'Framework', value: 'Design Thinking' },
+            { label: 'Languages', value: 'English → Bengali (বাংলা), switchable in-app' }
+        ],
+        assetDir: '/case-studies/ezwage',
+        cover: { id: 'cover', alt: 'The EZ Wage onboarding flow in Bengali: login, sign-up, national ID, company details and password screens, each with an Eng / বাংলা toggle.' },
+        sections: [
+            {
+                type: 'section',
+                eyebrow: 'Prologue',
+                title: '“Everyday is Payday” — if you can read the button',
+                content: [
+                    'The splash screen makes a simple promise: *Everyday is Payday.* You’ve worked ten days of the month, so ten days of wages are yours to draw now instead of waiting for month-end. For someone whose rent, school fees or a sick parent can’t wait thirty days, that is a real lifeline.',
+                    'But the promise was written in English. And the people EZ Wage serves in Bangladesh mostly read Bengali, some only a little and some not at all. A lifeline you can’t read is a lifeline you won’t trust, especially when it touches your salary.'
+                ]
+            },
+            {
+                type: 'section',
+                stageLabel: '01 · Empathize',
+                title: 'Walking through the app as the person it was built for',
+                content: [
+                    'Before writing a single Bengali word, I went through the existing English app screen by screen, as a worker who reads little English would. The question I kept asking was simple: what does this person have to understand to use this screen safely, and does anything here help them?'
+                ]
+            },
+            {
+                type: 'image',
+                id: 'onb',
+                alt: 'Top row: the original English onboarding screens with an Eng / Urdu toggle, a +92 Pakistan phone code, a CNIC field and salary in PKR. Bottom row: the same screens in Bengali with Eng / বাংলা, +৮৮, a national ID field and salary in BDT.',
+                caption: 'Top: the onboarding we inherited. Bottom: the Bengali rewrite.'
+            },
+            {
+                type: 'section',
+                title: 'What a Bangladeshi worker met on the way in',
+                list: [
+                    '**The money words were all English.** Available Balance, Withdraw, Earnings, Withdrawals, Charges, Total. These are exactly the words you need to understand before you borrow against your own salary.',
+                    '**The language switch offered Urdu.** The only alternative to English was a language almost nobody in Bangladesh reads.',
+                    '**The identity fields belonged to another country.** It asked for a CNIC in Pakistan’s xxxxx-xxxxxxx-x format and defaulted the phone code to +92.',
+                    '**Money went to a bank that doesn’t exist here.** Payout pointed at Bank Al Habib, while many workers here move money through mobile wallets like bKash.',
+                    '**Amounts and dates didn’t look like home.** Everything was in PKR, with dates such as “Dec 1 to Dec 30”.',
+                    '**The cost was easy to miss.** A small “EZ Wage Charges PKR 100” line was the only hint that this service had a price, and nothing said the money would be cut from the next salary.'
+                ]
+            },
+            {
+                type: 'callout',
+                text: 'The app wasn’t just in the wrong language. It was in the wrong country.',
+                caption: 'Translating the words alone would have left a Bengali app asking for a Pakistani ID card.'
+            },
+            {
+                type: 'text',
+                content: [
+                    'That changed the scope. This was not a translation job. A worker reading the Bengali version had to recognise their own ID card, their own phone code, their own wallet and their own way of talking about money, or the app would still feel like it was made for someone else.'
+                ]
+            },
+            {
+                type: 'section',
+                stageLabel: '02 · Define',
+                title: 'The problem, in one sentence',
+                content: [
+                    'Everything I found came back to understanding and trust. People weren’t failing because the flows were long. They were failing because they couldn’t tell what a button would do to their money.'
+                ]
+            },
+            {
+                type: 'callout',
+                text: 'Workers in Bangladesh who read little or no English need to understand, in their own words, how much they can take, what it costs and what happens on payday, so they can use their earned wages with confidence and without asking someone else to read the screen for them.'
+            },
+            {
+                type: 'cards',
+                title: 'How might we…',
+                cards: [
+                    { title: 'Sound like people talk', body: 'How might we make money words feel like everyday speech, not bank jargon or textbook Bengali?' },
+                    { title: 'Respect both languages', body: 'How might we keep English for people who want it, without Bengali feeling like a second-class translation?' },
+                    { title: 'Make the cost impossible to miss', body: 'How might we make the fee and the payday deduction clear before anyone agrees to them?' },
+                    { title: 'Match what’s in their pocket', body: 'How might we ask for the ID, phone number and wallet people already have?' }
+                ]
+            },
+            {
+                type: 'section',
+                stageLabel: '03 · Ideate',
+                title: 'Translate, transliterate, or write the way people speak?',
+                content: [
+                    'There are three ways to put an English app into Bengali, and each one produces a very different app.'
+                ]
+            },
+            {
+                type: 'cards',
+                cards: [
+                    { title: 'Formal Bengali for everything', body: 'Every English word gets a pure Bengali equivalent: Login becomes প্রবেশ. It’s correct, but it reads like a government form, and nobody says it at a bKash counter.' },
+                    { title: 'English in Bengali letters', body: 'Keep the English words and spell them in Bengali script throughout. The sounds are familiar, but “Withdraw” in Bengali letters still means nothing to someone who never learned the word.' },
+                    { title: 'Spoken Bengali, mixed the way people mix it', body: 'Use whichever word people already say. If Bangladeshis say it in English, like login, OTP or cash out, write that in Bengali script. If there’s an everyday Bengali word, use it.', chosen: true }
+                ]
+            },
+            {
+                type: 'section',
+                title: 'The rules I wrote by',
+                list: [
+                    '**Write the word they’d say out loud.** লগইন, পাসওয়ার্ড, পিন, OTP and ক্যাশ আউট stay the way people already say them.',
+                    '**Use Bengali where Bengali is the everyday word.** লেনদেন for transaction, উত্তোলন for withdraw, সফল / অসফল for success / failure, পরবর্তী for next, সর্বমোট for total.',
+                    '**Borrow words people already trust.** “Withdrawals” became ক্যাশ আউট, the term bKash users see every day. “History” became স্টেটমেন্ট, the word banks and wallets use for a record of your money.',
+                    '**Speak with respect.** The formal আপনি and polite requests (লিখুন, করুন, দিন) throughout: “আপনার ফোন নম্বরটি লিখুন”, *please write your phone number*.',
+                    '**Bengali digits for what people read, Latin for what they copy.** Balances, dates and phone numbers use Bengali numerals (BDT ৩০,০০০, মার্চ ১২, ২০২২). Transaction and employee IDs such as BA-EZ-112233 stay in Latin, because they get read back to support and typed into other systems.',
+                    '**Never translate a person.** Names stay exactly as entered: “হ্যালো, Fahad!”'
+                ]
+            },
+            {
+                type: 'section',
+                stageLabel: '04 · Prototype',
+                title: 'Rewriting the app, screen by screen',
+                content: [
+                    'The layouts stayed the same; the words, the market details and one crucial step changed. Every screen got a Bengali version, and the entry screens got an Eng ⇄ বাংলা toggle so the choice is never more than one tap away.'
+                ]
+            },
+            {
+                type: 'section',
+                eyebrow: 'Getting in',
+                title: 'An onboarding that asks for things you actually have',
+                content: []
+            },
+            {
+                type: 'compare',
+                columns: ['English (before)', 'Bengali (after)'],
+                rows: [
+                    { before: 'Eng | Urdu', after: 'Eng | বাংলা' },
+                    { before: 'First Name / Last Name — placeholders “John”, “Doe”', after: 'নাম / নামের শেষাংশ — placeholders “আমির”, “হোসেন”' },
+                    { before: 'CNIC · xxxxx-xxxxxxx-x', after: 'জাতীয় পরিচয়পত্র নম্বর (national ID number) · xxxx-xxxx-xx' },
+                    { before: '🇵🇰 +92', after: '🇧🇩 +৮৮' },
+                    { before: 'Enter your Company Details / Enter Your Password', after: 'আপনার প্রতিষ্ঠানের তথ্য দিন / পাসওয়ার্ড সেট করুন — *give your organisation’s details / set a password*' },
+                    { before: 'Salary · PKR 30,000 · Permanent', after: 'বেতন · BDT ৩০,০০০ · স্থায়ী' },
+                    { before: 'Login with Touch ID', after: 'টাচ আইডি দিয়ে লগইন করুন' }
+                ]
+            },
+            {
+                type: 'section',
+                eyebrow: 'Home',
+                title: 'A balance card you can read at a glance',
+                content: [
+                    'The home card answers the only question that matters on open: how much can I take right now? Each label was rewritten to answer it in plain words.'
+                ]
+            },
+            {
+                type: 'image',
+                id: 'home',
+                alt: 'The English home screen beside the Bengali home screen. Available Balance PKR 30,000 becomes ব্যবহারযোগ্য ব্যালেন্স BDT ৩০,০০০, Bank Al Habib becomes বিকাশ, and the bottom navigation is in Bengali.',
+                caption: 'Same layout, a different country: BDT, Bengali numerals, and payout to bKash.'
+            },
+            {
+                type: 'compare',
+                columns: ['English (before)', 'Bengali (after)'],
+                rows: [
+                    { before: 'Hi, Fahad! Welcome Back', after: 'হ্যালো, Fahad! স্বাগতম' },
+                    { before: 'Available Balance', after: 'ব্যবহারযোগ্য ব্যালেন্স — *the balance you can use*' },
+                    { before: 'Salary Cycle - Dec 1 to Dec 30', after: 'বেতন চক্র - ডিসেম্বর ০১ থেকে ডিসেম্বর ৩১' },
+                    { before: 'Earnings · Withdrawals', after: 'উপার্জন · ক্যাশ আউট' },
+                    { before: 'Withdraw', after: 'উত্তোলন' },
+                    { before: 'Your Account · Bank Al Habib', after: 'আপনার হিসাব · বিকাশ' },
+                    { before: 'Setup PIN — Please setup PIN to prevent unauthorized access', after: 'পিন সেট করুন — অননুমোদিত প্রবেশ প্রতিরোধ করতে অনুগ্রহ করে পিন সেট করুন' },
+                    { before: 'Recent Transaction · See All', after: 'সাম্প্রতিক লেনদেন · সকল লেনদেন — *the link now says what you’ll see*' }
+                ]
+            },
+            {
+                type: 'section',
+                eyebrow: 'Finding your way',
+                title: 'Navigation words that invite instead of label',
+                content: []
+            },
+            {
+                type: 'image',
+                id: 'nav',
+                alt: 'English Analytics, History and Support screens above their Bengali versions: বিশ্লেষণ, স্টেটমেন্ট and সাপোর্ট, with Bengali month names and transaction dates.',
+                caption: 'Analytics, statement and support, before and after.'
+            },
+            {
+                type: 'compare',
+                columns: ['English (before)', 'Bengali (after)'],
+                rows: [
+                    { before: 'Learn · Analytics · Home · History · Support', after: 'শিখুন · বিশ্লেষণ · হোম · স্টেটমেন্ট · সাপোর্ট — “Learn” became a verb, *learn*, an invitation rather than a section name' },
+                    { before: 'Successful · Unsuccessful · Pending', after: 'সফল · অসফল · অনিষ্পন্ন' },
+                    { before: 'Are you facing difficulty?', after: 'আপনি কি কোন সমস্যায় পড়েছেন? — *have you run into a problem?*' },
+                    { before: 'FAQ', after: 'সাধারণ জিজ্ঞাসা — *common questions*, no acronym to decode' }
+                ]
+            },
+            {
+                type: 'section',
+                eyebrow: 'The moment that matters',
+                title: 'Taking money out, and knowing exactly what you agreed to',
+                content: [
+                    'Cash-out is where the words carry the most weight. A misunderstood button here doesn’t just cause confusion. It costs someone part of next month’s salary.'
+                ]
+            },
+            {
+                type: 'image',
+                id: 'wd',
+                alt: 'The full cash-out flow. Top: English withdraw, OTP, success, failure and receipt screens. Bottom: the Bengali flow, which adds a permission form step before the OTP.',
+                caption: 'Top: the English flow. Bottom: the Bengali flow, with a consent step added before the OTP.'
+            },
+            {
+                type: 'image',
+                id: 'fee',
+                alt: 'The English withdraw summary (Amount Withdrawn, EZ Wage Charges, Total) beside the Bengali version (ক্যাশ আউটের পরিমাণ, EZ Wage চার্জ, সর্বমোট).',
+                caption: 'The fee summary keeps the same three lines, now in the words people use for cash-out.'
+            },
+            {
+                type: 'compare',
+                columns: ['English (before)', 'Bengali (after)'],
+                rows: [
+                    { before: 'Enter the amount you wish to withdraw', after: 'ক্যাশ আউটের পরিমাণ নির্বাচন করুন — *choose your cash-out amount*, matching the slider people actually use' },
+                    { before: 'Amount Withdrawn · EZ Wage Charges · Total', after: 'ক্যাশ আউটের পরিমাণ · EZ Wage চার্জ · সর্বমোট' },
+                    { before: 'Confirm OTP — Enter the OTP sent to your phone number', after: 'OTP নিশ্চিত করুন — আপনার ফোন নম্বরে পাঠানো OTP-টি লিখুন' },
+                    { before: 'Successful — Your transaction has been successfully completed', after: 'সফল — আপনার লেনদেনটি সফলভাবে সম্পন্ন হয়েছে' },
+                    { before: 'Confirm Transaction · Download Receipt', after: 'লেনদেন নিশ্চিতকরণ · রসিদ ডাউনলোড' }
+                ]
+            },
+            {
+                type: 'section',
+                title: 'The screen English never had: a consent you can read',
+                content: [
+                    'The most important change in the Bengali flow is a new step, not a rewritten one. Before the OTP, the user sees a short permission form, আপনার অনুমোদন নিশ্চিত করুন (*confirm your approval*), that says in plain Bengali what the English app never said on screen:'
+                ],
+                list: [
+                    '**(ক)** EZ Wage and/or bKash may deduct a processing fee from this transaction.',
+                    '**(খ)** The money moves through bKash, which may charge its own fee.',
+                    '**(গ)** What I take is part of my own earned wage, and my employer will deduct it from my salary on payday.'
+                ]
+            },
+            {
+                type: 'image',
+                id: 'consent',
+                alt: 'The Bengali consent modal: a permission form with clauses ক, খ and গ, and two buttons, আমি সম্মত (I agree) and আমি সম্মত নই (I don’t agree).',
+                caption: 'Two equal, honest choices: আমি সম্মত (I agree) and আমি সম্মত নই (I don’t agree).'
+            },
+            {
+                type: 'callout',
+                text: 'Clarity about the cost is what makes the product trustworthy, not a barrier to it.',
+                caption: 'A worker who knows exactly what will be cut on payday is a worker who comes back.'
+            },
+            {
+                type: 'section',
+                stageLabel: '05 · Test',
+                title: 'Did they understand, not just did they tap?',
+                content: [
+                    'For localization, task completion isn’t enough: someone can tap the right button without understanding what it did. So the bar is comprehension. Can a worker explain, in their own words, what is about to happen to their money?'
+                ]
+            },
+            {
+                type: 'section',
+                title: 'How the Bengali flows get validated',
+                list: [
+                    '**Say it back.** On each money screen, ask the participant to read it and explain what will happen if they tap the main button.',
+                    '**The payday question.** After the consent step, ask: “When does this money come out of your salary, and how much will it be?”',
+                    '**Unaided task battery.** Sign up with a national ID, set a PIN, cash out ৳১০,০০০ to bKash, find last month’s statement, and contact support, all without help.',
+                    '**Switch mid-flow.** Toggle Eng ⇄ বাংলা partway through and check that nothing breaks, overflows or loses its place, since Bengali strings often run longer.'
+                ]
+            },
+            {
+                type: 'pending',
+                label: 'Awaiting findings',
+                text: 'Results from sessions with Bangladeshi workers: comprehension of the fee and payday deduction, unaided completion, and language preference. To be added; qualitative only, no invented numbers.'
+            },
+            {
+                type: 'section',
+                stageLabel: '06 · Iterate',
+                title: 'What I’d write next',
+                content: [
+                    'Laying the two files side by side also shows where the Bengali version can still go further.'
+                ]
+            },
+            {
+                type: 'cards',
+                cards: [
+                    { title: 'Teach in Bengali', body: 'The Learn tutorials and FAQ answers are still English placeholders, starting with “What is earned wage access”. Short Bengali videos with voice-over would help people who read the least.' },
+                    { title: 'One number system', body: 'The analytics chart still uses Latin digits and “k” (300k) while everything else uses Bengali numerals. Unify it, for example ৩ লাখ.' },
+                    { title: 'BDT or ৳?', body: 'Amounts use the code BDT. Test whether the taka sign ৳ is read faster by people who rarely see currency codes.' },
+                    { title: 'Failures that help', body: 'After a failed transaction the button says চালিয়ে যান (*continue*). Saying why it failed and offering আবার চেষ্টা করুন (*try again*) would tell people what to do next.' },
+                    { title: 'A shared glossary', body: 'Lock spellings and chosen terms (পাসওয়ার্ড, ক্যাশ আউট, স্টেটমেন্ট) in one glossary so new screens stay consistent as the app grows.' }
+                ]
+            },
+            {
+                type: 'section',
+                title: 'Learnings',
+                list: [
+                    '**Localization starts with the country, not the dictionary.** The hardest problems weren’t words. They were a Pakistani ID field, a +92 phone code and a bank nobody here uses.',
+                    '**Write the language people speak, not the one in textbooks.** Mixing Bengali and familiar English the way Bangladeshis do made the app feel native. Formal Bengali would have been a second foreign language.',
+                    '**Borrow trust from words people already know.** ক্যাশ আউট works because bKash taught millions of people what it means.',
+                    '**In fintech, the most important copy is about the cost.** The consent step adds a tap, and it’s the screen that earns the user’s trust.',
+                    '**Bilingual means both languages are first-class.** One toggle, the same layouts, and no screen where Bengali is an afterthought.'
+                ]
+            }
         ]
     },
     'insparofaith-games': {
