@@ -5,8 +5,16 @@ import motomanIcon from '../assets/work/project_icon/motoman.png'
 import cracktechIcon from '../assets/about/company/cracktech.png'
 // TODO: replace with Fordo's real app icon
 import fordoIcon from '../assets/work/project_icon/fordo.svg'
+// TODO: replace with kormokhali's real logo
+import kormokhaliIcon from '../assets/work/project_icon/kormokhali.svg'
 
 const projects = [
+    {
+        title: 'kormokhali',
+        description: 'Bangladesh’s editor-checked guide to government jobs, built in six weeks',
+        icon: kormokhaliIcon,
+        slug: 'kormokhali'
+    },
     {
         title: 'Live MCQ',
         description: 'Research, IA, and flows behind a redesign built to need no tutorial',
