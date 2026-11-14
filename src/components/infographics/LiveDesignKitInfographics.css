@@ -736,24 +736,44 @@
     white-space: nowrap;
 }
 
+/* The "after" family wears the final Live MCQ palette (FINAL in the JSX):
+   M3 roles primary, on-primary, secondary-container and outline. */
+.ldk-btn-family {
+    --ldk-m3-primary: #1441cc;
+    --ldk-m3-on-primary: #ffffff;
+    --ldk-m3-secondary-container: #d6e4ff;
+    --ldk-m3-on-secondary-container: #000000;
+    --ldk-m3-outline: #787878;
+}
+
+@media (prefers-color-scheme: dark) {
+    .ldk-btn-family {
+        --ldk-m3-primary: #bbd2ff;
+        --ldk-m3-on-primary: #002087;
+        --ldk-m3-secondary-container: #404d68;
+        --ldk-m3-on-secondary-container: #dfeaff;
+        --ldk-m3-outline: #8f8f8f;
+    }
+}
+
 .ldk-m3-btn--filled {
-    background-color: var(--brand-color);
-    color: var(--bg-color);
+    background-color: var(--ldk-m3-primary);
+    color: var(--ldk-m3-on-primary);
 }
 
 .ldk-m3-btn--tonal {
-    background-color: var(--ldk-tonal);
-    color: var(--brand-color);
+    background-color: var(--ldk-m3-secondary-container);
+    color: var(--ldk-m3-on-secondary-container);
 }
 
 .ldk-m3-btn--outlined {
-    border: 1px solid var(--text-secondary);
-    color: var(--brand-color);
+    border: 1px solid var(--ldk-m3-outline);
+    color: var(--ldk-m3-primary);
 }
 
 .ldk-m3-btn--text {
     padding: 0 0.75rem;
-    color: var(--brand-color);
+    color: var(--ldk-m3-primary);
 }
 
 .ldk-btn-name {
