@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import './ProjectSection.css'
 import liveMcqIcon from '../assets/work/project_icon/live_mcq.png'
-import fakirApparelsIcon from '../assets/about/company/fakir_apparels.png'
 
 const designSystems = [
     {
@@ -9,12 +8,6 @@ const designSystems = [
         description: 'Rebuilding a fragmented Flutter app into one accessible, scalable design language',
         icon: liveMcqIcon,
         slug: 'live-design-kit'
-    },
-    {
-        title: 'Fiber Visual Thread',
-        description: 'Turning Fakir Apparels’ scattered communication design into one visual language that reads as a single source',
-        icon: fakirApparelsIcon,
-        slug: 'fiber-visual-thread'
     }
 ]
 
