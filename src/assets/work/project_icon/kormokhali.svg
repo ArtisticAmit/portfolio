@@ -1,4 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
-    <rect width="1000" height="1000" rx="220" fill="#0B7A4B"/>
-    <text x="500" y="690" text-anchor="middle" font-family="'Noto Sans Bengali', 'Hind Siliguri', 'Kohinoor Bangla', 'Bangla Sangam MN', sans-serif" font-size="560" font-weight="700" fill="#ffffff">ক</text>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1.605413,0.53298,-0.53298,1.605413,-214.833727,-608.237765)">
+        <path d="M708.497,238.386C708.497,238.386 832.284,291.045 832.366,328.383C832.449,365.72 708.991,462.41 708.991,462.41L887.987,499.566C887.987,499.566 878.121,632.233 840.673,645.184C803.225,658.134 663.3,577.268 663.3,577.268L695.056,750.981C695.056,750.981 566.866,780.954 541.944,750.981C517.023,721.008 545.529,571.141 545.529,571.141L396.327,645.184C396.327,645.184 324.001,529.811 349.013,499.566C374.025,469.322 546.4,463.719 546.4,463.719L404.634,328.383C404.634,328.383 490.999,224.949 528.503,238.386C566.008,251.823 629.66,409.005 629.66,409.005L708.497,238.386Z" style="fill:rgb(255,0,95);"/>
+    </g>
 </svg>

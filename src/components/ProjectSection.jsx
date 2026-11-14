@@ -4,7 +4,6 @@ import liveMcqIcon from '../assets/work/project_icon/live_mcq.png'
 import cracktechIcon from '../assets/about/company/cracktech.png'
 // TODO: replace with Fordo's real app icon
 import fordoIcon from '../assets/work/project_icon/fordo.svg'
-// TODO: replace with kormokhali's real logo
 import kormokhaliIcon from '../assets/work/project_icon/kormokhali.svg'
 
 const projects = [
