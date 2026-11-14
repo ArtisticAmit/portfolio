@@ -1362,47 +1362,6 @@ const projectData = {
             }
         ]
     },
-    'motoman': {
-        title: 'Motoman',
-        eyebrow: 'Product Design · Case Study',
-        thesis: 'Optimizing Logistics and Navigation for On-Demand Motorcycle Delivery Services',
-        role: 'As Lead Product Designer',
-        sections: [
-            {
-                type: 'intro',
-                content: [
-                    'Motoman is an on-demand logistics platform designed to coordinate and optimize motorcycle courier deliveries across congested urban environments.',
-                    'As Lead Product Designer, I focused on designing the mobile dispatcher application and rider navigation tools to reduce delivery errors and average transit times.'
-                ]
-            },
-            {
-                type: 'section',
-                title: 'The Challenge: Congestion & Communication',
-                content: [
-                    'Riders operate in high-traffic urban areas, where checking their screens frequently is unsafe and inefficient. The primary areas of improvement were:'
-                ],
-                list: [
-                    'Interface readability: Bright sunlight made standard maps hard to read',
-                    'Distraction reduction: Audio-first alerts and large touch targets were needed',
-                    'Real-time coordination: Seamless status tracking between riders, dispatchers, and clients'
-                ]
-            },
-            {
-                type: 'image',
-                placeholder: 'Motoman App Interface - Navigation & Dispatcher Dashboard',
-                caption: 'Rider navigation interface optimized for high visibility'
-            },
-            {
-                type: 'section',
-                title: 'Key Design Features',
-                list: [
-                    'High-contrast Map Theme: Night/day responsive templates to prevent glare',
-                    'Single-Tap Quick Actions: Oversized touch targets for gloved operation',
-                    'Smart Audio Cues: Voice prompts to minimize screen contact during active transit'
-                ]
-            }
-        ]
-    },
     'ezwage': {
         title: 'EZ Wage',
         eyebrow: 'UI/UX Design · Case Study',
