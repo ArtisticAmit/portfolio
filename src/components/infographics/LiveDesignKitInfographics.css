@@ -805,58 +805,76 @@
     color: var(--text-primary);
 }
 
-.ldk-weights {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+/* Style × weight in one table: each row a Material Symbols style, each
+   column a weight, so the chosen pairing reads as one highlighted cell. */
+.ldk-symbol-table {
+    border-collapse: separate;
+    border-spacing: 0.5rem;
+    margin: -0.5rem;
+    width: calc(100% + 1rem);
+    table-layout: fixed;
 }
 
-.ldk-weight {
+.ldk-symbol-table th {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.ldk-symbol-table thead th:first-child,
+.ldk-symbol-table tbody th {
+    width: 32%;
+}
+
+.ldk-symbol-table tbody th {
+    text-align: left;
+    padding-right: 0.5rem;
+}
+
+.ldk-symbol-table .is-chosen-axis,
+.ldk-symbol-table .is-chosen-axis .ldk-style-verdict {
+    color: var(--text-primary);
+}
+
+.ldk-symbol-table td {
+    padding: 0;
+}
+
+.ldk-symbol-style {
+    display: block;
+    margin-bottom: 0.2rem;
+    font-size: 0.85rem;
+}
+
+.ldk-symbol-cell {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 0.4rem;
-    padding: 1rem 0.5rem;
+    justify-content: center;
+    min-height: 4.5rem;
     background-color: var(--bg-color);
     border: 1px solid transparent;
 }
 
-.ldk-weight .ldk-symbol {
-    font-size: 40px;
-}
-
-.ldk-weights--styles {
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.ldk-style-glyphs {
-    display: flex;
-    gap: 0.75rem;
-}
-
-.ldk-weights--styles .ldk-symbol {
+.ldk-symbol-cell .ldk-symbol {
     font-size: 40px;
 }
 
 .ldk-style-verdict {
+    display: block;
     font-size: 0.78rem;
+    font-weight: 400;
     line-height: 1.35;
-    text-align: center;
     color: var(--text-secondary);
 }
 
-.ldk-weight.is-chosen .ldk-style-verdict {
-    color: var(--text-primary);
-}
-
-.ldk-weight-num {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-}
-
-.ldk-weight.is-chosen .ldk-weight-num {
-    color: var(--brand-color);
+.ldk-visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
 }
 
 .ldk-icon-grid {
@@ -1204,17 +1222,24 @@
     }
 
     .ldk-screens,
-    .ldk-btn-family,
-    .ldk-weights {
+    .ldk-btn-family {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ldk-symbol-table .ldk-style-verdict {
+        display: none;
+    }
+
+    .ldk-symbol-cell {
+        min-height: 3.25rem;
+    }
+
+    .ldk-symbol-cell .ldk-symbol {
+        font-size: 28px;
     }
 
     .ldk-icon-grid {
         grid-template-columns: repeat(4, 1fr);
-    }
-
-    .ldk-weights--styles {
-        grid-template-columns: 1fr;
     }
 
     .ldk-grammars,

@@ -12,7 +12,7 @@ const TYPE_FONTS = 'https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@40
 const SYMBOL_FONT = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=bookmark,check_circle,emoji_events,leaderboard,menu_book,quiz,school,timer&display=block'
 // The two styles Rounded was compared against, pinned to weight 300 and
 // trimmed to the glyphs shown so the comparison costs a few KB.
-const SYMBOL_STYLE_FONT = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@300&family=Material+Symbols+Sharp:wght@300&icon_names=quiz,timer&display=block'
+const SYMBOL_STYLE_FONT = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@200..600&family=Material+Symbols+Sharp:wght@200..600&icon_names=quiz&display=block'
 
 const loadedSheets = new Set()
 const useStylesheet = (href) => {
@@ -674,6 +674,7 @@ const ICON_STYLES = [
     { name: 'Sharp', family: 'Material Symbols Sharp', verdict: 'Hard corners, more technical' }
 ]
 const ICON_WEIGHTS = [200, 300, 400, 600]
+const CHOSEN_WEIGHT = 300
 const ICON_SET = [
     ['quiz', 'Quiz'], ['timer', 'Timer'], ['school', 'Course'], ['menu_book', 'Notes'],
     ['leaderboard', 'Rank'], ['emoji_events', 'Award'], ['bookmark', 'Saved'], ['check_circle', 'Correct']
@@ -684,29 +685,34 @@ export const Icons = () => {
     useStylesheet(SYMBOL_STYLE_FONT)
     return (
         <div className="ldk">
-            <p className="ldk-label">Material Symbols — picking the style</p>
-            <div className="ldk-weights ldk-weights--styles">
-                {ICON_STYLES.map((style) => (
-                    <div key={style.name} className={`ldk-weight${style.chosen ? ' is-chosen' : ''}`}>
-                        <span className="ldk-style-glyphs" aria-hidden="true">
-                            {['quiz', 'timer'].map((glyph) => (
-                                <span key={glyph} className="ldk-symbol" style={{ fontFamily: `'${style.family}'` }}>{glyph}</span>
+            <p className="ldk-label">Material Symbols — picking the style and weight</p>
+            <table className="ldk-symbol-table">
+                <thead>
+                    <tr>
+                        <th scope="col"><span className="ldk-visually-hidden">Style</span></th>
+                        {ICON_WEIGHTS.map((weight) => (
+                            <th key={weight} scope="col" className={weight === CHOSEN_WEIGHT ? 'is-chosen-axis' : undefined}>{weight}</th>
+                        ))}
+                    </tr>
+                </thead>
+                <tbody>
+                    {ICON_STYLES.map((style) => (
+                        <tr key={style.name}>
+                            <th scope="row" className={style.chosen ? 'is-chosen-axis' : undefined}>
+                                <span className="ldk-symbol-style">{style.name}</span>
+                                <span className="ldk-style-verdict">{style.chosen && <span className="ldk-check" aria-hidden="true">✓ </span>}{style.verdict}</span>
+                            </th>
+                            {ICON_WEIGHTS.map((weight) => (
+                                <td key={weight}>
+                                    <span className={`ldk-symbol-cell${style.chosen && weight === CHOSEN_WEIGHT ? ' is-chosen' : ''}`}>
+                                        <span className="ldk-symbol" style={{ fontFamily: `'${style.family}'`, fontVariationSettings: `'wght' ${weight}` }} aria-hidden="true">quiz</span>
+                                    </span>
+                                </td>
                             ))}
-                        </span>
-                        <span className="ldk-weight-num">{style.name}</span>
-                        <span className="ldk-style-verdict">{style.chosen && <span className="ldk-check" aria-hidden="true">✓ </span>}{style.verdict}</span>
-                    </div>
-                ))}
-            </div>
-            <p className="ldk-label">Material Symbols Rounded — picking the weight</p>
-            <div className="ldk-weights">
-                {ICON_WEIGHTS.map((weight) => (
-                    <div key={weight} className={`ldk-weight${weight === 300 ? ' is-chosen' : ''}`}>
-                        <span className="ldk-symbol" style={{ fontVariationSettings: `'wght' ${weight}` }} aria-hidden="true">quiz</span>
-                        <span className="ldk-weight-num">{weight}</span>
-                    </div>
-                ))}
-            </div>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
             <p className="ldk-label">The set at weight 300</p>
             <ul className="ldk-icon-grid">
                 {ICON_SET.map(([glyph, name]) => (
