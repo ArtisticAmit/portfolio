@@ -142,35 +142,37 @@
     white-space: nowrap;
 }
 
-/* Four improvised buttons — each one plausible alone, a mess together. */
+/* Four improvised buttons — each one plausible alone, a mess together.
+   Colors are near-misses of the scattered "Before" brand ramps (blue
+   3333FF, orange FF6600, yellow FFCC00), as each feature eyeballed its own. */
 .ldk-btn--a {
     padding: 0.5rem 0.9rem;
-    background-color: var(--text-primary);
-    color: var(--bg-color);
+    background-color: #3d3df2;
+    color: #f7f7ff;
     border-radius: 0;
     font-family: Georgia, serif;
 }
 
 .ldk-btn--b {
     padding: 0.3rem 0.6rem;
-    border: 1px solid var(--text-primary);
-    color: var(--text-primary);
+    border: 1px solid #f06a14;
+    color: #f06a14;
     border-radius: 6px;
     font-family: 'Courier New', monospace;
 }
 
 .ldk-btn--c {
     padding: 0.65rem 1.4rem;
-    background-color: var(--brand-color);
-    color: var(--bg-color);
+    background-color: #ffd11a;
+    color: #4a3b00;
     border-radius: 999px;
     font-size: 0.85rem;
 }
 
 .ldk-btn--d {
     padding: 0.45rem 0.8rem;
-    background-color: #3a3a3a;
-    color: #5c5c5c;
+    background-color: #8585fa;
+    color: #a8a8fc;
     border-radius: 14px;
 }
 
