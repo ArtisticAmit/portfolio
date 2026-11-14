@@ -56,14 +56,14 @@ const MediaSlot = ({ src, alt, caption, className = '' }) => {
 // Per-project assetDir overrides this default (see project entries below).
 const DEFAULT_ASSET_DIR = '/case-studies/live-mcq'
 
-// Lets case-study copy use **bold** the same way it was authored, without a markdown dependency.
+// Lets case-study copy use **bold** and *italic* the same way it was authored, without a markdown dependency.
 const renderRichText = (text) => {
-    const parts = text.split(/(\*\*[^*]+\*\*)/g)
-    return parts.map((part, index) =>
-        part.startsWith('**') && part.endsWith('**')
-            ? <strong key={index}>{part.slice(2, -2)}</strong>
-            : <React.Fragment key={index}>{part}</React.Fragment>
-    )
+    const parts = text.split(/(\*\*[^*]+\*\*|\*[^*\s][^*]*\*)/g)
+    return parts.map((part, index) => {
+        if (part.startsWith('**') && part.endsWith('**')) return <strong key={index}>{part.slice(2, -2)}</strong>
+        if (part.length > 2 && part.startsWith('*') && part.endsWith('*')) return <em key={index}>{part.slice(1, -1)}</em>
+        return <React.Fragment key={index}>{part}</React.Fragment>
+    })
 }
 
 const projectData = {
@@ -1327,8 +1327,8 @@ const ProjectDetail = () => {
                                 <table className="case-study-compare">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Before</th>
-                                            <th scope="col">After</th>
+                                            <th scope="col">{section.columns?.[0] || 'Before'}</th>
+                                            <th scope="col">{section.columns?.[1] || 'After'}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
