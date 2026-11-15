@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import './ProjectSection.css'
-import ezwageIcon from '../assets/work/project_icon/ezwage.png'
+import ezwageIcon from '../assets/work/project_icon/ezwage.svg'
 
 const uxWritingProjects = [
     {
