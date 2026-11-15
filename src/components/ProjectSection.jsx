@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import './ProjectSection.css'
-import liveMcqIcon from '../assets/work/project_icon/live_mcq.png'
-import cracktechIcon from '../assets/about/company/cracktech.png'
+import liveMcqIcon from '../assets/work/project_icon/livemcq_icon.svg'
+import cracktechIcon from '../assets/about/company/cracktech.svg'
 // TODO: replace with Fordo's real app icon
 import fordoIcon from '../assets/work/project_icon/fordo.svg'
 
@@ -10,12 +10,17 @@ const projects = [
         title: 'Live MCQ',
         description: 'Research, IA, and flows behind a redesign built to need no tutorial',
         icon: liveMcqIcon,
+        // A wide logo mark, not a square app icon: fit it whole instead of cropping.
+        iconFit: 'contain',
         slug: 'live-mcq-redesign'
     },
     {
         title: 'Tasker',
         description: 'Task management service that keeps a team’s work in one place',
         icon: cracktechIcon,
+        // Tall one-color logo mark: fit it whole, and lift it to light ink in dark mode.
+        iconFit: 'contain',
+        iconInk: true,
         slug: 'tasker'
     },
     {
@@ -40,7 +45,7 @@ const ProjectSection = () => {
                         onClick={() => navigate(`/project/${project.slug}`)}
                     >
                         <div className="project-icon">
-                            <img src={project.icon} alt={project.title} />
+                            <img src={project.icon} alt={project.title} className={[project.iconFit === 'contain' && 'is-contain', project.iconInk && 'is-ink'].filter(Boolean).join(' ') || undefined} />
                         </div>
                         <div className="project-info">
                             <h4 className="project-item-title">{project.title}</h4>

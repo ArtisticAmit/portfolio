@@ -9,7 +9,7 @@ const Hero = () => {
             </h1>
             <div className="hero-content">
                 <p className="hero-title">
-                    Designing products across ed-tech, fintech, and mobile gaming.
+                    Designing products across <span className="hero-hand">ed-tech</span>, <span className="hero-hand">mobile game</span> and building <span className="hero-hand">human design</span> systems.
                 </p>
             </div>
         </section>

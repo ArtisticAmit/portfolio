@@ -62,6 +62,18 @@
     transition: opacity 0.3s ease;
 }
 
+.project-icon img.is-contain {
+    object-fit: contain;
+}
+
+/* One-color dark logo marks would vanish on the dark background, so
+   they're redrawn in the light text ink there. */
+@media (prefers-color-scheme: dark) {
+    .project-icon img.is-ink {
+        filter: brightness(0) invert(0.96);
+    }
+}
+
 .project-card:hover .project-icon img {
     opacity: 1;
 }

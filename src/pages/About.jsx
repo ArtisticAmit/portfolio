@@ -2,7 +2,7 @@ import React from 'react'
 import './About.css'
 
 // Company Logos
-import cracktechLogo from '../assets/about/company/cracktech.png'
+import cracktechLogo from '../assets/about/company/cracktech.svg'
 import ezwageLogo from '../assets/about/company/ezwage.png'
 import fakirLogo from '../assets/about/company/fakir_apparels.png'
 import insparofaithLogo from '../assets/about/company/insparofaith_games.png'
@@ -169,7 +169,7 @@ const About = () => {
             <section className="companies-section">
                 <h3 className="section-title">Companies I've worked with</h3>
                 <div className="companies-grid">
-                    <a className="company-logo" href="https://cracktech.com.bd/" target="_blank" rel="noopener noreferrer"><img src={cracktechLogo} alt="Cracktech" /></a>
+                    <a className="company-logo" href="https://cracktech.com.bd/" target="_blank" rel="noopener noreferrer"><img src={cracktechLogo} alt="Cracktech" className="is-ink" /></a>
                     <a className="company-logo" href="https://ezwage.com/bangladesh/" target="_blank" rel="noopener noreferrer"><img src={ezwageLogo} alt="EZ Wage" /></a>
                     <a className="company-logo" href="https://www.yoyosobangladesh.com/" target="_blank" rel="noopener noreferrer"><img src={yoyosoLogo} alt="Yoyoso" /></a>
                     <a className="company-logo" href="https://www.undp.org/bangladesh" target="_blank" rel="noopener noreferrer"><img src={undpLogo} alt="UNDP" /></a>

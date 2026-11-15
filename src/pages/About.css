@@ -239,6 +239,14 @@
     }
 }
 
+/* One-color dark logo marks would vanish on the dark background, so
+   they're redrawn in the light text ink there. */
+@media (prefers-color-scheme: dark) {
+    .company-logo img.is-ink {
+        filter: brightness(0) invert(0.96);
+    }
+}
+
 .company-logo:hover {
     background-color: var(--card-bg);
     border-color: var(--text-primary);

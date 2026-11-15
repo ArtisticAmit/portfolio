@@ -22,6 +22,23 @@
     margin-bottom: 1.5rem;
 }
 
+.hero-hand {
+    /* Penned-in words: a handwriting face, sized up because script
+       letterforms run small next to Space Grotesk, with a slight tilt
+       so they don't sit perfectly on the line. */
+    display: inline-block;
+    font-family: 'Schoolbell', cursive;
+    font-size: 1.15em;
+    /* Schoolbell ships one weight; anything bolder would be faux-bolded. */
+    font-weight: 400;
+    line-height: 1;
+    transform: rotate(-2deg);
+}
+
+.hero-hand:nth-of-type(2) {
+    transform: rotate(1.5deg);
+}
+
 .highlight {
     color: var(--text-primary);
     font-weight: 500;
