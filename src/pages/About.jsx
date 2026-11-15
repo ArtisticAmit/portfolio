@@ -10,7 +10,7 @@ import mitroLogo from '../assets/about/company/mitro.png'
 import undpLogo from '../assets/about/company/undp.png'
 import duLogo from '../assets/about/company/university_of_dhaka.svg'
 import ygenLogo from '../assets/about/company/ygen_engineering.svg'
-import yoyosoLogo from '../assets/about/company/yoyoso.png'
+import yoyosoLogo from '../assets/about/company/yoyoso.svg'
 
 const About = () => {
     return (
