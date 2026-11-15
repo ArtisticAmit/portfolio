@@ -4,7 +4,7 @@ import './About.css'
 // Company Logos
 import cracktechLogo from '../assets/about/company/cracktech.svg'
 import ezwageLogo from '../assets/work/project_icon/ezwage.svg'
-import fakirLogo from '../assets/about/company/fakir_apparels.png'
+import fakirLogo from '../assets/about/company/fakir_apparels.svg'
 import insparofaithLogo from '../assets/about/company/insparofaith_games.png'
 import mitroLogo from '../assets/about/company/mitro.png'
 import undpLogo from '../assets/about/company/undp.png'
