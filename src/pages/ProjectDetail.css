@@ -50,7 +50,14 @@
     position: relative;
     overflow: hidden;
     isolation: isolate;
-    padding: 2.5rem;
+
+    /* The banner reaches out past the text column by exactly its side
+       padding, so the text inside lines up with the body copy below. The
+       inset stays under the page gutter (2rem on narrow screens) so it
+       never causes a sideways scroll. */
+    --banner-inset: 2.5rem;
+    margin-inline: calc(-1 * var(--banner-inset));
+    padding: 2.5rem var(--banner-inset);
     background-color: var(--banner-color);
 
     /* Hand-drawn edge: a filled box whose sides bow and drift a few
@@ -98,9 +105,16 @@
     gap: 1rem 1.5rem;
 }
 
+@media (max-width: 860px) {
+    .project-detail-header.has-banner {
+        --banner-inset: 1.5rem;
+    }
+}
+
 @media (max-width: 600px) {
     .project-detail-header.has-banner {
-        padding: 1.75rem 1.25rem;
+        --banner-inset: 1.25rem;
+        padding-block: 1.75rem;
     }
 
     .project-detail-header.has-banner::after {
