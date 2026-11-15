@@ -7,6 +7,7 @@ const uxWritingProjects = [
         title: 'EZ Wage',
         description: 'Rewriting a payday app in Bengali for workers who read little English',
         icon: ezwageIcon,
+        iconFit: 'contain',
         slug: 'ezwage'
     }
 ]
@@ -25,7 +26,7 @@ const UXWritingSection = () => {
                         onClick={() => navigate(`/project/${item.slug}`)}
                     >
                         <div className="project-icon">
-                            <img src={item.icon} alt={item.title} />
+                            <img src={item.icon} alt={item.title} className={item.iconFit === 'contain' ? 'is-contain' : undefined} />
                         </div>
                         <div className="project-info">
                             <h4 className="project-item-title">{item.title}</h4>
