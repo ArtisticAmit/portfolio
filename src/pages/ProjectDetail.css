@@ -82,8 +82,8 @@
 .project-thesis {
     font-size: 1.1rem;
     line-height: 1.6;
-    font-style: italic;
-    color: var(--text-primary);
+    color: var(--text-secondary);
+    max-width: 60ch;
     margin-bottom: 1rem;
 }
 
