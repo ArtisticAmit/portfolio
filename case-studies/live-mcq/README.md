@@ -7,7 +7,6 @@ that need real artwork are image slots. Drop PNGs here using the exact
 filenames below and they replace the "Visual coming soon" banner automatically,
 with no code change:
 
-- `cover.png` — hero/cover shot of the design system or a key screen
 - `prototype-color-palette.png` — the production palette / tonal ramps, light + dark
 - `test-demo-app.png` — demo Flutter app screenshots, light + dark
 
