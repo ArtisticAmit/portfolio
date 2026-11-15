@@ -71,6 +71,9 @@
 }
 
 body {
+  /* 100vw full-bleed layers (the footer divider) include the scrollbar
+     width; clip that sliver instead of letting the page scroll sideways. */
+  overflow-x: clip;
   font-family: var(--font-sans);
   background-color: var(--bg-color);
   color: var(--text-primary);

@@ -59,7 +59,10 @@ const About = () => {
                         <p className="about-stat-label">Projects</p>
                     </div>
                     <div className="about-stat">
-                        <p className="about-stat-value">∞</p>
+                        <p className="about-stat-value">
+                            {/* Schoolbell has no ∞ glyph; its 8 on its side reads as a hand-drawn one. */}
+                            <span className="about-stat-infinity" role="img" aria-label="Infinite">8</span>
+                        </p>
                         <p className="about-stat-label">Learnings</p>
                     </div>
                 </div>

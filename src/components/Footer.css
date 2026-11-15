@@ -1,8 +1,19 @@
 .footer {
+    position: relative;
     padding: 4rem 0 2rem;
+    margin-top: 4rem;
+}
+
+/* The footer content stays in the page column, but its pen divider runs
+   edge to edge like the header's, so it's drawn on a full-width layer. */
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: calc(50% - 50vw);
+    width: 100vw;
     border-top: 1px solid var(--border-color);
     border-image: var(--pen-rule) 12 12 0 / 12px 12px 0 / 6px 0 round;
-    margin-top: 4rem;
 }
 
 .footer-title {

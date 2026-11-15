@@ -95,7 +95,7 @@
     }
 
     .about-stat-value {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
 
     .button-row {
@@ -129,11 +129,19 @@
 }
 
 .about-stat-value {
-    font-size: 2rem;
-    font-weight: 800;
+    /* Handwritten, like the penned-in words in the home hero. Schoolbell
+       has a single weight, so no bold (that would be faux-bolded). */
+    font-family: 'Schoolbell', cursive;
+    font-size: 2.4rem;
+    font-weight: 400;
     line-height: 1.1;
     color: var(--text-primary);
     margin: 0 0 0.25rem;
+}
+
+.about-stat-infinity {
+    display: inline-block;
+    transform: rotate(90deg);
 }
 
 .about-stat-label {
