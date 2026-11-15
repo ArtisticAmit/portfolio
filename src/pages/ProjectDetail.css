@@ -80,14 +80,15 @@
     position: absolute;
     z-index: -1;
     /* Sits inside the banner's padding, so the whole icon shows and its
-       right edge lines up with the text's right edge. It grows to the
-       content height, but never wider than half the banner. */
+       right edge lines up with the text's right edge and its top with the
+       eyebrow. It grows to the content height, but never wider than half
+       the banner. */
     inset: var(--banner-pad-block) var(--banner-inset) var(--banner-pad-block) auto;
     width: 50%;
     background-color: #FFFFFF;
     opacity: 0.1;
-    -webkit-mask: var(--banner-watermark) right center / contain no-repeat;
-    mask: var(--banner-watermark) right center / contain no-repeat;
+    -webkit-mask: var(--banner-watermark) right top / contain no-repeat;
+    mask: var(--banner-watermark) right top / contain no-repeat;
     pointer-events: none;
 }
 
