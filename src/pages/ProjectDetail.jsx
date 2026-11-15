@@ -363,14 +363,14 @@ const projectData = {
     },
     'live-design-kit': {
         title: 'Live Design Kit',
-        eyebrow: 'Design System · A story in five chapters',
-        thesis: 'Live MCQ had grown into an app that felt like several apps. This is how it learned to speak one language again — told through the five stages of design thinking.',
-        // TODO: confirm exact role title
-        role: 'Design System Owner · UI/UX & Product Designer',
+        eyebrow: 'Design System · 5 chapters',
+        thesis: 'Live MCQ had grown into an app that felt like several apps. This is how it learned to speak one language again.',
         meta: [
-            { label: 'Platform', value: 'Flutter (Mobile & Web)' },
-            { label: 'Foundation', value: 'Material Design (customized)' },
-            { label: 'Tools', value: 'Figma · Material Theme Builder' }
+            // TODO: confirm exact role title
+            { label: 'Role', value: 'Design System Owner' },
+            { label: 'Platform', value: 'Flutter · Mobile & Web' },
+            { label: 'Foundation', value: 'Material Design' },
+            { label: 'Tools', value: 'Figma · Theme Builder' }
             // TODO: add a Timeline entry here if you want one, e.g. { label: 'Timeline', value: '...' }
         ],
         // Renders a "coming soon" banner until public/case-studies/live-mcq/cover.png exists.
