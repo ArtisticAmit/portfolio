@@ -42,6 +42,66 @@
     margin-bottom: 3rem;
 }
 
+/* Banner header: a solid brand-colour block with the project's icon as a
+   watermark. The icon is used as a mask so any icon reads as a pale
+   silhouette, whatever its own colours. Text and lines inside switch to
+   white so they read on the colour in both themes. */
+.project-detail-header.has-banner {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    padding: 2.5rem;
+    background-color: var(--banner-color);
+
+    --text-primary: #FFFFFF;
+    --text-secondary: rgba(255, 255, 255, 0.78);
+    --border-color: rgba(255, 255, 255, 0.28);
+    --card-bg: rgba(255, 255, 255, 0.12);
+}
+
+.project-detail-header.has-banner::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    right: -3.5rem;
+    width: 22rem;
+    height: 22rem;
+    transform: translateY(-50%);
+    background-color: #FFFFFF;
+    opacity: 0.1;
+    -webkit-mask: var(--banner-watermark) center / contain no-repeat;
+    mask: var(--banner-watermark) center / contain no-repeat;
+    pointer-events: none;
+}
+
+/* The hand-drawn pen lines bake a dark or light stroke into their SVGs,
+   so inside the banner they're swapped for plain white rules. */
+.project-detail-header.has-banner .back-link,
+.project-detail-header.has-banner .project-meta {
+    border-image: none;
+}
+
+/* The padding narrows the row, so lay the facts out as an even 2x2
+   grid rather than letting one wrap onto a line of its own. */
+.project-detail-header.has-banner .project-meta {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem 1.5rem;
+}
+
+@media (max-width: 600px) {
+    .project-detail-header.has-banner {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .project-detail-header.has-banner::after {
+        width: 14rem;
+        height: 14rem;
+        right: -3rem;
+    }
+}
+
 .project-title-row {
     display: flex;
     align-items: center;

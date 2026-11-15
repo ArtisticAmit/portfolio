@@ -5,6 +5,7 @@ import {
     Fragments, Languages, Decision, Pipeline, ColorTuning, PaletteEvolution, FontEval,
     TypeSystem, Buttons, Icons, Spacing, TestLoop
 } from '../components/infographics/LiveDesignKitInfographics'
+import liveDesignKitIcon from '../assets/work/project_icon/live_design_kit.svg'
 
 // Coded infographics a case study can reference by name: { type: 'infographic', name }.
 const infographics = {
@@ -373,8 +374,8 @@ const projectData = {
             { label: 'Tools', value: 'Figma · Theme Builder' }
             // TODO: add a Timeline entry here if you want one, e.g. { label: 'Timeline', value: '...' }
         ],
-        // Renders a "coming soon" banner until public/case-studies/live-mcq/cover.png exists.
-        cover: { id: 'cover', alt: 'Cover shot of the Live Design Kit — the hero image for this story.' },
+        // Solid header in the kit's primary blue, with its icon as a watermark.
+        headerBanner: { color: '#1441CC', watermark: liveDesignKitIcon },
         story: true,
         sections: [
             {
@@ -1346,7 +1347,13 @@ const ProjectDetail = () => {
 
     return (
         <div className="project-detail-page fade-in">
-            <header className="project-detail-header">
+            <header
+                className={`project-detail-header${project.headerBanner ? ' has-banner' : ''}`}
+                style={project.headerBanner ? {
+                    '--banner-color': project.headerBanner.color,
+                    '--banner-watermark': `url(${JSON.stringify(project.headerBanner.watermark)})`
+                } : undefined}
+            >
                 {project.eyebrow && <p className="project-eyebrow">{project.eyebrow}</p>}
                 <div className="project-title-row">
                     <Link to="/" className="back-link" aria-label="Back to Work">
