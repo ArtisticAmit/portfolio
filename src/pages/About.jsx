@@ -9,7 +9,7 @@ import insparofaithLogo from '../assets/about/company/insparofaith_games.png'
 import mitroLogo from '../assets/about/company/mitro.png'
 import undpLogo from '../assets/about/company/undp.png'
 import duLogo from '../assets/about/company/university_of_dhaka.svg'
-import ygenLogo from '../assets/about/company/ygen_engineering.png'
+import ygenLogo from '../assets/about/company/ygen_engineering.svg'
 import yoyosoLogo from '../assets/about/company/yoyoso.png'
 
 const About = () => {
