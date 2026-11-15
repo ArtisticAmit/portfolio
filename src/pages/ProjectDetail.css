@@ -56,8 +56,9 @@
        inset stays under the page gutter (2rem on narrow screens) so it
        never causes a sideways scroll. */
     --banner-inset: 2.5rem;
+    --banner-pad-block: 2.5rem;
     margin-inline: calc(-1 * var(--banner-inset));
-    padding: 2.5rem var(--banner-inset);
+    padding: var(--banner-pad-block) var(--banner-inset);
     background-color: var(--banner-color);
 
     /* Hand-drawn edge: a filled box whose sides bow and drift a few
@@ -78,15 +79,15 @@
     content: '';
     position: absolute;
     z-index: -1;
-    top: 50%;
-    right: -3.5rem;
-    width: 22rem;
-    height: 22rem;
-    transform: translateY(-50%);
+    /* Sits inside the banner's padding, so the whole icon shows and its
+       right edge lines up with the text's right edge. It grows to the
+       content height, but never wider than half the banner. */
+    inset: var(--banner-pad-block) var(--banner-inset) var(--banner-pad-block) auto;
+    width: 50%;
     background-color: #FFFFFF;
     opacity: 0.1;
-    -webkit-mask: var(--banner-watermark) center / contain no-repeat;
-    mask: var(--banner-watermark) center / contain no-repeat;
+    -webkit-mask: var(--banner-watermark) right center / contain no-repeat;
+    mask: var(--banner-watermark) right center / contain no-repeat;
     pointer-events: none;
 }
 
@@ -114,13 +115,7 @@
 @media (max-width: 600px) {
     .project-detail-header.has-banner {
         --banner-inset: 1.25rem;
-        padding-block: 1.75rem;
-    }
-
-    .project-detail-header.has-banner::after {
-        width: 14rem;
-        height: 14rem;
-        right: -3rem;
+        --banner-pad-block: 1.75rem;
     }
 }
 
