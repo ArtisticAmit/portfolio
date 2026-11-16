@@ -6,6 +6,10 @@ import {
     TypeSystem, Buttons, Icons, Spacing, TestLoop
 } from '../components/infographics/LiveDesignKitInfographics'
 import liveDesignKitIcon from '../assets/work/project_icon/live_design_kit.svg'
+import liveMcqIcon from '../assets/work/project_icon/livemcq_icon.svg'
+import cracktechIcon from '../assets/about/company/cracktech.svg'
+import fordoIcon from '../assets/work/project_icon/fordo.svg'
+import ezwageIcon from '../assets/work/project_icon/ezwage.svg'
 
 // Coded infographics a case study can reference by name: { type: 'infographic', name }.
 const infographics = {
@@ -618,6 +622,8 @@ const projectData = {
     },
     'tasker': {
         title: 'Tasker',
+        // Header in the Cracktech mark's navy, with the mark as a watermark.
+        headerBanner: { color: '#1F1A43', watermark: cracktechIcon },
         eyebrow: 'Product Design · Case Study',
         thesis: 'A task management service that helps a team plan, assign and track its work in one place.',
         // TODO: confirm exact role title
@@ -629,6 +635,8 @@ const projectData = {
     },
     'fordo': {
         title: 'Fordo',
+        // Header in the Fordo icon's blue, with the icon as a watermark.
+        headerBanner: { color: '#0067FF', watermark: fordoIcon },
         eyebrow: 'Product Design · Case Study',
         thesis: 'A doctor’s appointment booking service that helps patients find a doctor and book a visit.',
         // TODO: confirm exact role title
@@ -640,6 +648,8 @@ const projectData = {
     },
     'live-mcq-redesign': {
         title: 'Live MCQ',
+        // Header in the Live MCQ logo's blue, with the logo as a watermark.
+        headerBanner: { color: '#3333FF', watermark: liveMcqIcon },
         eyebrow: 'Product Design · Case Study',
         thesis: 'Users had struggled with the app so long that some of them filmed their own YouTube tutorials to help newcomers find their way in. That video was the clearest research finding we ever got: the product couldn’t be used without a guide, and the guide lived everywhere except inside the app.',
         heroStats: [
@@ -978,6 +988,9 @@ const projectData = {
     },
     'ezwage': {
         title: 'EZ Wage',
+        // Header in the EZ Wage logo's blue (the logo's cyan and magenta are
+        // too light for white text), with the logo as a watermark.
+        headerBanner: { color: '#3D7ABE', watermark: ezwageIcon },
         eyebrow: 'UX Writing · Localization · Case Study',
         deck: 'Rewriting a payday app in the language its users actually speak',
         thesis: 'EZ Wage lets workers draw wages they’ve already earned before payday. The app came to Bangladesh speaking English, quoting rupees and asking for Pakistani ID numbers. Most of the people it was built for read little or no English. This is the story of rewriting every word so a worker could take out their own money without asking anyone what the buttons meant.',
