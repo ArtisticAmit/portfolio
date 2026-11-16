@@ -53,8 +53,8 @@
 
     /* The banner reaches out past the text column by exactly its side
        padding, so the text inside lines up with the body copy below. The
-       inset stays under the page gutter (2rem on narrow screens) so it
-       never causes a sideways scroll. */
+       inset never exceeds the page gutter, so it can't cause a sideways
+       scroll; on compact screens it equals it (see below). */
     --banner-inset: 2.5rem;
     --banner-pad-block: 2.5rem;
     margin-inline: calc(-1 * var(--banner-inset));
@@ -113,10 +113,16 @@
     }
 }
 
+/* Compact screens: the banner runs edge to edge. Its inset matches the
+   page gutter exactly, so it meets both screen edges while its text still
+   lines up with the body copy. The pen-drawn edge is dropped here, since
+   the sides now sit on the screen edge. */
 @media (max-width: 600px) {
     .project-detail-header.has-banner {
-        --banner-inset: 1.25rem;
+        --banner-inset: var(--container-padding);
         --banner-pad-block: 1.75rem;
+        -webkit-mask: none;
+        mask: none;
     }
 }
 
