@@ -1360,6 +1360,14 @@ const ProjectDetail = () => {
 
     return (
         <div className="project-detail-page fade-in">
+            {/* Top-left of the page, above the banner: case studies have no app
+                bar, so this is the way back. */}
+            <Link to="/" className="back-link" aria-label="Back to Work">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12" />
+                    <polyline points="12 19 5 12 12 5" />
+                </svg>
+            </Link>
             <header
                 className={`project-detail-header${project.headerBanner ? ' has-banner' : ''}`}
                 style={project.headerBanner ? {
@@ -1369,12 +1377,6 @@ const ProjectDetail = () => {
             >
                 {project.eyebrow && <p className="project-eyebrow">{project.eyebrow}</p>}
                 <div className="project-title-row">
-                    <Link to="/" className="back-link" aria-label="Back to Work">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <line x1="19" y1="12" x2="5" y2="12" />
-                            <polyline points="12 19 5 12 12 5" />
-                        </svg>
-                    </Link>
                     <h1 className="project-title">{project.title}</h1>
                 </div>
                 {project.deck && <p className="project-deck">{project.deck}</p>}
